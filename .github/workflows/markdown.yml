@@ -1,0 +1,14 @@
+name: Markdown lint
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - run: gem install mdl
+      - run: mdl README.md
+      - run: mdl docs/*
