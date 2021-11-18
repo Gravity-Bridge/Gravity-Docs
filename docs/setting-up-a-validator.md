@@ -1,6 +1,6 @@
-# How to become a validator on the Althea testnet!
+# How to become a validator on the Althea testnet
 
-## What do I need?
+## What do I need
 
 A Linux server with any modern Linux distribution, 4cores, 8gb of ram and at least 20gb of SSD storage.
 
@@ -176,9 +176,7 @@ gbt -a althea keys register-orchestrator-address --validator-phrase "the phrase 
 
 #### Registering your delegate keys using a Ledger
 
-**If you ran the above command skip this step**
-
-This is an **optional** step for those who are using hardware security for their validator key. In order to register your keys you will use the `althea` cli instead of `gbt`. You will need to generate one ethereum key and one cosmos key yourself.
+**If you ran the above command skip this step** this is an **optional** step for those who are using hardware security for their validator key. In order to register your keys you will use the `althea` cli instead of `gbt`. You will need to generate one ethereum key and one cosmos key yourself.
 
 ```
 
@@ -225,7 +223,7 @@ list of Geth full nodes from our community that will serve light clients.
 
 If you have more than 40gb of free storage, an SSD and extra memory/CPU power, please run a full node and share the node url. If you do not, please use the light client instructions
 
-_Please only run one or the other of the below instructions, both will not work_
+#### Please only run one or the other of the below instructions, both will not work
 
 #### Light client instructions
 
@@ -281,13 +279,13 @@ Since you'll be running this a lot I suggest putting the command into a script, 
 
 \*\*If you have set a minimum fee value in your `~/.althea/config/app.toml` modify the `--fees` parameter to match that value!
 
-```
+```bash
 
 nano start-orchestrator.sh
 
 ```
 
-```
+```bash
 
 #!/bin/bash
 gbt -a althea orchestrator \
@@ -296,12 +294,7 @@ gbt -a althea orchestrator \
 
 ```
 
-```
-
+```bash
 bash start-orchestrator.sh
-
-```
-
-```
 
 ```

@@ -1,1 +1,1 @@
-![Gravity Bridge](./assets/GravityBridgeLogo-Stacked-FullColor.svg)
+# ![Gravity Bridge](./assets/GravityBridgeLogo-Stacked-FullColor.svg)

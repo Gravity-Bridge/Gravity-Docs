@@ -10,5 +10,6 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true
       - run: gem install mdl
-      - run: mdl README.md
-      - run: mdl docs/*
+      # lint ignoring the line length lint
+      - run: mdl -r ~MD013 README.md
+      - run: mdl -r ~MD013 docs/*

@@ -38,15 +38,17 @@ While BTRFS is very easy to get started with and provides our two key advantages
 
 Ususally they say to add something like this to limits.conf
 
-```
+```text
 *    soft nofile 64000
 *    hard nofile 64000
 ```
 
 But if you're running as SU I think, then you also have to add
 
-root soft nofile 64000  
+```text
+root soft nofile 64000
 root hard nofile 64000
+```
 
 I'd stick that in there somewhere. Maybe this is common knowledge.
 
@@ -56,7 +58,7 @@ Now that we have completed the system preparation lets start setting up the bloc
 
 ### Download the Gravity bridge binary
 
-```
+```bash
 wget https://updates.althea.net/cgb-releases/gravity
 chmod +x gravity
 mv gravity /usr/bin/gravity
@@ -67,12 +69,14 @@ gravity keys add <your orchestrator key name>
 
 ### Create a GenTX
 
+```bash
 wget https://updates.althea.net/cgb-releases/cgb-testnet1-genesis.json
 wget https://updates.althea.net/cgb-releases/gen_eth_key
 chmod +x gen_eth_key
 ./gen_eth_key
 mv cgb-testnet1-genesis.json ~/.gravity/config/genesis.json
 gravity gentx --moniker <your moniker> <your validator key name> 50000000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=cgbtestnet1
+```
 
 ### Submit your gentx
 

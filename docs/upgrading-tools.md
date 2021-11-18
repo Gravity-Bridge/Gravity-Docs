@@ -4,7 +4,7 @@ The gravity bridge tools package contains a number of programs for interacting w
 
 In order to download ARM binaries change the name in the wget link from ‘gbt' to gbt-arm'
 
-```
+```bash
 
 mkdir althea-bin
 cd althea-bin
