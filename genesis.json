@@ -30,7 +30,29 @@
         "sig_verify_cost_ed25519": "590",
         "sig_verify_cost_secp256k1": "1000"
       },
-      "accounts": []
+      "accounts": [
+        {
+          "@type": "/cosmos.vesting.v1beta1.ContinuousVestingAccount",
+          "base_vesting_account": {
+            "base_account": {
+              "address": "gravity1k434pvz59jq53aenr9xgvtkrw2lzk76n59lqps",
+              "pub_key": null,
+              "account_number": "0",
+              "sequence": "0"
+            },
+            "original_vesting": [
+              {
+                "denom": "graviton",
+                "amount": "1000"
+              }
+            ],
+            "delegated_free": [],
+            "delegated_vesting": [],
+            "end_time": "1764306000"
+          },
+          "start_time": "1669611600"
+        }
+      ]
     },
     "bank": {
       "params": {
