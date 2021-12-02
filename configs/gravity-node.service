@@ -1,0 +1,16 @@
+[Unit]
+Description=Gravity blockchain node
+Requires=network.target
+
+[Service]
+Type=simple
+TimeoutStartSec=10s
+Restart=always
+RestartSec=10
+ExecStart=/usr/bin/gravity start
+LimitNOFILE=500000
+LimitNPROC=500000
+Environment="HOME=/root"
+
+[Install]
+WantedBy=default.target

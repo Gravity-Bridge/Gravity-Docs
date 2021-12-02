@@ -1,0 +1,13 @@
+[Unit]
+Description=Gravity bridge orchestrator
+Requires=network.target
+
+[Service]
+Type=simple
+TimeoutStartSec=10s
+Restart=always
+RestartSec=10
+ExecStart=/usr/bin/gbt orchestrator start
+
+[Install]
+WantedBy=default.target
