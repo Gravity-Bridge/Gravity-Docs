@@ -14,25 +14,25 @@ I also suggest an open notepad or other document to keep track of the keys you w
 
 ```
 
-mkdir althea-bin
-cd althea-bin
+mkdir gravity-bin
+cd gravity-bin
 
-# the althea chain binary itself
+# the gravity chain binary itself
 
-wget https://github.com/althea-net/althea-chain/releases/download/v0.2.3/althea-0.2.2-18-g73447b6-linux-amd64
-mv althea-0.2.2-18-g73447b6-linux-amd64 althea
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.0/gravity-v0.1.5-linux-amd64
+mv gravity-v0.1.5-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/althea-net/althea-chain/releases/download/v0.2.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
 ```
 
-At specific points during the testnet you may be told to 'update your orchestrator' or 'update your althea binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
+At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 0.5.6`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.0`
 
 ### Generate your key
 
