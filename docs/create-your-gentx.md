@@ -18,6 +18,20 @@ mv gravity-v0.1.5-linux-amd64 /usr/bin/gravity
 gravity init <your moniker here>
 ```
 
+### Add your validator key
+
+First we need to import the validator key. This is the key for the address you submitted on the forum.
+
+```bash
+gravity keys add <my validator key name> --recover <your seed phrase>
+```
+
+Or if your key is stored in a ledger device.
+
+```bash
+gravity keys add <my validator key name> --ledger
+```
+
 ### Generate your Delegate keys
 
 There are three keys involved in this process. The key holding your validator funds, this is the address you submitted for Genesis. Then there are
@@ -34,7 +48,7 @@ gravity keys add <your orchestrator key name>
 ```bash
 wget https://raw.githubusercontent.com/gravity-bridge/gravity-docs/main/genesis.json
 mv genesis.json ~/.gravity/config/genesis.json
-gravity gentx --moniker <your moniker> <your validator key name> 182000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=gravity-bridge-test1
+gravity gentx --moniker <your moniker> <my validator key name> 182000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=gravity-bridge-test1
 ```
 
 ### Submit your gentx

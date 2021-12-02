@@ -1,0 +1,67 @@
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+        "description": {
+          "moniker": "Figment",
+          "identity": "E5F274B870BDA01D",
+          "website": "https://figment.io",
+          "security_contact": "",
+          "details": ""
+        },
+        "commission": {
+          "rate": "0.100000000000000000",
+          "max_rate": "0.200000000000000000",
+          "max_change_rate": "0.010000000000000000"
+        },
+        "min_self_delegation": "1",
+        "delegator_address": "gravity1h66zfktpd46c7gurvqwg765uu4m058gpafcy8k",
+        "validator_address": "gravityvaloper1h66zfktpd46c7gurvqwg765uu4m058gpvzp6dz",
+        "pubkey": {
+          "@type": "/cosmos.crypto.ed25519.PubKey",
+          "key": "i3OGo7AI+ZU3i48AVk09itEtzQh7njmTCBsUKOedgUs="
+        },
+        "value": {
+          "denom": "ugraviton",
+          "amount": "182000000000"
+        }
+      },
+      {
+        "@type": "/gravity.v1.MsgSetOrchestratorAddress",
+        "validator": "gravityvaloper1h66zfktpd46c7gurvqwg765uu4m058gpvzp6dz",
+        "orchestrator": "gravity12a5mav54nll6ul67phv5rpcw4jwrsjfhkwv6rz",
+        "eth_address": "0xADA464B8077C07a3FC26467bD549774E3E030e1f"
+      }
+    ],
+    "memo": "dba37b0efd033fcfb3a98ea6ffd0b9284eccb5e8@10.10.10.10:26656",
+    "timeout_height": "0",
+    "extension_options": [],
+    "non_critical_extension_options": []
+  },
+  "auth_info": {
+    "signer_infos": [
+      {
+        "public_key": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "AjdcclRD/gYHEoHCUK4wuBtOdKw95EB/LZd3K86SOLR1"
+        },
+        "mode_info": {
+          "single": {
+            "mode": "SIGN_MODE_LEGACY_AMINO_JSON"
+          }
+        },
+        "sequence": "0"
+      }
+    ],
+    "fee": {
+      "amount": [],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    }
+  },
+  "signatures": [
+    "pF+ULCymkmizNDBBuI35xI8EEZsvj2E9dwGygl+iYkJil9XqhPR8jRlQ3zSdfP/hJ+JOPfVTKJeAI9/MbPsKnw=="
+  ]
+}
