@@ -37,7 +37,7 @@ to check what version of the tools you have run `gbt --version` the current late
 This genesis.json contains all gentx's that everyone has submitted, together they will create the first block of a new chain.
 
 ```bash
-wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
+wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json genesis.json
 cp genesis.json $HOME/.gravity/config/genesis.json
 ```
 
@@ -87,8 +87,8 @@ Now that we have modified these services it's time to set them to run on startup
 sudo systemctl daemon-reload
 sudo systemctl enable gravity-node
 sudo systemctl enable orchestrator
-sudo service gravity-node start 
-sudo service orchestrator start 
+sudo service gravity-node start
+sudo service orchestrator start
 ```
 
 Once you have completed this setup your node will be started and waiting for the chain to move in the background.

@@ -4,7 +4,7 @@ Please see the [validator system setup](validator-system-setup.md) for recommend
 
 We suggest an open notepad or other document to keep track of the keys you will be generating.
 
-This document is *not* for genesis validators. They should use [settings up your genesis validator](/docs/setting-up-your-genesis-validator.md) 
+This document is *not* for genesis validators. They should use [settings up your genesis validator](/docs/setting-up-your-genesis-validator.md)
 
 You will need a key containing some Graviton token. If you wish to participate in the network but not stake Graviton see the guide for [setting up a Gravity Bridge Chain full node](setting-up-a-fullnode.md)
 
@@ -31,7 +31,6 @@ sudo mv * /usr/bin/
 At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
 to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.0`
-
 
 ## Download the genesis file
 
@@ -77,7 +76,6 @@ unbond and create a new validator because it's not possible to rotate them. So s
 gravity eth_keys add
 gravity keys add <your orchestrator key name>
 ```
-
 
 ## Setup Gravity Bridge Tools
 
@@ -125,8 +123,8 @@ Now that we have modified these services it's time to set them to run on startup
 sudo systemctl daemon-reload
 sudo systemctl enable gravity-node
 sudo systemctl enable orchestrator
-sudo service gravity-node start 
-sudo service orchestrator start 
+sudo service gravity-node start
+sudo service orchestrator start
 ```
 
 Once you have completed this setup your node will be started and waiting for the chain to move in the background.
@@ -184,7 +182,6 @@ INFO [06-10|14:11:03.104] Started P2P networking self=enode://71b8bb569dad23b168
 ```
 
 Finally you'll need to wait for several hours until your node is synced. Do not worry your orchestrator will submit signatures to to the Gravity bridge chain during this time.
-
 
 ## Wait for it
 
