@@ -44,12 +44,14 @@ cp genesis.json $HOME/.gravity/config/genesis.json
 
 ```
 
-### Add seed node
+## Add seed node
 
 Change the seed field in ~/.gravity/config/config.toml to contain the following:
 
-```bash
-TODO add seeds
+```text
+
+seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656"
+
 ```
 
 ### Add your validator key
@@ -222,7 +224,7 @@ Delegate keys allow the for the validator private keys to be kept in secure stor
 
 \*\*If you have set a minimum fee value in your `~/.gravity/config/app.toml` modify the `--fees` parameter to match that value!
 
-```
+```bash
 
 gbt init
 
@@ -234,7 +236,7 @@ gbt keys register-orchestrator-address --validator-phrase "the phrase you saved 
 
 **If you ran the above command skip this step** this is an **optional** step for those who are using hardware security for their validator key. In order to register your keys you will use the `gravity` cli instead of `gbt`. You will need to generate one ethereum key and one cosmos key yourself.
 
-```
+```bash
 
 gravity tx gravity set-orchestrator-address [validator key name] [orchestrator key name] [ethereum-address]
 

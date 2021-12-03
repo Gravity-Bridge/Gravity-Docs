@@ -49,6 +49,16 @@ gbt keys set-ethereum-key --key <your Ethereum private key generated during gent
 gbt keys set-orchestrator-key --phrase "the orchestrator key phrase you generated with your gentx"
 ```
 
+## Add seed node
+
+Change the seed field in ~/.gravity/config/config.toml to contain the following:
+
+```text
+
+seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656"
+
+```
+
 ## Setup Gravity Bridge and Orchestrator services
 
 We recommend using systemd to manage your validator and orchestrator processes.

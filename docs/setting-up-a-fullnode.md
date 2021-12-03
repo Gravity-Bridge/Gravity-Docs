@@ -37,7 +37,7 @@ Change the seed field in ~/.gravity/config/config.toml to contain the following:
 
 ```text
 
-seeds = "6a9cd8d87ab9e49d7af91e09026cb3f40dec2f85@gravity-chain.althea.net:26656"
+seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656"
 
 ```
 
