@@ -198,7 +198,13 @@ gravity tx staking create-validator \
  --pubkey=$(gravity tendermint show-validator) \
  --moniker="put your validator name here" \
  --chain-id=gravity-bridge-test1 \
- --from=myvalidatorkeyname
+ --from=myvalidatorkeyname \
+ --commission-rate="0.10" \
+ --commission-max-rate="0.20" \
+ --commission-max-change-rate="0.01" \
+ --gas=auto \
+ --min-self-delegation="1" \
+ --gas-adjustment=1.4
 
 ```
 
