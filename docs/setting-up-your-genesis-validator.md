@@ -105,7 +105,7 @@ Once you have completed this setup your node will be started and waiting for the
 These lines will allow you to watch the logs coming out of your Gravity full node and Orchestrator as if you where directly attached to the process rather than using systemd. Run each in a separate terminal
 
 ```bash
-journalctl -u gravity-chain.service -f --output cat
+journalctl -u gravity-node.service -f --output cat
 journalctl -u orchestrator.service -f --output cat
 ```
 
