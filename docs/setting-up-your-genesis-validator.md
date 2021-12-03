@@ -1,54 +1,154 @@
 # Gravity Genesis Bridge Validator Setup
 
-## System setup
+This guide requires that you have already submitted and had merged a gentx from [these instructions](create-your-gentx.md)
 
-While Gravity Bridge full nodes can be run on any platform it is recommended you run your validator on Linux. The most up to date version of any particular distribution is recommended.
+If you have not done so you will not be able to start validating as a genesis validator and you will have to join using the post-launch [setting up a validator](setting-up-a-validator.md) instructions
 
-### Recomended specs
+If you are validating on a different machine than the one that signed your gentx, make sure to copy over your `.gravity` folder!
 
-recommended specs are 8gb ram and a quad core CPU. Storage specs will change over time as the chain grows, start with at least 125gb of SSD space. Remember if you are not using a Copy on write filesystem you will need enough storage to keep a backup of the entire blockchain during upgrades.
+Do *not* set a min-fee for your validator until after the chain has started. On chain start you will have no liquid `ugraviton` that can be used to pay fees. Since your orchestrator will need to submit Ethereum signatures to prevent you from getting slashed you must allow zero fee transactions until liquid `ugraviton` is available to fund your orchestrator.
 
-### Optional: Copy on Write + Compressing filesystem
+## Download Gravity tools
 
-This entire section is optional, we do not recommend this if you are new to Linux, using a cloud server, or unfamiliar with disk formatting.
+```bash
 
-Linux supports two major copy on write (COW) filesystems with transparent compression. ZFS and BTRFS. If you have the experience to do so we recommend formatting the disk that will be storing your blockchain data with one of these two.
+mkdir gravity-bin
+cd gravity-bin
 
-Modern compression algorithms like [ZSTD](https://github.com/facebook/zstd) will reduce the disk space required for blockchain storage by 25% or more. Furthermore since your disk has to read and write 25% less data disk io actually improves. The tradeoff is minimal additional CPU usage and is by far worth it for a disk IO bound application like a Cosmos full node.
+# the gravity chain binary itself
 
-Furthermore both of these are Copy on Write (COW) systems. When you 'copy' a folder instead of actually duplicating all that data on disk a virtual copy is made and two folders are shown. When you edit any files in the first folder a copy is then made only of the file you edited or 'wrote' to. This means you can instantly make a backup of a 200gb blockchain data folder with only seconds of downtime and without needing enough disk space to store two entire copies of the blockchain.
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.0/gravity-v0.1.5-linux-amd64
+mv gravity-v0.1.5-linux-amd64 gravity
 
-#### BTRFS
+# Tools for the gravity bridge from the gravity repo
 
-For BTRFS simply format at data partiton and select 'BTRFS' as the filesystem. You may need to install the `btrfs-progs` package for your distribution. Edit the mount options to include `-o compress=zstd` and reboot.
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.0/gbt
+chmod +x *
+sudo mv * /usr/bin/
 
-#### ZFS
-
-While BTRFS is very easy to get started with and provides our two key advantages (compression and copy on write) it very quickly requires expert advice as you get into more advanced multi-disk configurations. If you want to have reundant disks we _strongly recommend_ ZFS over BTRFS. [ZFS guide](https://openzfs.github.io/openzfs-docs/Getting%20Started/index.html)
-
-### Increase open file limits
-
-/// flesh out this section including the actual commands to edit limits.conf and
-/// an example systemd file from the community. Note to the reader that they can do this step
-/// OR use the systemd file with it's own raised limits
-
-Ususally they say to add something like this to limits.conf
-
-```text
-*    soft nofile 64000
-*    hard nofile 64000
 ```
 
-But if you're running as SU I think, then you also have to add
+At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-```text
-root soft nofile 64000
-root hard nofile 64000
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.0`
+
+## Download updated Genesis.json
+
+This genesis.json contains all gentx's that everyone has submitted, together they will create the first block of a new chain.
+
+```bash
+wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
+cp genesis.json $HOME/.gravity/config/genesis.json
 ```
 
-I'd stick that in there somewhere. Maybe this is common knowledge.
+## Setup Gravity Bridge Tools
 
-## Validator setup
+```bash
+gbt init
+gbt keys set-ethereum-key <your Ethereum key generated during gentx creation>
+gbt keys set-orchestrator-key --phrase "the key phrase you generated with your gentx"
+```
 
-Now that we have completed the system preparation lets start setting up the blockchain
+## Setup Gravity Bridge and Orchestrator services
 
+We recommend using systemd to manage your validator and orchestrator processes.
+
+systemd makes it very easy to increase the open files limit for validators and ensure auto restart on failure.
+You can run `gravity start` without systemd, but if you do so be absolutely sure you have increased the system
+open files limit.
+
+```bash
+cd /etc/systemd/system
+wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/gravity-node.service
+wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/orchestrator.service
+```
+
+Now we have to stop and customize these services as appropriate
+
+If you are running your validator as the `root` user, the `gravity-node.service` file requires no modification
+if you are running as a different user modify line 13 like so
+
+```text
+Environment="HOME=/path/to/your/home/dir"
+```
+
+For the orchestrator most people will not need to modify anything. But if you wish to specify an Eth node on a different machine or any other set of arguments modify line 10 as follows. As noted earlier in the instructions you should not set a minimum fee now, but once you do you'll have to return and set a minimum fee for your orchestrator here.
+
+```text
+ExecStart=/usr/bin/gbt orchestrator \
+--ethereum-rpc <ETHEREUM_RPC> \
+--fees <fees> \
+start
+```
+
+Now that we have modified these services it's time to set them to run on startup
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable gravity-node
+sudo systemctl enable orchestrator
+sudo service gravity-node start 
+sudo service orchestrator start 
+```
+
+Once you have completed this setup your node will be started and waiting for the chain to move in the background.
+
+## Monitoring your logs
+
+These lines will allow you to watch the logs coming out of your Gravity full node and Orchestrator as if you where directly attached to the process rather than using systemd. Run each in a separate terminal
+
+```bash
+journalctl -u gravity-chain.service -f --output cat
+journalctl -u orchestrator.service -f --output cat
+```
+
+## Setting up an Ethereum node
+
+You probably noticed that your orchestrator is currently very unhappy. In this step we will setup an Ethereum light client
+
+We will be using Geth Ethereum light clients for this task. For production Gravity we suggest that you point your Orchestrator at a Geth light client and then configure your light client to peer with full nodes that you control. This provides higher reliability as light clients are very quick to start/stop and resync. Allowing you to for example rebuild an Ethereum full node without having days of Orchestrator downtime.
+
+Geth full nodes do not serve light clients by default, light clients do not trust full nodes, but if there are no full nodes to request proofs from they can not operate. Therefore we are collecting the largest possible
+list of Geth full nodes from our community that will serve light clients.
+
+If you have more than 40gb of free storage, an SSD and extra memory/CPU power, please run a full node and share the node url. If you do not, please use the light client instructions
+
+### Please only run one or the other of the below instructions, both will not work
+
+### Light client instructions
+
+```bash
+
+wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
+tar -xvf geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
+cd geth-linux-amd64-1.10.13-7a0c19f8
+wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml
+./geth --syncmode "light" --goerli --http --config geth-light-config.toml
+
+```
+
+### Fullnode instructions
+
+```bash
+
+wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
+tar -xvf geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
+cd geth-linux-amd64-1.10.13-7a0c19f8
+wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml
+./geth --goerli --http --config geth-full-config.toml
+
+```
+
+You'll see a url in this format, please note your ip and share both this node url and your ip in chat to add to the light client nodes list
+
+```bash
+INFO [06-10|14:11:03.104] Started P2P networking self=enode://71b8bb569dad23b16822a249582501aef5ed51adf384f424a060aec4151b7b5c4d8a1503c7f3113ef69e24e1944640fc2b422764cf25dbf9db91f34e94bf4571@127.0.0.1:30303
+```
+
+Finally you'll need to wait for several hours until your node is synced. Do not worry your orchestrator will submit signatures to to the Gravity bridge chain during this time.
+
+## Wait for it
+
+Now that you have your Gravity node, Orchestrator, and Ethereum node setup it's time to settle in and wait for the chain to start. Once it does the Gravity bridge contract will be deployed and the validators will have to adopt it by changing orchestrator configs and then by governance vote.
+
+Your delegate Ethereum key will need Gorli Eth
