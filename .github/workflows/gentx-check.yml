@@ -18,3 +18,10 @@ jobs:
         run: gravity validate-genesis
       - name: Collect Gentxs
         run: gravity collect-gentxs
+      - name: Validate all gentx signatures
+        run: |
+          for file in $HOME/.gravity/config/gentx/; do 
+            if [ -f "$file" ]; then 
+              gravity  tx  validate-signatures $file --offline --chain-id gravity-bridge-test1 --account-number 0  --sequence 0
+            fi 
+          done
