@@ -45,8 +45,8 @@ cp genesis.json $HOME/.gravity/config/genesis.json
 
 ```bash
 gbt init
-gbt keys set-ethereum-key <your Ethereum key generated during gentx creation>
-gbt keys set-orchestrator-key --phrase "the key phrase you generated with your gentx"
+gbt keys set-ethereum-key --key <your Ethereum git statprivate key generated during gentx creation>
+gbt keys set-orchestrator-key --phrase "the orchestrator key phrase you generated with your gentx"
 ```
 
 ## Setup Gravity Bridge and Orchestrator services
@@ -78,7 +78,6 @@ For the orchestrator most people will not need to modify anything. But if you wi
 ExecStart=/usr/bin/gbt orchestrator \
 --ethereum-rpc <ETHEREUM_RPC> \
 --fees <fees> \
-start
 ```
 
 Now that we have modified these services it's time to set them to run on startup
