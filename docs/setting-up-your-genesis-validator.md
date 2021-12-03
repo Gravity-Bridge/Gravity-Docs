@@ -30,7 +30,7 @@ sudo mv * /usr/bin/
 
 At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.0`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 0.5.6`
 
 ## Download updated Genesis.json
 
@@ -45,7 +45,7 @@ cp genesis.json $HOME/.gravity/config/genesis.json
 
 ```bash
 gbt init
-gbt keys set-ethereum-key --key <your Ethereum git statprivate key generated during gentx creation>
+gbt keys set-ethereum-key --key <your Ethereum private key generated during gentx creation>
 gbt keys set-orchestrator-key --phrase "the orchestrator key phrase you generated with your gentx"
 ```
 
