@@ -46,3 +46,12 @@ seeds = "6a9cd8d87ab9e49d7af91e09026cb3f40dec2f85@gravity-chain.althea.net:26656
 ```bash
 gravity start
 ```
+
+# Firewall Settings
+
+This is optional but greatly helps with the health of the network. 
+
+## Open the inbound P2P port
+```
+sudo ufw allow from any to any port 26656 proto tcp
+```
