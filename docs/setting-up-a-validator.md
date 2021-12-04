@@ -38,7 +38,7 @@ The genesis file represents the current state of the blockchain and allows your 
 with the rest.
 
 ```bash
-gravity init mymoniker --chain-id gravity-bridge-test2
+gravity init mymoniker --chain-id gravity-bridge-test3
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
 cp genesis.json $HOME/.gravity/config/genesis.json
 
@@ -197,7 +197,7 @@ gravity tx staking create-validator \
  --amount=<the amount of graviton you wish to stake>ugraviton \
  --pubkey=$(gravity tendermint show-validator) \
  --moniker="put your validator name here" \
- --chain-id=gravity-bridge-test2 \
+ --chain-id=gravity-bridge-test3 \
  --from=myvalidatorkeyname \
  --commission-rate="0.10" \
  --commission-max-rate="0.20" \

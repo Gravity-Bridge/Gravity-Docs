@@ -44883,7 +44883,7 @@
     "upgrade": {},
     "vesting": {}
   },
-  "chain_id": "gravity-bridge-test2",
+  "chain_id": "gravity-bridge-test3",
   "consensus_params": {
     "block": {
       "max_bytes": "22020096",

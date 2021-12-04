@@ -21,7 +21,7 @@ sudo mv gravity /usr/bin/
 
 ```bash
 cd $HOME
-gravity init mymoniker --chain-id gravity-bridge-test2
+gravity init mymoniker --chain-id gravity-bridge-test3
 ```
 
 ### Copy the genesis file
