@@ -298,3 +298,12 @@ gbt -a althea orchestrator \
 bash start-orchestrator.sh
 
 ```
+
+# Firewall Settings
+
+This is optional but greatly helps with the health of the network. 
+
+## Open the inbound P2P port
+```
+sudo ufw allow from any to any port 26656 proto tcp
+```
