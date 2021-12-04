@@ -10,8 +10,8 @@ A Linux server with any modern Linux distribution, 2gb of ram and at least 20gb 
 ### Download Gravity chain software
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.0/gravity-v0.1.5-linux-amd64
-mv gravity-v0.1.5-linux-amd64 gravity
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.3/gravity--linux-amd64
+mv gravity--linux-amd64 gravity
 
 chmod +x gravity
 sudo mv gravity /usr/bin/
@@ -21,7 +21,7 @@ sudo mv gravity /usr/bin/
 
 ```bash
 cd $HOME
-gravity init mymoniker --chain-id gravity-bridge-test1
+gravity init mymoniker --chain-id gravity-bridge-test2
 ```
 
 ### Copy the genesis file

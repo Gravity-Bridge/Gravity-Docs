@@ -48,7 +48,7 @@ gravity keys add <your orchestrator key name>
 ```bash
 wget https://raw.githubusercontent.com/gravity-bridge/gravity-docs/main/genesis.json
 mv genesis.json ~/.gravity/config/genesis.json
-gravity gentx --moniker <your moniker> <my validator key name> 182000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=gravity-bridge-test1
+gravity gentx --moniker <your moniker> <my validator key name> 182000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=gravity-bridge-test2
 ```
 
 ### Submit your gentx
