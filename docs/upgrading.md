@@ -11,7 +11,7 @@ Second is to set the bridge Ethereum address, which helps the orchestrator run w
 
 ```bash
 # first stop your node to gain access to the database
-service gravity-chain stop
+service gravity-node stop
 
 # now we will generate the new genesis.json
 gravity export --height 9999 &> tmp.json
@@ -62,7 +62,7 @@ tar -czvf gravity-chain-test1.tar.gz ~/.gravity
 ```bash
 mv gravity-chain-test2-genesis.json ~/.gravity/config/genesis.json
 gravity unsafe-reset-all
-service gravity-chain start
+service gravity-node start
 ```
 
 Now we wait for the blockchain to successfully resume.
