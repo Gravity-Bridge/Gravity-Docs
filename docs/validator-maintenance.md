@@ -34,5 +34,5 @@ This command will unjail you, completing the process of getting the chain back o
 replace 'myvalidatorkeyname' with your validator keys name, if you don't remember run `gravity keys list`
 
 ```bash
-gravity tx slashing unjail --from myvalidatorkeyname --chain-id=gravity-bridge-test1
+gravity tx slashing unjail --from myvalidatorkeyname --chain-id=gravity-bridge-test2
 ```
