@@ -52,3 +52,12 @@ I'd stick that in there somewhere. Maybe this is common knowledge.
 
 Now that we have completed the system preparation lets start setting up the blockchain
 
+# Firewall Settings
+
+This is optional but greatly helps with the health of the network. 
+
+## Open the inbound P2P port
+```
+sudo ufw allow from any to any port 26656 proto tcp
+```
+
