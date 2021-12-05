@@ -1,8 +1,8 @@
-# Gravity bridge test2 upgrade
+# Gravity bridge test3 upgrade
 
 This mornings chain halt causing bug has been [resolved](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/8601913ba778f40488313a1b6f99735e0769a9f5) in order to deploy this fix Gravity Bridge will be updated to `gravity-bridge-test3`.
 
-## Upgrading the Genesis
+## (Optional) Verifying The Upgraded Genesis
 
 For this upgrade we are taking the opportunity to change two parameters, one is setting
 the signed blocks window to ten thousand blocks. Which should reduce accidental slashing.
@@ -56,7 +56,7 @@ tar -czvf gravity-chain-test1.tar.gz ~/.gravity
 
 ## Restart the chain using the new genesis.json
 
-confirm that this genesis.json has the same md5sum as the one you generated from your own state earlier
+Optional confirm that this genesis.json has the same md5sum as the one you generated from your own state earlier
 
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
