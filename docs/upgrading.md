@@ -52,19 +52,6 @@ Hopefully you won't need this, but if you do you'll be glad to have it
 tar -czvf gravity-chain-test3.tar.gz ~/.gravity
 ```
 
-## Modify config to prevent double signing
-
-The command `gravity unsafe-reset-all` if run more than once opens up the opportunity for double signing.
-There is a setting that has your node check for potential double signing before re-joining the validator set on restart.
-
-edit `~/.gravity/config/config.toml`
-
-```text
-double_sign_check_height = 1000
-```
-
-This will protect you from accidentally double signing without having to be too afraid of running unsafe-reset-all.
-
 ## Restart the chain using the new genesis.json
 
 Optional confirm that this genesis.json has the same md5sum as the one you generated from your own state earlier
