@@ -17,12 +17,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.3/gravity--linux-amd64
-mv gravity--linux-amd64 gravity
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gravity-linux-amd64
+mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -35,8 +35,7 @@ to check what version of the tools you have run `gbt --version` the current late
 This genesis.json contains all gentx's that everyone has submitted, together they will create the first block of a new chain.
 
 ```bash
-wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json genesis.json
-cp genesis.json $HOME/.gravity/config/genesis.json
+wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json -O $HOME/.gravity/config/genesis.json
 ```
 
 ## Setup Gravity Bridge Tools

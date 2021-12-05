@@ -1,6 +1,6 @@
-# Gravity bridge test3 upgrade
+# Gravity bridge test4 upgrade
 
-This mornings chain halt causing bug has been [resolved](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/8601913ba778f40488313a1b6f99735e0769a9f5) in order to deploy this fix Gravity Bridge will be updated to `gravity-bridge-test3`.
+This mornings chain halt causing bug has been [resolved](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/294ddc5b65840562422d44b0fd90db7254f69ee4) in order to deploy this fix Gravity Bridge will be updated to `gravity-bridge-test4`.
 
 ## (Optional) Verifying The Upgraded Genesis
 
@@ -14,18 +14,16 @@ Second is to set the bridge Ethereum address, which helps the orchestrator run w
 service gravity-node stop
 
 # now we will generate the new genesis.json
-gravity export --height 9999 &> tmp.json
+gravity export --height 14969 &> tmp.json
 jq '' tmp.json > tmp-fmt.json
-jq '.chain_id = "gravity-bridge-test3"' tmp-fmt.json > e0.json
-jq '.app_state.slashing.params.signed_blocks_window = "10000"' e0.json > e1.json
-jq '.app_state.gravity.params.bridge_ethereum_address = "0xa17f0B21c70FaB270c68031A179e7bE61BE7E81e"' e1.json > gravity-chain-test3-genesis.json
-md5sum gravity-chain-test3-genesis.json
+jq '.chain_id = "gravity-bridge-test4"' tmp-fmt.json > gravity-chain-test4-genesis.json
+md5sum gravity-chain-test4-genesis.json
 ```
 
 You should see
 
 ```text
-bdced91c6c61aaecdb0080dc9d811f07  gravity-chain-test3-genesis.json
+b17cf3db31edda601b5fcb431f3b7052  gravity-chain-test4-genesis.json
 ```
 
 ## Upgrading node software
@@ -36,12 +34,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.3/gravity--linux-amd64
-mv gravity--linux-amd64 gravity
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gravity-linux-amd64
+mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
@@ -51,8 +49,21 @@ sudo mv * /usr/bin/
 Hopefully you won't need this, but if you do you'll be glad to have it
 
 ```bash
-tar -czvf gravity-chain-test1.tar.gz ~/.gravity
+tar -czvf gravity-chain-test3.tar.gz ~/.gravity
 ```
+
+## Modify config to prevent double signing
+
+The command `gravity unsafe-reset-all` if run more than once opens up the opportunity for double signing.
+There is a setting that has your node check for potential double signing before re-joining the validator set on restart.
+
+edit `~/.gravity/config/config.toml`
+
+```text
+double_sign_check_height = 1000
+```
+
+This will protect you from accidentally double signing without having to be too afraid of running unsafe-reset-all.
 
 ## Restart the chain using the new genesis.json
 
@@ -61,10 +72,8 @@ Optional confirm that this genesis.json has the same md5sum as the one you gener
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
 md5sum ~/.gravity/config/genesis.json
-diff ~/.gravity/config/genesis.json gravity-chain-test3-genesis.json
+diff ~/.gravity/config/genesis.json gravity-chain-test4-genesis.json
 ```
-
-Do not run *unsafe-reset-all* more than once per chain upgrade. If you do you risk double signing.
 
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
