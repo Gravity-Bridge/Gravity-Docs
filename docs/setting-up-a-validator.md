@@ -83,7 +83,7 @@ gravity keys add <your orchestrator key name>
 
 ```bash
 gbt init
-gbt keys set-ethereum-key <your Ethereum key generated during gentx creation>
+gbt keys set-ethereum-key --key <your Ethereum key generated during gentx creation>
 gbt keys set-orchestrator-key --phrase "the key phrase you generated with your gentx"
 ```
 
