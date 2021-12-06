@@ -115,8 +115,7 @@ For the orchestrator most people will not need to modify anything. But if you wi
 ```text
 ExecStart=/usr/bin/gbt orchestrator \
 --ethereum-rpc <ETHEREUM_RPC> \
---fees <fees> \
-start
+--fees <fees>
 ```
 
 Now that we have modified these services it's time to set them to run on startup
