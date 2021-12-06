@@ -132,8 +132,7 @@ For the orchestrator most people will not need to modify anything. But if you wi
 ```text
 ExecStart=/usr/bin/gbt orchestrator \
 --ethereum-rpc <ETHEREUM_RPC> \
---fees <fees> \
-start
+--fees <fees>
 ```
 
 For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
