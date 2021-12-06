@@ -266,7 +266,7 @@ gbt keys register-orchestrator-address --validator-phrase "the phrase you saved 
 
 ```bash
 
-gravity tx gravity set-orchestrator-address [validator key name] [orchestrator key name] [ethereum-address]
+gravity tx gravity set-orchestrator-address [validator-address] [orchestrator-address] [ethereum-address]
 
 ```
 
