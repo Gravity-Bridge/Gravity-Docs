@@ -99,6 +99,7 @@ open files limit.
 cd /etc/systemd/system
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/gravity-node.service
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/orchestrator.service
+wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth.service
 ```
 
 Now we have to stop and customize these services as appropriate
@@ -119,14 +120,18 @@ ExecStart=/usr/bin/gbt orchestrator \
 start
 ```
 
+For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
+
 Now that we have modified these services it's time to set them to run on startup
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable gravity-node
 sudo systemctl enable orchestrator
+sudo systemctl enable geth
 sudo service gravity-node start
 sudo service orchestrator start
+sudo service geth start
 ```
 
 Once you have completed this setup your node will be started and waiting for the chain to move in the background.
@@ -184,6 +189,7 @@ INFO [06-10|14:11:03.104] Started P2P networking self=enode://71b8bb569dad23b168
 ```
 
 Finally you'll need to wait for several hours until your node is synced. Do not worry your orchestrator will submit signatures to to the Gravity bridge chain during this time.
+
 
 ## Wait for it
 
@@ -251,4 +257,4 @@ gravity tx gravity set-orchestrator-address [validator key name] [orchestrator k
 
 ### Fund your delegate keys
 
-Your delegate Ethereum key will need Gorli Eth
+Your delegate Ethereum key will need some Gorli ETH, your delegate cosmos key (orchestrator key) will need some tokens as well.

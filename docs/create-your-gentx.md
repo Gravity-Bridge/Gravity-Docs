@@ -4,7 +4,7 @@
 
 While Gravity Bridge full nodes can be run on any platform it is recommended you run your validator on Linux. The most up to date version of any particular distribution is recommended.
 
-You can see [validator system setup]() for more setup instructions. But the only part that's important for creating your gentx is that if you have an existing `.gravity` folder in your home directory.
+You can see [validator system setup](validator-system-setup.md) for more setup instructions. But the only part that's important for creating your gentx is that if you have an existing `.gravity` folder in your home directory.
 Delete it
 
 ### Download the Gravity bridge binary
