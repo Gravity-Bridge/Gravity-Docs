@@ -4,7 +4,7 @@
 
 While Gravity Bridge full nodes can be run on any platform it is recommended you run your validator on Linux. The most up to date version of any particular distribution is recommended.
 
-You can see [validator system setup]() for more setup instructions. But the only part that's important for creating your gentx is that if you have an existing `.gravity` folder in your home directory.
+You can see [validator system setup](validator-system-setup.md) for more setup instructions. But the only part that's important for creating your gentx is that if you have an existing `.gravity` folder in your home directory.
 Delete it
 
 ### Download the Gravity bridge binary
@@ -12,9 +12,9 @@ Delete it
 If you already have a .gravity folder from a previous run of `gravity init` delete it before this step.
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.0/gravity-v0.1.5-linux-amd64
-chmod +x gravity-v0.1.5-linux-amd64
-mv gravity-v0.1.5-linux-amd64 /usr/bin/gravity
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gravity-linux-amd64
+chmod +x gravity-linux-amd64
+mv gravity-linux-amd64 /usr/bin/gravity
 gravity init <your moniker here>
 ```
 
@@ -48,7 +48,7 @@ gravity keys add <your orchestrator key name>
 ```bash
 wget https://raw.githubusercontent.com/gravity-bridge/gravity-docs/main/genesis.json
 mv genesis.json ~/.gravity/config/genesis.json
-gravity gentx --moniker <your moniker> <my validator key name> 182000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=gravity-bridge-test1
+gravity gentx --moniker <your moniker> <my validator key name> 182000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=gravity-bridge-test4
 ```
 
 ### Submit your gentx
