@@ -190,7 +190,6 @@ INFO [06-10|14:11:03.104] Started P2P networking self=enode://71b8bb569dad23b168
 
 Finally you'll need to wait for several hours until your node is synced. Do not worry your orchestrator will submit signatures to to the Gravity bridge chain during this time.
 
-
 ## Wait for it
 
 you will need to wait for your Gravity Bridge node and Ethereum Node to fully sync before progressing in the instructions
