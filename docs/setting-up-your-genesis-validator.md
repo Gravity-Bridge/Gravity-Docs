@@ -6,7 +6,7 @@ If you have not done so you will not be able to start validating as a genesis va
 
 If you are validating on a different machine than the one that signed your gentx, make sure to copy over your `.gravity` folder!
 
-Do *not* set a min-fee for your validator until after the chain has started. On chain start you will have no liquid `ugraviton` that can be used to pay fees. Since your orchestrator will need to submit Ethereum signatures to prevent you from getting slashed you must allow zero fee transactions until liquid `ugraviton` is available to fund your orchestrator.
+Do *not* set a min-fee for your validator until after the chain has started. On chain start you will have no liquid `ugraviton` that can be used to pay fees. This guide will walk you through withdrawing some dust, but you don't want to pay yourself high fees until more `ugraviton` is liquid
 
 ## Download Gravity tools
 
@@ -36,14 +36,6 @@ This genesis.json contains all gentx's that everyone has submitted, together the
 
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json -O $HOME/.gravity/config/genesis.json
-```
-
-## Setup Gravity Bridge Tools
-
-```bash
-gbt init
-gbt keys set-ethereum-key --key <your Ethereum private key generated during gentx creation>
-gbt keys set-orchestrator-key --phrase "the orchestrator key phrase you generated with your gentx"
 ```
 
 ## Add seed node
@@ -89,7 +81,6 @@ ExecStart=/usr/bin/gbt orchestrator \
 ```
 
 For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
-
 
 Now that we have modified these services it's time to set them to run on startup
 
@@ -162,17 +153,17 @@ Finally you'll need to wait for several hours until your node is synced. Do not 
 
 ## Wait for it
 
-Now that you have your Gravity node, Orchestrator, and Ethereum node setup it's time to settle in and wait for the chain to start. Once it does the Gravity bridge contract will be deployed and the validators will have to adopt it by changing orchestrator configs and then by governance vote.
+Now that you have your Gravity node, Orchestrator, and Ethereum node setup it's time to settle in and wait for the chain to start. Once it does the Gravity bridge contract will be deployed and the validators will have to adopt it by changing Orchestrator configs and then by governance vote.
 
-Your delegate Ethereum key will need Gorli Eth. You can spend this time locating some and sending it over. Just a small dust amount will do. If you intend to relay using your orchestrator you will need at least $1k in Ethereum.
+Your delegate Ethereum key will need Ethereum dust (the Ethereum address you generated during gentx creation). You can spend this time locating some and sending it over.
 
-Do not deposit more than you can afford to lose into the Gravity Relayer it will attempt to ensure the profitability of batches it executes, but the profitability checking is not sufficiently tested to trust with large amounts of money.
+You only need Ethereum dust, we do not recommend placing large amounts of Ethereum in a Gravity Bridge relayer for now. There is a sizable chance it will waste a failed transaction worth of gas for every validator set or batch.
 
 ## Once the chain starts
 
-Once the chains starts your Orchestrator delegate key will need some Cosmos tokens in order to function. The easiest way to get them is to withdraw some of your staking rewards and send them over.
+Once the chains starts your Orchestrator delegate key will need some `ugraviton` tokens in order to function. The easiest way to get them is to withdraw some of your staking rewards and send them over.
 
 ```bash
-gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-test5
-gravity tx bank send <validator-key-name> <orchestrator address> 1ugraviton --chain-id gravity-bridge-test5
+gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-1
+gravity tx bank send <validator-key-name> <orchestrator address> 1ugraviton --chain-id gravity-bridge-1
 ```

@@ -12,9 +12,20 @@ Delete it
 If you already have a .gravity folder from a previous run of `gravity init` delete it before this step.
 
 ```bash
+mkdir gravity-bin
+cd gravity-bin
+
+# the gravity chain binary itself
+
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.6/gravity-linux-amd64
-chmod +x gravity-linux-amd64
-mv gravity-linux-amd64 /usr/bin/gravity
+mv gravity-linux-amd64 gravity
+
+# Tools for the gravity bridge from the gravity repo
+
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.6/gbt
+chmod +x *
+sudo mv * /usr/bin/
+
 gravity init <your moniker here>
 ```
 
@@ -43,12 +54,23 @@ gravity eth_keys add
 gravity keys add <your orchestrator key name>
 ```
 
+Once we have registered our keys we will also set them in our orchestrator right away, this reduces the risk of confusion as the chain starts and you need these keys to submit Gravity bridge signatures via your orchestrator.
+
+You can stop your testnet node at this point. If you wish to keep the testnet running you should save this step until
+mainnet start as it will cause your orchestrator to act strangely if you're using the same machine.
+
+```bash
+gbt init
+gbt keys set-ethereum-key --key <the ethereum private key you just generated>
+gbt keys set-orchestrator-key --phrase "the cosmos private key you just generated"
+```
+
 ### Create a GenTX
 
 ```bash
 wget https://raw.githubusercontent.com/gravity-bridge/gravity-docs/main/genesis.json
 mv genesis.json ~/.gravity/config/genesis.json
-gravity gentx --moniker <your moniker> <my validator key name> 182000000000ugraviton <orchestrator eth address> <orchestrator address> --chain-id=gravity-bridge-test5
+gravity gentx --moniker <your moniker> <my validator key name> 181818181818ugraviton <the eth private key you just generated> <the cosmos private key you just generated> --chain-id=gravity-bridge-1
 ```
 
 ### Submit your gentx
