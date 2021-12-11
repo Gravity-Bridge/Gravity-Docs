@@ -45,24 +45,37 @@ gravity keys add <my validator key name> --ledger
 
 ### Generate your Delegate keys
 
-There are three keys involved in this process. The key holding your validator funds, this is the address you submitted for Genesis. Then there are
-two 'delegate keys' these are keys that will be used by Gravity Bridge for signing and submissions. If you lose your delegate keys you will have to
-unbond and create a new validator because it's not possible to rotate them. So store all output of the following commands in a safe place.
+There are three keys involved in this process.
+
+```text
+Validator Funds key: This is the key you submitted for genesis it starts with `gravity1` and contains your funds
+
+Validator Operator Key: This is a key that will be generated with your gentx, it starts with `gravityvaloper1` and actually signs your validators blocks
+
+Gravity Orchestrator Cosmos Key: This is a key that will be used on the Cosmos side of Gravity bridge to submit Oracle transactions and Ethereum signatures. This address will be actively used by Gravity bridge to send many hundreds of messages during normal day to day operation of an active bridge. You will be generating this key to register as part of your gentx.
+
+Gravity Orchestrator Ethereum Key: This is an Ethereum key this is the key that represents your validators voting power on Ethereum in the `Gravity.sol` contract. In short this key secures the Gravity Bridge funds on Ethereum. This key will *not* be actively used to submit messages to Ethereum unless you chose to relay in addition to validate. Like the Gravity Orchestrator Cosmos Key you will be generating this key here and registering it as part of your gentx. 
+
+```
+
+Together we may refer to the Gravity Orchestrator Cosmos Key and Gravity Orchestrator Ethereum Keys as 'Gravity delegate keys' as they act as a 'delegate' for your Validator Operator key.
+
+If you lose your Gravity delegate keys you will have to unbond and create a new validator because it's not possible to rotate them. So store all output of the following commands in a safe place.
 
 ```bash
 gravity eth_keys add
-gravity keys add <your orchestrator key name>
+gravity keys add <Your Gravity Orchestrator Cosmos Key Name>
 ```
 
-Once we have registered our keys we will also set them in our orchestrator right away, this reduces the risk of confusion as the chain starts and you need these keys to submit Gravity bridge signatures via your orchestrator.
+Once we have registered our keys we will also set them in our Orchestrator right away, this reduces the risk of confusion as the chain starts and you need these keys to submit Gravity bridge signatures via your orchestrator.
 
 You can stop your testnet node at this point. If you wish to keep the testnet running you should save this step until
 mainnet start as it will cause your orchestrator to act strangely if you're using the same machine.
 
 ```bash
 gbt init
-gbt keys set-ethereum-key --key <the ethereum private key you just generated>
-gbt keys set-orchestrator-key --phrase "the cosmos private key you just generated"
+gbt keys set-ethereum-key --key Gravity Orchestrator Ethereum Key
+gbt keys set-orchestrator-key --phrase "Gravity Orchestrator Cosmos Key"
 ```
 
 ### Create a GenTX
