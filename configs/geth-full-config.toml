@@ -1,7 +1,7 @@
 [Eth]
-NetworkId = 5
+NetworkId = 1
 SyncMode = "fast"
-EthDiscoveryURLs = ["enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.goerli.ethdisco.net"]
+EthDiscoveryURLs = ["enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.mainnet.ethdisco.net"]
 SnapDiscoveryURLs = []
 NoPruning = false
 NoPrefetch = false
