@@ -83,7 +83,7 @@ gbt keys set-orchestrator-key --phrase "Gravity Orchestrator Cosmos Key"
 ```bash
 wget https://raw.githubusercontent.com/gravity-bridge/gravity-docs/main/genesis.json
 mv genesis.json ~/.gravity/config/genesis.json
-gravity gentx --moniker <your moniker> <my validator key name> 181818181818ugraviton <the eth private key you just generated> <the cosmos private key you just generated> --chain-id=gravity-bridge-1
+gravity gentx --moniker <your moniker> <my validator key name> 181818181818ugraviton <Gravity Orchestrator Ethereum Address> <Gravity Orchestrator Cosmos Address> --chain-id=gravity-bridge-1
 ```
 
 ### Submit your gentx
