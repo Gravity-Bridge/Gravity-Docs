@@ -10,13 +10,11 @@ Restart=always
 RestartSec=10
 ExecStart=/usr/bin/geth \
 --syncmode "light" \
---goerli \
 --http \
 --config /etc/geth-light-config.toml
 
 # if you want to run a geth fullnode
 #ExecStart=/usr/bin/geth \
-#--goerli \
 #--http \
 #--config /etc/geth-full-config.toml
 
