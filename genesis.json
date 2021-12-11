@@ -726,7 +726,7 @@
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
           "account_number": "98",
-          "address": "gravity1q6txv8l490vt2q5acyadp4fax0w9ausfyhm8ms",
+          "address": "gravity1vu04rhxr4sq65vfd074m5gjzuggwukzhznzdgz",
           "pub_key": null,
           "sequence": "0"
         },
@@ -3476,7 +3476,7 @@
           ]
         },
         {
-          "address": "gravity1q6txv8l490vt2q5acyadp4fax0w9ausfyhm8ms",
+          "address": "gravity1vu04rhxr4sq65vfd074m5gjzuggwukzhznzdgz",
           "coins": [
             {
               "amount": "181818181818",
