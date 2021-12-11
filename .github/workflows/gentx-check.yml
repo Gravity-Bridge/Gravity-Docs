@@ -13,7 +13,7 @@ jobs:
           gravity init test
           mkdir $HOME/.gravity/config/gentx
           cp ./genesis.json $HOME/.gravity/config/
-          cp ./gentxs/* $HOME/.gravity/config/gentx/
+          cp ./gentx/* $HOME/.gravity/config/gentx/
       - name: Validate Genesis
         run: gravity validate-genesis
       - name: Collect Gentxs
