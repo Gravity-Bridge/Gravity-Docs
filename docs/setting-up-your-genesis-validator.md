@@ -25,6 +25,7 @@ mv gravity-linux-amd64 gravity
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gbt
 chmod +x *
 sudo mv * /usr/bin/
+```
 
 At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
