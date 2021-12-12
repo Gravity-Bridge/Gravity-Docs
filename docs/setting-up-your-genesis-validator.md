@@ -6,7 +6,7 @@ If you have not done so you will not be able to start validating as a genesis va
 
 If you are validating on a different machine than the one that signed your gentx, make sure to copy over your `.gravity` folder!
 
-Do *not* set a min-fee for your validator until after the chain has started. On chain start you will have no liquid `ugraviton` that can be used to pay fees. Since your orchestrator will need to submit Ethereum signatures to prevent you from getting slashed you must allow zero fee transactions until liquid `ugraviton` is available to fund your orchestrator.
+Do *not* set a min-fee for your validator until after the chain has started. On chain start you will have no liquid `ugraviton` that can be used to pay fees. This guide will walk you through withdrawing some dust, but you don't want to pay yourself high fees until more `ugraviton` is liquid
 
 ## Download Gravity tools
 
@@ -17,33 +17,27 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
 At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.0`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.7`
 
 ## Download updated Genesis.json
 
 This genesis.json contains all gentx's that everyone has submitted, together they will create the first block of a new chain.
 
 ```bash
+
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json -O $HOME/.gravity/config/genesis.json
-```
 
-## Setup Gravity Bridge Tools
-
-```bash
-gbt init
-gbt keys set-ethereum-key --key <your Ethereum private key generated during gentx creation>
-gbt keys set-orchestrator-key --phrase "the orchestrator key phrase you generated with your gentx"
 ```
 
 ## Add seed node
@@ -65,10 +59,12 @@ You can run `gravity start` without systemd, but if you do so be absolutely sure
 open files limit.
 
 ```bash
+
 cd /etc/systemd/system
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/gravity-node.service
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/orchestrator.service
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth.service
+
 ```
 
 Now we have to stop and customize these services as appropriate
@@ -77,23 +73,27 @@ If you are running your validator as the `root` user, the `gravity-node.service`
 if you are running as a different user modify line 13 like so
 
 ```text
+
 Environment="HOME=/path/to/your/home/dir"
+
 ```
 
 For the orchestrator most people will not need to modify anything. But if you wish to specify an Eth node on a different machine or any other set of arguments modify line 10 as follows. As noted earlier in the instructions you should not set a minimum fee now, but once you do you'll have to return and set a minimum fee for your orchestrator here.
 
 ```text
+
 ExecStart=/usr/bin/gbt orchestrator \
 --ethereum-rpc <ETHEREUM_RPC> \
 --fees <fees> \
+
 ```
 
 For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
 
-
 Now that we have modified these services it's time to set them to run on startup
 
 ```bash
+
 sudo systemctl daemon-reload
 sudo systemctl enable gravity-node
 sudo systemctl enable orchestrator
@@ -101,6 +101,7 @@ sudo systemctl enable geth
 sudo service gravity-node start
 sudo service orchestrator start
 sudo service geth start
+
 ```
 
 Once you have completed this setup your node will be started and waiting for the chain to move in the background.
@@ -110,9 +111,11 @@ Once you have completed this setup your node will be started and waiting for the
 These lines will allow you to watch the logs coming out of your Gravity full node and Orchestrator as if you where directly attached to the process rather than using systemd. Run each in a separate terminal
 
 ```bash
+
 journalctl -u gravity-node.service -f --output cat
 journalctl -u orchestrator.service -f --output cat
 journalctl -u geth.service -f --output cat
+
 ```
 
 ## Setting up an Ethereum node
@@ -155,24 +158,28 @@ wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/
 You'll see a url in this format in the logs using the journalctl command provided earlier, please note your ip and share both this node url and your ip in chat to add to the light client nodes list
 
 ```bash
+
 INFO [06-10|14:11:03.104] Started P2P networking self=enode://71b8bb569dad23b16822a249582501aef5ed51adf384f424a060aec4151b7b5c4d8a1503c7f3113ef69e24e1944640fc2b422764cf25dbf9db91f34e94bf4571@127.0.0.1:30303
+
 ```
 
 Finally you'll need to wait for several hours until your node is synced. Do not worry your orchestrator will submit signatures to to the Gravity bridge chain during this time.
 
 ## Wait for it
 
-Now that you have your Gravity node, Orchestrator, and Ethereum node setup it's time to settle in and wait for the chain to start. Once it does the Gravity bridge contract will be deployed and the validators will have to adopt it by changing orchestrator configs and then by governance vote.
+Now that you have your Gravity node, Orchestrator, and Ethereum node setup it's time to settle in and wait for the chain to start. Once it does the Gravity bridge contract will be deployed and the validators will have to adopt it by changing Orchestrator configs and then by governance vote.
 
-Your delegate Ethereum key will need Gorli Eth. You can spend this time locating some and sending it over. Just a small dust amount will do. If you intend to relay using your orchestrator you will need at least $1k in Ethereum.
+Your delegate Ethereum key will need Ethereum dust (the Ethereum address you generated during gentx creation). You can spend this time locating some and sending it over.
 
-Do not deposit more than you can afford to lose into the Gravity Relayer it will attempt to ensure the profitability of batches it executes, but the profitability checking is not sufficiently tested to trust with large amounts of money.
+You only need Ethereum dust, we do not recommend placing large amounts of Ethereum in a Gravity Bridge relayer for now. There is a sizable chance it will waste a failed transaction worth of gas for every validator set or batch.
 
 ## Once the chain starts
 
-Once the chains starts your Orchestrator delegate key will need some Cosmos tokens in order to function. The easiest way to get them is to withdraw some of your staking rewards and send them over.
+Once the chains starts your Orchestrator delegate key will need some `ugraviton` tokens in order to function. The easiest way to get them is to withdraw some of your staking rewards and send them over.
 
 ```bash
-gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-test4
-gravity tx bank send <validator-key-name> <orchestrator address> 1ugraviton --chain-id gravity-bridge-test4
+
+gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-1
+gravity tx bank send <validator-key-name> <orchestrator address> 1ugraviton --chain-id gravity-bridge-1
+
 ```

@@ -17,12 +17,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.4/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -30,7 +30,7 @@ sudo mv * /usr/bin/
 
 At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.0`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.7`
 
 ## Download the genesis file
 
@@ -38,7 +38,7 @@ The genesis file represents the current state of the blockchain and allows your 
 with the rest.
 
 ```bash
-gravity init mymoniker --chain-id gravity-bridge-test4
+gravity init mymoniker --chain-id gravity-bridge-1
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
 cp genesis.json $HOME/.gravity/config/genesis.json
 
@@ -70,21 +70,37 @@ gravity keys add <my validator key name> --ledger
 
 ### Generate your Delegate keys
 
-There are three keys involved in this process. The key holding your validator funds, this is the address you submitted for Genesis. Then there are
-two 'delegate keys' these are keys that will be used by Gravity Bridge for signing and submissions. If you lose your delegate keys you will have to
-unbond and create a new validator because it's not possible to rotate them. So store all output of the following commands in a safe place.
+There are three keys involved in this process.
+
+```text
+Validator Funds key: This is the key you submitted for genesis it starts with `gravity1` and contains your funds
+
+Validator Operator Key: This is a key that will be generated with your gentx, it starts with `gravityvaloper1` and actually signs your validators blocks
+
+Gravity Orchestrator Cosmos Key: This is a key that will be used on the Cosmos side of Gravity bridge to submit Oracle transactions and Ethereum signatures. This address will be actively used by Gravity bridge to send many hundreds of messages during normal day to day operation of an active bridge. You will be generating this key to register as part of your gentx.
+
+Gravity Orchestrator Ethereum Key: This is an Ethereum key this is the key that represents your validators voting power on Ethereum in the `Gravity.sol` contract. In short this key secures the Gravity Bridge funds on Ethereum. This key will *not* be actively used to submit messages to Ethereum unless you chose to relay in addition to validate. Like the Gravity Orchestrator Cosmos Key you will be generating this key here and registering it as part of your gentx.
+
+```
+
+Together we may refer to the Gravity Orchestrator Cosmos Key and Gravity Orchestrator Ethereum Keys as 'Gravity delegate keys' as they act as a 'delegate' for your Validator Operator key.
+
+If you lose your Gravity delegate keys you will have to unbond and create a new validator because it's not possible to rotate them. So store all output of the following commands in a safe place.
 
 ```bash
 gravity eth_keys add
-gravity keys add <your orchestrator key name>
+gravity keys add <Your Gravity Orchestrator Cosmos Key Name>
 ```
 
-## Setup Gravity Bridge Tools
+Once we have registered our keys we will also set them in our Orchestrator right away, this reduces the risk of confusion as the chain starts and you need these keys to submit Gravity bridge signatures via your orchestrator.
+
+You can stop your testnet node at this point. If you wish to keep the testnet running you should save this step until
+mainnet start as it will cause your orchestrator to act strangely if you're using the same machine.
 
 ```bash
 gbt init
-gbt keys set-ethereum-key <your Ethereum key generated during gentx creation>
-gbt keys set-orchestrator-key --phrase "the key phrase you generated with your gentx"
+gbt keys set-ethereum-key --key Gravity Orchestrator Ethereum Key
+gbt keys set-orchestrator-key --phrase "Gravity Orchestrator Cosmos Key"
 ```
 
 ## Setup Gravity Bridge and Orchestrator services
@@ -116,8 +132,7 @@ For the orchestrator most people will not need to modify anything. But if you wi
 ```text
 ExecStart=/usr/bin/gbt orchestrator \
 --ethereum-rpc <ETHEREUM_RPC> \
---fees <fees> \
-start
+--fees <fees>
 ```
 
 For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
@@ -166,7 +181,7 @@ wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.13-7a0
 tar -xvf geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
 cd geth-linux-amd64-1.10.13-7a0c19f8
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml
-./geth --syncmode "light" --goerli --http --config geth-light-config.toml
+./geth --syncmode "light" --http --config geth-light-config.toml
 
 ```
 
@@ -178,7 +193,7 @@ wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.13-7a0
 tar -xvf geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
 cd geth-linux-amd64-1.10.13-7a0c19f8
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml
-./geth --goerli --http --config geth-full-config.toml
+./geth --http --config geth-full-config.toml
 
 ```
 
@@ -189,7 +204,6 @@ INFO [06-10|14:11:03.104] Started P2P networking self=enode://71b8bb569dad23b168
 ```
 
 Finally you'll need to wait for several hours until your node is synced. Do not worry your orchestrator will submit signatures to to the Gravity bridge chain during this time.
-
 
 ## Wait for it
 
@@ -203,7 +217,7 @@ gravity tx staking create-validator \
  --amount=<the amount of graviton you wish to stake>ugraviton \
  --pubkey=$(gravity tendermint show-validator) \
  --moniker="put your validator name here" \
- --chain-id=gravity-bridge-test4 \
+ --chain-id=gravity-bridge-1 \
  --from=myvalidatorkeyname \
  --commission-rate="0.10" \
  --commission-max-rate="0.20" \
@@ -251,7 +265,7 @@ gbt keys register-orchestrator-address --validator-phrase "the phrase you saved 
 
 ```bash
 
-gravity tx gravity set-orchestrator-address [validator key name] [orchestrator key name] [ethereum-address]
+gravity tx gravity set-orchestrator-address [validator-address] [orchestrator-address] [ethereum-address]
 
 ```
 

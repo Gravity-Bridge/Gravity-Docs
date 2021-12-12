@@ -4,10 +4,9 @@ This document contains a list of block explorers and frontend interfaces for use
 
 ## Blockexplorer
 
-- [Aneka Explorer](https://testnet.althea.aneka.io/)
+- [Aneka Explorer](https://gravity.testnet.aneka.io/)
+- [Skynet Explorer](https://gravity-bridge.skynetexplorers.com/)
 
-TBD
+## Bridge frontend
 
-## Bridge Frontend
-
-- [Gravity Bridge Portal](https://gravity.blockscape.network/)
+Not yet online
