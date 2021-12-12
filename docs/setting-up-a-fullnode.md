@@ -10,8 +10,8 @@ A Linux server with any modern Linux distribution, 2gb of ram and at least 20gb 
 ### Download Gravity chain software
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.0/gravity-v0.1.5-linux-amd64
-mv gravity-v0.1.5-linux-amd64 gravity
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gravity-linux-amd64
+mv gravity-linux-amd64 gravity
 
 chmod +x gravity
 sudo mv gravity /usr/bin/
@@ -21,7 +21,7 @@ sudo mv gravity /usr/bin/
 
 ```bash
 cd $HOME
-gravity init mymoniker --chain-id gravity-bridge-test1
+gravity init mymoniker --chain-id gravity-bridge-1
 ```
 
 ### Copy the genesis file
@@ -37,7 +37,7 @@ Change the seed field in ~/.gravity/config/config.toml to contain the following:
 
 ```text
 
-seeds = "6a9cd8d87ab9e49d7af91e09026cb3f40dec2f85@gravity-chain.althea.net:26656"
+seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656"
 
 ```
 
