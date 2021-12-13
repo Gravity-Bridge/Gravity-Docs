@@ -74,7 +74,7 @@ mainnet start as it will cause your orchestrator to act strangely if you're usin
 
 ```bash
 gbt init
-gbt keys set-ethereum-key --key Gravity Orchestrator Ethereum Key
+gbt keys set-ethereum-key --key Gravity Orchestrator Ethereum Private Key
 gbt keys set-orchestrator-key --phrase "Gravity Orchestrator Cosmos Key"
 ```
 

@@ -9,4 +9,4 @@
 
 ## Status
 
-The Gravity Bridge Blockchain is collecting Gentx's for imminent launch.
+The Gravity Bridge Blockchain is online! See the Resources page for integration details.
