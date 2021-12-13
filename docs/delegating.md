@@ -11,7 +11,8 @@ If you are running Linux and have your keys stored in a ledger do the following
 ```bash
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-amd64
 chmod +x gravity-linux-amd64
-sudo mv gravity-linux-amd64 /usr/bin/
+mv gravity-linux-amd gravity
+sudo mv gravity /usr/bin/
 
 gravity init gravity-bridge-1
 
