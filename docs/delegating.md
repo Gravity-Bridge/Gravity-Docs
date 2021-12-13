@@ -8,10 +8,10 @@ This file covers how to delegate your Graviton token
 
 If you are running Linux and have your keys stored in a ledger do the following
 
-```bash 
+```bash
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-amd64
 chmod +x gravity-linux-amd64
-sudo mv gravity-linux-amd64 /bin/
+sudo mv gravity-linux-amd64 /usr/bin/
 
 gravity init gravity-bridge-1
 
@@ -27,9 +27,9 @@ gravity tx staking delegate --from <your ledger key name> <valoper address> <amo
 
 If you are running Linux and have your keys stored in a ledger do the following
 
-```bash 
+```bash
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-darwin-amd64
-sudo mv gravity-darwin-amd64 /bin/
+sudo mv gravity-darwin-amd64 /usr/bin/
 
 gravity init gravity-bridge-1
 
