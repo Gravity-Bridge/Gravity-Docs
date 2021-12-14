@@ -4,6 +4,7 @@ This document contains a list of block explorers and frontend interfaces for use
 
 ## Blockexplorer
 
+- [Mintscan Explorer](https://www.mintscan.io/gravity-bridge)
 - [Aneka Explorer](https://gravity.testnet.aneka.io/)
 - [Skynet Explorer](https://gravity-bridge.skynetexplorers.com/)
 
