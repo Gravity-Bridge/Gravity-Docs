@@ -7,6 +7,7 @@ This document contains instructions for routine operations that may be required 
 1. [Increase your stake](#increase-your-stake)
 1. [Withdraw your validator rewards](#withdraw-your-validator-rewards)
 1. [Unjail your validator](#unjail-your-validator)
+1. [Change validator identity (profile pic)](#update-your-validator-identity)
 
 ## Increase your stake
 
@@ -47,4 +48,12 @@ replace 'myvalidatorkeyname' with your validator keys name, if you don't remembe
 
 ```bash
 gravity tx slashing unjail --from myvalidatorkeyname --chain-id=gravity-bridge-1
+```
+
+## Update your validator identity
+
+Want your validator to have that sweet, sweet image?  The following will use your profile image from keybase.io, I believe there is another data source as well, but this example is for keybase.
+
+```bash
+gravity tx staking edit-validator --moniker <moniker> --chain-id=gravity-bridge-1 --fees 1ugraviton --identity "<your keybase pgp key>" --from <validator-name>
 ```
