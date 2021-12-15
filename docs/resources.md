@@ -2,6 +2,10 @@
 
 This document contains a list of block explorers and frontend interfaces for use with Gravity
 
+## Governance Forum
+
+Governance proposals should be coordinated using the [Commonwealth](https://commonwealth.im/gravity-bridge) forum.
+
 ## Blockexplorer
 
 - [Mintscan Explorer](https://www.mintscan.io/gravity-bridge)
