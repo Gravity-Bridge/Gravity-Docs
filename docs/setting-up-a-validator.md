@@ -17,12 +17,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.7/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -30,7 +30,7 @@ sudo mv * /usr/bin/
 
 At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.7`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.0.8`
 
 ## Download the genesis file
 
@@ -156,7 +156,7 @@ Once you have completed this setup your node will be started and waiting for the
 These lines will allow you to watch the logs coming out of your Gravity full node and Orchestrator as if you where directly attached to the process rather than using systemd. Run each in a separate terminal
 
 ```bash
-journalctl -u gravity-chain.service -f --output cat
+journalctl -u gravity-node.service -f --output cat
 journalctl -u orchestrator.service -f --output cat
 ```
 
