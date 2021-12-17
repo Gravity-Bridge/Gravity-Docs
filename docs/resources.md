@@ -24,10 +24,10 @@ The Gravity Bridge Blockchain contract address is.
 
 Temporary RPC url
 
-provides ABCI on `26657` Legacy RPC on port `80` and gRPC on port `9090`
+provides ABCI on `26657` Legacy RPC on port `1317` and gRPC on port `9090`
 
 ```text
-chainripper-2.althea.net
+https://gravitychain.io
 ```
 
 ## Bridge frontend
