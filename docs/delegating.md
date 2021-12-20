@@ -1,6 +1,10 @@
 # Delegating
 
-This file covers how to delegate your Graviton token
+This document covers how to delegate your Graviton token
+
+## Delegating via Cosmostation
+
+[Community guide for Cosmostation delegation (Without Ledger)](https://stakeking.notion.site/Gravity-Bridge-Delegation-Guide-c9c0ff7b190b45b9a4e6b7a54c62a996)
 
 ## Delegating via the command Line
 
