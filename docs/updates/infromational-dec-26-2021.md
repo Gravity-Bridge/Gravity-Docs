@@ -12,13 +12,13 @@ The information in this document is accurate, to the best of our knowledge as of
 
 Quickly after the launch of `gravity-bridge-1` some users reported [issues](https://github.com/Gravity-Bridge/Gravity-Bridge/issues/2) withdrawing their delegated tokens.
 
-This issue has been root caused and resolved in [this patch](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/146b11fcfd8d6c4dcb541507d634839f37e0cce8). The root cause is that during the initialization process for the Gravity Bridge module staking hooks where being set on only one of two copies of the StakingKeeper.
+This issue has been root caused and resolved in [this patch](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/146b11fcfd8d6c4dcb541507d634839f37e0cce8). The root cause is that during the initialization process for the Gravity Bridge module staking hooks were being set on only one of two copies of the StakingKeeper.
 
 StakingHooks are pieces of code that CosmosSDK calls when events related to staking occur. Specifically for the Gravity module Slashing.
 
 Due to an oversight in the Gravity Bridge module staking hooks where being set on one copy of the StakingKeeper but not on the copy being used by the Gravity Bridge module when performing slashing. This results in several hooks not running when a validator is slashed by the Gravity Bridge module.
 
-In this specific case the hooks take care of recording that a slashing event has occurred in the StakingKeeper, but the actual modification of the users stake does not depend on the hook.
+In this specific case the hooks take care of recording that a slashing event has occurred in the StakingKeeper, but the actual modification of the user's stake does not depend on the hook.
 
 During the withdraw of rewards CosmosSDK performs a sanity check, where it ensures that a validators total rewards for that period are consistent with any slashing that has occurred. Since the Gravity Bridge module was not triggering the correct hooks in the staking keeper there are no recorded slashing events.
 
@@ -64,9 +64,7 @@ variations based on withdraws and redelegation before their slashing and exactly
 
 ### Recommended Action
 
-The latest release version of Gravity Bridge `v1.1.0` and greater correctly set the hooks in the Gravity module `app.go`. It is important that the community upgrade to `v1.1.0` or later release or any validator that is slashed by the Gravity Bridge module will be unable to withdraw delegation rewards.
-
-Although unbonding of the delegated tokens will function correctly all delegators to that validator, which includes the validator themselves, will be unable to withdraw rewards after the slashing occurs.
+The latest release version of Gravity Bridge `v1.1.0` and greater correctly set the hooks in the Gravity module `app.go`. It is important that the community upgrades to release v1.1.0 or later as any validator slashed by the Gravity Bridge module will be unable to withdraw delegation rewards. Additionally, delegators to such a validator will be unable to withdraw the funds they have delegated to that validator, along with any rewards they have earned from that delegation.
 
 ### Resolution for affected individuals
 
@@ -78,12 +76,8 @@ Furthermore given the compounding effect of withdrawing and re-delegating simply
 
 The community may choose to use a Gravity Bridge [Airdrop Proposal](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/types.proto#L67) to send users who have experienced this issue a flat amount that can be computed to include opportunity cost.
 
-### Recommendation for affected individuals
-
-Regardless of how the community choses to resolve this issue the fastest way to get back on track staking for an affected individual is to begin unbonding and re-delegate their tokens to a new validator, unaffected by the bug. Once the unbonding period ends.
-
 ## Other changes included in this upgrade
 
-* [Release images build with Go 1.17](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/e6f0f9ccea3699742bc775239dd64178ce4236af)
-* [Correct gbt bug where issues with Ethereum nodes could cause Gravity module slashing](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/d9e5b5174e535bdc92706ce9db981d10f867e5b6)
-* [Enable RELRO and PIE for Ledger enabled release binaries](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/89b323e7782217c2aff7022f340d3b502d261b6d)
+- [Release images build with Go 1.17](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/e6f0f9ccea3699742bc775239dd64178ce4236af)
+- [Correct gbt bug where issues with Ethereum nodes could cause Gravity module slashing](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/d9e5b5174e535bdc92706ce9db981d10f867e5b6)
+- [Enable RELRO and PIE for Ledger enabled release binaries](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/89b323e7782217c2aff7022f340d3b502d261b6d)
