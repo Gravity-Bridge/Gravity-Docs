@@ -14,13 +14,13 @@ Quickly after the launch of `gravity-bridge-1` some users reported [issues](http
 
 This issue has been root caused and resolved in [this patch](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/146b11fcfd8d6c4dcb541507d634839f37e0cce8). The root cause is that during the initialization process for the Gravity Bridge module staking hooks were being set on only one of two copies of the StakingKeeper.
 
-StakingHooks are pieces of code that CosmosSDK calls when events related to staking occur. Specifically for the Gravity module Slashing.
+Staking hooks are pieces of code that CosmosSDK calls when events related to staking occur. This issue specifically deals with Staking hooks and Gravity Bridge module Slashing.
 
-Due to an oversight in the Gravity Bridge module staking hooks where being set on one copy of the StakingKeeper but not on the copy being used by the Gravity Bridge module when performing slashing. This results in several hooks not running when a validator is slashed by the Gravity Bridge module.
+Due to an oversight in the Gravity Bridge module, staking hooks were being set on one copy of the StakingKeeper but not on the copy being used by the Gravity Bridge module when performing slashing. This results in several hooks not running when a validator is slashed by the Gravity Bridge module.
 
 In this specific case the hooks take care of recording that a slashing event has occurred in the StakingKeeper, but the actual modification of the user's stake does not depend on the hook.
 
-During the withdraw of rewards CosmosSDK performs a sanity check, where it ensures that a validators total rewards for that period are consistent with any slashing that has occurred. Since the Gravity Bridge module was not triggering the correct hooks in the staking keeper there are no recorded slashing events.
+During the withdrawal of rewards CosmosSDK performs a sanity check, where it ensures that a validator's total rewards for that period are consistent with any slashing events that have occurred. Since the Gravity Bridge module was not triggering the correct hooks in the staking keeper there are no recorded slashing events.
 
 This results in the sanity check failing and an inability to withdraw rewards.
 
@@ -70,7 +70,7 @@ The latest release version of Gravity Bridge `v1.1.0` and greater correctly set 
 
 The most correct way to resolve this issue is to insert the correct slashing events into the history during a chain upgrade. This would allow the affected validators to withdraw their rewards with no disruption.
 
-Sadly this option has significant downsides. Since it can only be done during chain upgrade the upgrade to `v1.1.0` can either be delayed. Risking more validators encountering the issue, or the affected users may have to wait until the following upgrade to be able to withdraw their rewards.
+Sadly this option has significant downsides. Since it can only be done during chain upgrade the upgrade to `v1.1.0` can either be delayed, risking more validators encountering the issue, or the affected users may have to wait until the following upgrade to be able to withdraw their rewards.
 
 Furthermore given the compounding effect of withdrawing and re-delegating simply allowing affected individuals to withdraw rewards does not compensate for opportunity cost.
 
