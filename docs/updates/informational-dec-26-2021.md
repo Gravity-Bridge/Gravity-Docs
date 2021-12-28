@@ -72,7 +72,7 @@ The most correct way to resolve this issue is to insert the correct slashing eve
 
 Sadly this option has significant downsides. Since it can only be done during chain upgrade, the upgrade to `v1.1.0` can either be delayed, risking more validators encountering the issue, or the affected users may have to wait until the following upgrade to be able to withdraw their rewards.
 
-Furthermore given the compounding effect of withdrawing and re-delegating, simply allowing affected individuals to withdraw rewards does not compensate for opportunity cost. Resolution to this issue will likely require significant discussion. 
+Furthermore given the compounding effect of withdrawing and re-delegating, simply allowing affected individuals to withdraw rewards does not compensate for opportunity cost. Resolution to this issue will likely require significant discussion.
 
 Given the risks to the health of the chain, if any additional validators were to be slashed by the Gravity module, the community focus should be on the `v1.1.0` upgrade.
 
