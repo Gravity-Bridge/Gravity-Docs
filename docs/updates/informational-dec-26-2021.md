@@ -74,7 +74,7 @@ Sadly this option has significant downsides. Since it can only be done during ch
 
 Furthermore given the compounding effect of withdrawing and re-delegating simply allowing affected individuals to withdraw rewards does not compensate for opportunity cost.
 
-The community may choose to use a Gravity Bridge [Airdrop Proposal](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/types.proto#L67) to send users who have experienced this issue a flat amount that can be computed to include opportunity cost.
+Any resolution to this issue will probably require significant discussion. Given the risks to the health of the chain if any more validators where to be slashed by the Gravity module the community focus should be on the upgrade.
 
 ## Other changes included in this upgrade
 
