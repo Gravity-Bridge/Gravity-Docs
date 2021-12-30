@@ -13,6 +13,7 @@ Additionally, this version `1.1.0` contains:
 * [Upgrade cosmos-sdk version from v0.44.2 to v0.44.5](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/5)
 * [Upgrade ibc-go to v2.0.2](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/6)
 * [Add authorization (x/authz) module initialization](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/7)
+* [Fix invalid deposit issue](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/10)
 
 A YES vote on this proposal indicates the Gravity Bridge should upgrade the chain to take in the bug fix and all the above changes.  Voting NO would result in additional discussions on mitigating the bug as well as taking in the additional changes.
 
