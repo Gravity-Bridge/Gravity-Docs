@@ -1,5 +1,5 @@
 # Gravity Bridge Proposal
-## Software Upgrade to Version 1.1.0
+## Software Upgrade to Version 1.2.0
 
 Due to a bug in the Gravity Bridge module, jailed validators were unable to claim rewards after unjailing.
 
@@ -7,9 +7,9 @@ A detailed issue summary can be found at [Issue Summary](https://github.com/Grav
 
 Shortly after Gravity Bridge launch, [Proposal 2](https://commonwealth.im/gravity-bridge/proposal/cosmosproposal/2-softer-slashingjailing-bug-fix) was passed to mitigate the issue.
 
-With the issue root-caused, verified and fixed, `soma|staking` proposes that we take the upgrade in version `1.1.0` which contains the patch linked above.
+With the issue root-caused, verified and fixed, `soma|staking` proposes that we take the upgrade in version `1.2.0` which contains the patch linked above.
 
-Additionally, this version `1.1.0` contains:
+Additionally, this version `1.2.0` contains:
 * [Upgrade cosmos-sdk version from v0.44.2 to v0.44.5](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/5)
 * [Upgrade ibc-go to v2.0.2](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/6)
 * [Add authorization (x/authz) module initialization](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/7)
