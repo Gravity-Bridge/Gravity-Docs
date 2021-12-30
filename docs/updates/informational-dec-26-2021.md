@@ -76,7 +76,6 @@ Furthermore given the compounding effect of withdrawing and re-delegating, simpl
 
 Given the risks to the health of the chain, if any additional validators were to be slashed by the Gravity module, the community focus should be on the `v1.1.0` upgrade.
 
-
 ## Other changes included in this upgrade
 
 - [Release images build with Go 1.17](https://github.com/Gravity-Bridge/Gravity-Bridge/commit/e6f0f9ccea3699742bc775239dd64178ce4236af)
