@@ -82,6 +82,7 @@ diff ~/.gravity/config/genesis.json gravity-bridge-2-genesis.json
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
 gravity unsafe-reset-all
+systemctl daemon-reload
 service gravity-node start
 service orchestrator restart
 ```
