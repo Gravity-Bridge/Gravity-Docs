@@ -79,6 +79,12 @@ md5sum ~/.gravity/config/genesis.json
 diff ~/.gravity/config/genesis.json gravity-bridge-2-genesis.json
 ```
 
+Edit `/etc/systemd/system/gravity-node.service` again and remove `--halt-height 309528`
+
+```text
+ExecStart=/usr/bin/gravity start
+```
+
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
 gravity unsafe-reset-all
