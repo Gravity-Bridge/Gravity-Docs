@@ -37,7 +37,7 @@ from your validator into your validator key. In order to modify the destination 
 In order to apply your rewards to stake you must run this command followed by the `staking delegate` command
 
 ```bash
-gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-1
+gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-2
 ```
 
 ## Unjail your validator
@@ -47,7 +47,7 @@ This command will unjail you, completing the process of getting the chain back o
 replace 'myvalidatorkeyname' with your validator keys name, if you don't remember run `gravity keys list`
 
 ```bash
-gravity tx slashing unjail --from myvalidatorkeyname --chain-id=gravity-bridge-1
+gravity tx slashing unjail --from myvalidatorkeyname --chain-id=gravity-bridge-2
 ```
 
 ## Update your validator identity
@@ -55,5 +55,5 @@ gravity tx slashing unjail --from myvalidatorkeyname --chain-id=gravity-bridge-1
 Want your validator to have that sweet, sweet image?  The following will use your profile image from keybase.io, I believe there is another data source as well, but this example is for keybase.
 
 ```bash
-gravity tx staking edit-validator --moniker <moniker> --chain-id=gravity-bridge-1 --fees 1ugraviton --identity "<your keybase pgp key>" --from <validator-name>
+gravity tx staking edit-validator --moniker <moniker> --chain-id=gravity-bridge-2 --fees 1ugraviton --identity "<your keybase pgp key>" --from <validator-name>
 ```

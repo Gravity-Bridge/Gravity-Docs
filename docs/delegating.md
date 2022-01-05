@@ -13,19 +13,19 @@ This document covers how to delegate your Graviton token
 If you are running Linux and have your keys stored in a ledger do the following
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.1/gravity-linux-amd64
 chmod +x gravity-linux-amd64
 mv gravity-linux-amd gravity
 sudo mv gravity /usr/bin/
 
-gravity init gravity-bridge-1
+gravity init gravity-bridge-2
 
 gravity keys add --ledger <your ledger key name>
 
 # you should see your ledger address
 gravity keys list
 
-gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node http://chainripper-2.althea.net:26657 --chain-id gravity-bridge-1
+gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node http://chainripper-2.althea.net:26657 --chain-id gravity-bridge-2
 ```
 
 ### Mac (Ledger)
@@ -33,17 +33,17 @@ gravity tx staking delegate --from <your ledger key name> <valoper address> <amo
 If you are running Mac and have your keys stored in a ledger do the following
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-darwin-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.1/gravity-darwin-amd64
 sudo mv gravity-darwin-amd64 /usr/bin/
 
-gravity init gravity-bridge-1
+gravity init gravity-bridge-2
 
 gravity keys add --ledger <your ledger key name>
 
 # you should see your ledger address
 gravity keys list
 
-gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node http://chainripper-2.althea.net:26657 --chain-id gravity-bridge-1
+gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node http://chainripper-2.althea.net:26657 --chain-id gravity-bridge-2
 ```
 
 ## Delegating via a web interface

@@ -17,7 +17,7 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.0.8/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.1/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
@@ -38,7 +38,7 @@ The genesis file represents the current state of the blockchain and allows your 
 with the rest.
 
 ```bash
-gravity init mymoniker --chain-id gravity-bridge-1
+gravity init mymoniker --chain-id gravity-bridge-2
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
 cp genesis.json $HOME/.gravity/config/genesis.json
 
@@ -50,7 +50,7 @@ Change the seed field in ~/.gravity/config/config.toml to contain the following:
 
 ```text
 
-seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656"
+seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656,63e662f5e048d4902c7c7126291cf1fc17687e3c@95.211.103.175:26656"
 
 ```
 
@@ -217,7 +217,7 @@ gravity tx staking create-validator \
  --amount=<the amount of graviton you wish to stake>ugraviton \
  --pubkey=$(gravity tendermint show-validator) \
  --moniker="put your validator name here" \
- --chain-id=gravity-bridge-1 \
+ --chain-id=gravity-bridge-2 \
  --from=myvalidatorkeyname \
  --commission-rate="0.10" \
  --commission-max-rate="0.20" \
