@@ -24,8 +24,6 @@ If you are using [Cosmosvisor](https://github.com/Gravity-Bridge/Gravity-Docs/bl
 
 ## (Optional) Verifying The Upgraded Genesis
 
-Stop! This step can not be done until the chain has halted on January 4th 2022 at block height `309528`.
-
 ```bash
 # first stop your node to gain access to the database
 service gravity-node stop
@@ -56,7 +54,7 @@ mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.1/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
