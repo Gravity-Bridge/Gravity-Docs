@@ -31,7 +31,7 @@ Stop! This step can not be done until the chain has halted on January 4th 2022 a
 service gravity-node stop
 
 # now we will generate the new genesis.json
-gravity export --height 309528 &> tmp.json
+gravity export --height 309527 &> tmp.json
 jq '' tmp.json > tmp-fmt.json
 jq '.chain_id = "gravity-bridge-2"' tmp-fmt.json > gravity-bridge-2-genesis.json
 md5sum gravity-bridge-2-genesis.json
@@ -40,7 +40,7 @@ md5sum gravity-bridge-2-genesis.json
 You should see
 
 ```text
-<upgrade not ready>  gravity-bridge-2-genesis.json
+1908f7d4c4b7f1589ef1ecc4265cb408  gravity-bridge-2-genesis.json
 ```
 
 ## Upgrading node software
@@ -51,14 +51,29 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.1/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.1/gbt
 chmod +x *
 sudo mv * /usr/bin/
+```
+
+## (Optional) verify the expected genesis part 2
+
+Due to the IBC-2.0 migration the genesis has some extra transformations that can only
+be done with `v1.2.1`
+
+```bash
+gravity ibc-migrate gravity-bridge-2-genesis.json &> tmp.json
+jq '' tmp.json > gravity-bridge-2-migrated-genesis.json
+md5sum gravity-bridge-2-migrated-genesis.json
+```
+
+```text
+43328b8a0e2997c52678aac52792bd5d  gravity-bridge-2-migrated-genesis.json
 ```
 
 ## Backup old chain state
@@ -93,13 +108,7 @@ Optionally confirm that this genesis.json has the same md5sum as the one you gen
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
 md5sum ~/.gravity/config/genesis.json
-diff ~/.gravity/config/genesis.json gravity-bridge-2-genesis.json
-```
-
-Edit `/etc/systemd/system/gravity-node.service` again and remove `--halt-height 309528`
-
-```text
-ExecStart=/usr/bin/gravity start
+diff ~/.gravity/config/genesis.json gravity-bridge-2-migrated-genesis.json
 ```
 
 ```bash
