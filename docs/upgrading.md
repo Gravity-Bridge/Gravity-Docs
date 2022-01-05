@@ -69,6 +69,23 @@ Hopefully you won't need this, but if you do you'll be glad to have it. You may 
 tar -czvf gravity-bridge-1.tar.gz ~/.gravity
 ```
 
+## Removing halt height and skipping invariants
+
+To prepare for the upgrade you added the `--halt-height` argument. We now need to remove that and add another argument in it's place.
+
+This is required to prevent the staking invariants from preventing chain start with the validators currently affected by the staking bug
+still in the state. We will resolve this issue during the next update.
+
+```text
+--x-crisis-skip-assert-invariants
+```
+
+If you have followed the guide for [setting up your validator](/docs/setting-up-a-validator.md) then the file you need to edit is `/etc/systemd/system/gravity-node.service`
+
+```text
+ExecStart=/usr/bin/gravity start --x-crisis-skip-assert-invariants
+```
+
 ## Restart the chain using the new genesis.json
 
 Optionally confirm that this genesis.json has the same md5sum as the one you generated from your own state earlier
