@@ -33,3 +33,10 @@ https://gravitychain.io
 ## Bridge frontend
 
 Not yet online
+
+## Chain history snapshots
+
+### gravity-bridge-1
+
+[google drive](https://drive.google.com/file/d/1LsGK-eBSfAditKHAJDBVQ0RhRRE4e8u0/view?usp=sharing)
+torrent: WIP
