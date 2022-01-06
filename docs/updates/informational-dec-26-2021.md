@@ -31,40 +31,42 @@ This issue was not detected in our unit tests because they do not use the same i
 The following is output from a tool [located here](https://github.com/jkilpatr/inspect-delegators) designed to identify affected validators and delegators.
 
 ```text
-Total 271 delegations delegators 176 bugged delegators 15 {
-    gravity1xmspr43xsfu6ycjgdqqllntc62rzvncv7x8trk,
-    gravity1kp6kn7jazzn6leqvqzdm9ftmlpp72l406fun2r,
+Total 309 delegations delegators 192 bugged delegators 17 {
     gravity19uwnjc4fhftygyzr8wv5m8m0l4kjzkpsvsmgqh,
-    gravity12qx44c75dd8ykckexxxxjn7ygehwxkqjxyvzud,
-    gravity1gfeh4793ug8l6nu69n8lqssvkdqs8qghwxka0l,
-    gravity1vu04rhxr4sq65vfd074m5gjzuggwukzhznzdgz,
-    gravity18u9pws4989n7fmx5pduev7starj8wqggyepcf9,
-    gravity19lhajns3drveve4q8jc4kus6knjcmf2j36ta6e,
     gravity1xf869399xq4pnxsllzvnwdcra8ly3huj9n2saq,
-    gravity104vmnec7p96qgzzdzddv5jan070v7vj6j7mslj,
-    gravity134f6petuvgwtmrpwsfk9ng0fpkmqxqtfkmnq23,
     gravity1s8zjma74efff5avgz2ah80mxs7gfr6zctmffzp,
     gravity1qtc3axqj2pf9h92arc2lmk7keyvrzqc8y4hef3,
-    gravity1cfj5aksn6tgz5m9885qwp8dwaa844qe2yhlsx7,
+    gravity18u9pws4989n7fmx5pduev7starj8wqggyepcf9,
     gravity1d63hvdgwy64sfex2kyujd0xyfhmu7r7cedj2fg,
-} and bugged validators 14 {
-    gravityvaloper12qx44c75dd8ykckexxxxjn7ygehwxkqjh04uke,
-    gravityvaloper1kp6kn7jazzn6leqvqzdm9ftmlpp72l40tz9dqh,
-    gravityvaloper1xf869399xq4pnxsllzvnwdcra8ly3huj5cnwh5,
-    gravityvaloper1qtc3axqj2pf9h92arc2lmk7keyvrzqc847w8r9,
-    gravityvaloper1xmspr43xsfu6ycjgdqqllntc62rzvncv0d74fz,
-    gravityvaloper19uwnjc4fhftygyzr8wv5m8m0l4kjzkpsamzk2r,
-    gravityvaloper1d63hvdgwy64sfex2kyujd0xyfhmu7r7cgxt5ru,
-    gravityvaloper134f6petuvgwtmrpwsfk9ng0fpkmqxqtf8s27q9,
-    gravityvaloper1cfj5aksn6tgz5m9885qwp8dwaa844qe24uxwv2,
-    gravityvaloper104vmnec7p96qgzzdzddv5jan070v7vj6r4zw4x,
+    gravity1kp6kn7jazzn6leqvqzdm9ftmlpp72l406fun2r,
+    gravity166mwr42yq2khtmwcv9akwjc0f3e62lwslxrkzg,
+    gravity1cfj5aksn6tgz5m9885qwp8dwaa844qe2yhlsx7,
+    gravity134f6petuvgwtmrpwsfk9ng0fpkmqxqtfkmnq23,
+    gravity1vu04rhxr4sq65vfd074m5gjzuggwukzhznzdgz,
+    gravity19lhajns3drveve4q8jc4kus6knjcmf2j36ta6e,
+    gravity1xmspr43xsfu6ycjgdqqllntc62rzvncv7x8trk,
+    gravity104vmnec7p96qgzzdzddv5jan070v7vj6j7mslj,
+    gravity1gfeh4793ug8l6nu69n8lqssvkdqs8qghwxka0l,
+    gravity12qx44c75dd8ykckexxxxjn7ygehwxkqjxyvzud,
+    gravity1lu9p4tl02nl979l9huk33x8rgnwzwmysv2kwsm,
+} and bugged validators 16 {
+    gravityvaloper1gfeh4793ug8l6nu69n8lqssvkdqs8qghld0r9t,
+    gravityvaloper18u9pws4989n7fmx5pduev7starj8wqgg4jcxr3,
     gravityvaloper1vu04rhxr4sq65vfd074m5gjzuggwukzhncmnzk,
     gravityvaloper19lhajns3drveve4q8jc4kus6knjcmf2jq3jrsd,
-    gravityvaloper18u9pws4989n7fmx5pduev7starj8wqgg4jcxr3,
-    gravityvaloper1gfeh4793ug8l6nu69n8lqssvkdqs8qghld0r9t,
-} total affected stake 2842327137709
-
-
+    gravityvaloper166mwr42yq2khtmwcv9akwjc0f3e62lwswd6ggu,
+    gravityvaloper1cfj5aksn6tgz5m9885qwp8dwaa844qe24uxwv2,
+    gravityvaloper104vmnec7p96qgzzdzddv5jan070v7vj6r4zw4x,
+    gravityvaloper134f6petuvgwtmrpwsfk9ng0fpkmqxqtf8s27q9,
+    gravityvaloper12qx44c75dd8ykckexxxxjn7ygehwxkqjh04uke,
+    gravityvaloper19uwnjc4fhftygyzr8wv5m8m0l4kjzkpsamzk2r,
+    gravityvaloper1xf869399xq4pnxsllzvnwdcra8ly3huj5cnwh5,
+    gravityvaloper1d63hvdgwy64sfex2kyujd0xyfhmu7r7cgxt5ru,
+    gravityvaloper1kp6kn7jazzn6leqvqzdm9ftmlpp72l40tz9dqh,
+    gravityvaloper1qtc3axqj2pf9h92arc2lmk7keyvrzqc847w8r9,
+    gravityvaloper1lu9p4tl02nl979l9huk33x8rgnwzwmysap0s60,
+    gravityvaloper1xmspr43xsfu6ycjgdqqllntc62rzvncv0d74fz,
+} total affected stake 3206902101516
 ```
 
 As you can see all affected delegations are self-delegations to genesis validators. Each holding `181,818 graviton` with slight
