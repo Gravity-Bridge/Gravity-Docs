@@ -25,7 +25,7 @@ gravity keys add --ledger <your ledger key name>
 # you should see your ledger address
 gravity keys list
 
-gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node http://chainripper-2.althea.net:26657 --chain-id gravity-bridge-2
+gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node https://gravitychain.io:26657 --chain-id gravity-bridge-2
 ```
 
 ### Mac (Ledger)
@@ -43,7 +43,7 @@ gravity keys add --ledger <your ledger key name>
 # you should see your ledger address
 gravity keys list
 
-gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node http://chainripper-2.althea.net:26657 --chain-id gravity-bridge-2
+gravity tx staking delegate --from <your ledger key name> <valoper address> <amount> --node https://gravitychain.io:26657 --chain-id gravity-bridge-2
 ```
 
 ## Delegating via a web interface
