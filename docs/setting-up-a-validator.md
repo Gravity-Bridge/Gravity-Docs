@@ -32,6 +32,19 @@ At specific points you may be told to 'update your orchestrator' or 'update your
 
 to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.2.0`
 
+## Download and install geth
+
+You only need to do this if you are running Geth locally
+
+```bash
+wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.15-8be800ff.tar.gz
+wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml -O /etc/geth-light-config.toml
+wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml -O /etc/geth-full-config.toml
+tar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
+cd geth-linux-amd64-1.10.15-8be800ff.tar.gz
+mv geth /usr/sbin/
+```
+
 ## Download the genesis file
 
 The genesis file represents the current state of the blockchain and allows your node to sync up
@@ -155,52 +168,8 @@ These lines will allow you to watch the logs coming out of your Gravity full nod
 ```bash
 journalctl -u gravity-node.service -f --output cat
 journalctl -u orchestrator.service -f --output cat
+journalctl -u geth.service -f --output cat
 ```
-
-## Setting up an Ethereum node
-
-You probably noticed that your orchestrator is currently very unhappy. In this step we will setup an Ethereum light client
-
-We will be using Geth Ethereum light clients for this task. For production Gravity we suggest that you point your Orchestrator at a Geth light client and then configure your light client to peer with full nodes that you control. This provides higher reliability as light clients are very quick to start/stop and resync. Allowing you to for example rebuild an Ethereum full node without having days of Orchestrator downtime.
-
-Geth full nodes do not serve light clients by default, light clients do not trust full nodes, but if there are no full nodes to request proofs from they can not operate. Therefore we are collecting the largest possible
-list of Geth full nodes from our community that will serve light clients.
-
-If you have more than 40gb of free storage, an SSD and extra memory/CPU power, please run a full node and share the node url. If you do not, please use the light client instructions
-
-### Please only run one or the other of the below instructions, both will not work
-
-### Light client instructions
-
-```bash
-
-wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
-tar -xvf geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
-cd geth-linux-amd64-1.10.13-7a0c19f8
-wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml
-./geth --syncmode "light" --http --config geth-light-config.toml
-
-```
-
-### Fullnode instructions
-
-```bash
-
-wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
-tar -xvf geth-linux-amd64-1.10.13-7a0c19f8.tar.gz
-cd geth-linux-amd64-1.10.13-7a0c19f8
-wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml
-./geth --http --config geth-full-config.toml
-
-```
-
-You'll see a url in this format, please note your ip and share both this node url and your ip in chat to add to the light client nodes list
-
-```bash
-INFO [06-10|14:11:03.104] Started P2P networking self=enode://71b8bb569dad23b16822a249582501aef5ed51adf384f424a060aec4151b7b5c4d8a1503c7f3113ef69e24e1944640fc2b422764cf25dbf9db91f34e94bf4571@127.0.0.1:30303
-```
-
-Finally you'll need to wait for several hours until your node is synced. Do not worry your orchestrator will submit signatures to to the Gravity bridge chain during this time.
 
 ## Wait for it
 
