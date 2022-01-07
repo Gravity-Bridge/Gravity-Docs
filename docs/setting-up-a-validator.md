@@ -83,7 +83,7 @@ gravity keys add <my validator key name> --ledger
 
 ### Generate your Delegate keys
 
-There are three keys involved in this process.
+There are four keys involved in this process.
 
 ```text
 Validator Funds key: This is the key you submitted for genesis it starts with `gravity1` and contains your funds
