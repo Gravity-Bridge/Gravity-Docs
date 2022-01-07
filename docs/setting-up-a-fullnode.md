@@ -1,4 +1,4 @@
-# How to run a Gravity testnet full node
+# How to run a Gravity Bridge mainnet full node
 
 A Gravity chain full node is just like any other Cosmos chain.
 Unlike the validator flow no external software is required.

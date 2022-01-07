@@ -28,7 +28,7 @@ sudo mv * /usr/bin/
 
 ```
 
-At specific points during the testnet you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
+At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
 to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.2.0`
 
@@ -93,9 +93,6 @@ gravity keys add <Your Gravity Orchestrator Cosmos Key Name>
 ```
 
 Once we have registered our keys we will also set them in our Orchestrator right away, this reduces the risk of confusion as the chain starts and you need these keys to submit Gravity bridge signatures via your orchestrator.
-
-You can stop your testnet node at this point. If you wish to keep the testnet running you should save this step until
-mainnet start as it will cause your orchestrator to act strangely if you're using the same machine.
 
 ```bash
 gbt init
