@@ -163,7 +163,7 @@ const latestValset = await getLatestValset();
 
 <p> For each member in the valset, the voting power is checked and if less than 66% of the current voting power has unset Ethereum Addresses then the deploy will fail </p> 
 
-6) Use ethers library to deploy contract byte code to running chain: (<a> https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/solidity/contract- deployer.ts#L205 </a>) </br> 
+6) Use ethers library to deploy contract byte code to running chain: (<a> https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/solidity/contract-deployer.ts#L205 </a>) </br> 
 
 ```
   const gravity = (await factory.deploy(
@@ -175,7 +175,7 @@ const latestValset = await getLatestValset();
     overrides
   )) as Gravity;
 ```
- In the ethers documentation (<a> https://docs.ethers.io/v5/api/contract/contract-factory/ #ContractFactory-deploy </a>) </br>
+ In the ethers documentation (<a> https://docs.ethers.io/v5/api/contract/contract-factory/#ContractFactory-deploy </a>) </br>
 
 ```
  Uses the signer to deploy the Contract with args passed into the constructor and returns a Contract which is attached to the address where this contract will be deployed once the transaction is mined.
