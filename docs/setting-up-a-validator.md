@@ -8,6 +8,8 @@ This document is *not* for genesis validators. They should use [settings up your
 
 You will need a key containing some Graviton token. If you wish to participate in the network but not stake Graviton see the guide for [setting up a Gravity Bridge Chain full node](setting-up-a-fullnode.md)
 
+Once your validator is setup consider [setting up a sentry node](basic-sentry-setup.md)
+
 ## Download Gravity chain and the Gravity tools
 
 ```bash
