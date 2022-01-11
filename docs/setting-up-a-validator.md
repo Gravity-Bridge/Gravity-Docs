@@ -237,4 +237,4 @@ gravity tx gravity set-orchestrator-address [validator-address] [orchestrator-ad
 
 ### Fund your delegate keys
 
-Your delegate Ethereum key will need some Gorli ETH, your delegate cosmos key (orchestrator key) will need some tokens as well.
+Your delegate Ethereum key will need some ETH (dust enough), your delegate cosmos key (orchestrator key) will need some tokens as well.
