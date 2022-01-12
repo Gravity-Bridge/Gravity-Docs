@@ -57,17 +57,6 @@ cp genesis.json $HOME/.gravity/config/genesis.json
 
 ```
 
-## Get Validator Operator Key
-The gravity init command generates a validator operator key, you can view with the following command: 
-
-```
-gravity tendermint show-address
-```
-You should see an output like so: 
-```
-gravityvalcons1skoivs1pfpj6ww19tx9de1pwdh2ryoehoddnih
-```
-
 ## Add seed node
 
 Change the seed field in ~/.gravity/config/config.toml to contain the following:
@@ -90,6 +79,22 @@ Or if your key is stored in a ledger device.
 
 ```bash
 gravity keys add <my validator key name> --ledger
+```
+
+## Get Validator Operator Key
+The `gravity keys add <validator key name>` generates a validator operator key. </br>
+You can view it with the following command: 
+
+```
+gravity keys show <validator key name> --bech val
+```
+
+You should see an output like so: 
+```
+- name: <validator key name> 
+  ...
+  address: gravityvaloper<keystring>
+  ...
 ```
 
 ### Generate your Delegate keys
