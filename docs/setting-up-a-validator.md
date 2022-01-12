@@ -57,6 +57,17 @@ cp genesis.json $HOME/.gravity/config/genesis.json
 
 ```
 
+## Get Validator Operator Key
+The gravity init command generates a validator operator key, you can view with the following command: 
+
+```
+gravity tendermint show-address
+```
+You should see an output like so: 
+```
+gravityvalcons1skoivs1pfpj6ww19tx9de1pwdh2ryoehoddnih
+```
+
 ## Add seed node
 
 Change the seed field in ~/.gravity/config/config.toml to contain the following:
