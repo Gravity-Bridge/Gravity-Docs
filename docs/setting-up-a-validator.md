@@ -167,6 +167,8 @@ Once you have completed this setup your node will be started and waiting for the
 
 These lines will allow you to watch the logs coming out of your Gravity full node and Orchestrator as if you where directly attached to the process rather than using systemd. Run each in a separate terminal
 
+Expect to see errors in your Orchestrator service, this will persist until we finish setting up the Orchestrator in the next few steps. Since finishing Orchestrator setup requires a synced Gravity and Ethereum node there's nothing to do about it now.
+
 ```bash
 journalctl -u gravity-node.service -f --output cat
 journalctl -u orchestrator.service -f --output cat
