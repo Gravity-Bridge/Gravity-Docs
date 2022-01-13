@@ -49,11 +49,11 @@ We can do some math to show how `relayer_loop_speed` translates to expected coll
 
 ```text
     expected number of collisions = (num relayers - 1 ) * (block time / relayer_loop_speed)
-    
+
     For a 17 second loop time and two relayers we expect .88 collisions
-    
+
     For a 600 second loop and two relayers we expect .025 collisions
-    
+
     For a 600 second loop and one hundred relayers we expect 2.5 collisions
 ```
 
