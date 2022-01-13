@@ -77,7 +77,7 @@ Suggested fees:
 The easiest way to run this is to paste in a text editor, modify, then paste into a terminal. The first value is the amount you are sending, the second is the amount being paid in the bridge fee. The `--fees` argument is the transaction fee on the Gravity Bridge chain and can be denominated in any token the validators will accept.
 
 ```bash
-gravity tx gravity send-to-eth 0xDESTINATIONONETH 100graviton 5graviton --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-2
+gravity tx gravity send-to-eth 0xDESTINATIONONETH 1000000ugraviton 500ugraviton --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-2
 ```
 
 Once your tx is sent you can wait for a relayer to relay it. If you're getting impatient it is possible to cancel the transaction and get your funds back in your account on the Gravity Bridge chain side of the bridge.
@@ -131,5 +131,5 @@ Gravity Bridge has an open connection to the Osmosis chain. You can find a full 
 You can also use this [Keplr based guide](https://catdotfish.medium.com/getting-started-with-ibc-transfers-276e9ce91e17).
 
 ```bash
-gravity tx ibc-transfer transfer transfer channel-2 osmosis1ADDRESS 10graviton --from yourkeyname --chain-id gravity-bridge-2
+gravity tx ibc-transfer transfer transfer channel-2 osmosis1ADDRESS 1000000ugraviton --from yourkeyname --chain-id gravity-bridge-2
 ```
