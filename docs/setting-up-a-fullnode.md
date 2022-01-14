@@ -10,7 +10,7 @@ A Linux server with any modern Linux distribution, 2gb of ram and at least 20gb 
 ### Download Gravity chain software
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.1/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 chmod +x gravity
@@ -44,5 +44,7 @@ seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656,63e662f5e0
 ### Start your full node and wait for it to sync
 
 ```bash
-gravity start
+gravity start --x-crisis-skip-assert-invariants
 ```
+
+Skipping invariants is required to allow chain start with the validators currently affected by the staking bug still in the state. We will resolve this issue during the next update.
