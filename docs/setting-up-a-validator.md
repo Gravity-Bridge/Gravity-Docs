@@ -180,7 +180,7 @@ journalctl -u geth.service -f --output cat
 you will need to wait for your Gravity Bridge node and Ethereum Node to fully sync before progressing in the instructions
 
 ## Send your validator setup transaction
-
+ 
 ```bash
 
 gravity tx staking create-validator \
