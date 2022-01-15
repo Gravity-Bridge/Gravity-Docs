@@ -82,6 +82,9 @@ gravity keys add <my validator key name> --ledger
 ```
 
 ## Get Validator Operator Key
+You will need to reference the address of the wallet you intend to use for your validator operator. </br>
+If you already have this wallet address skip this step, otherwise the address can be found by following the below.
+
 The `gravity keys add <validator key name>` generates a validator operator key. </br>
 You can view it with the following command: 
 
