@@ -254,7 +254,6 @@ Download and unzip that that file, use the contents to replace your gravity data
 After you replace the gravity data folder, restart your gravity-node. 
 
 ## Send your validator setup transaction
- 
 ```bash
 
 gravity tx staking create-validator \
