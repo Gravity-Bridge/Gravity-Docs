@@ -82,7 +82,27 @@ gravity tx gravity send-to-eth 0xDESTINATIONONETH 1000000ugraviton 500ugraviton 
 
 Once your tx is sent you can wait for a relayer to relay it. If you're getting impatient it is possible to cancel the transaction and get your funds back in your account on the Gravity Bridge chain side of the bridge.
 
-TODO: implement `gravity tx gravity cancel-send-to-eth`
+### Canceling a send to ethereum
+
+If your `send-to-eth` transaction has a fee that is too small you may need to cancel the transaction and increase it. Or you may just want to continue using the tokens on Gravity Bridge. Either way you can cancel the send and have the amount refunded to your account immediately.
+
+First run
+
+```bash
+gravity query gravity pending-send-to-eth gravity1YOURADDRESS
+```
+
+You will see a list of transfers, you can only cancel `unbatched_transfers`. Transfers in batches will eventually time out (after 8 hours currently) if not relayed to Ethereum. At which point they will become available in the unbatched transfers list to cancel.
+
+Once you have the transfer id run the command.
+
+```bash
+gravity tx gravity cancel-send-to-eth TXID
+```
+
+Note this transaction must be from the same private key as the one that sent the original `send-to-eth` message. Only the sender can cancel their own transaction.
+
+As the final step check your balance and confirm the tokens have been refunded. If you do not see the tokens check Ethereum and double check that the transfer you have tried to cancel is in `unbatched_transfers`.
 
 ## Preparing Cosmos originated tokens to send to Ethereum
 
@@ -103,9 +123,7 @@ First check if the token has metadata already set run
 gravity query bank denom-metadata --node https://gravitychain.io:26657
 ```
 
-If metadata is not been set you will need to submit an ERC20MetadataProposal
-
-TODO: implement `gravity tx gov erc20-metadata`
+If metadata is not been set you will need to submit an ERC20MetadataProposal. Please see [custom governance proposals](custom-gov.md). Once this proposal has passed you can move onto deploying the ERC20 contract.
 
 ### Deploying the ERC20 contract
 
