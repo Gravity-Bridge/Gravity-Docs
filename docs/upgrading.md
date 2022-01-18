@@ -21,7 +21,7 @@ The corrected genesis is not yet available, please wait.
 service gravity-node stop
 
 # now we will generate the new genesis.json
-gravity export --height 487540 &> tmp.json
+gravity export --height 487539 &> tmp.json
 jq '' tmp.json > tmp-fmt.json
 jq '.chain_id = "gravity-bridge-3"' tmp-fmt.json > gravity-bridge-3-genesis.json
 md5sum gravity-bridge-3-genesis.json
