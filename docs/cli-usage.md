@@ -18,12 +18,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -31,7 +31,7 @@ sudo mv * /usr/bin/
 
 ### Windows
 
-Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gbt.exe)
+Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gbt.exe)
 
 You will need to open a terminal and nagivate to the directory where these files where downloaded before running any commands.
 
@@ -77,7 +77,7 @@ Suggested fees:
 The easiest way to run this is to paste in a text editor, modify, then paste into a terminal. The first value is the amount you are sending, the second is the amount being paid in the bridge fee. The `--fees` argument is the transaction fee on the Gravity Bridge chain and can be denominated in any token the validators will accept.
 
 ```bash
-gravity tx gravity send-to-eth 0xDESTINATIONONETH 1000000ugraviton 500ugraviton --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-2
+gravity tx gravity send-to-eth 0xDESTINATIONONETH 1000000ugraviton 500ugraviton --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
 ```
 
 Once your tx is sent you can wait for a relayer to relay it. If you're getting impatient it is possible to cancel the transaction and get your funds back in your account on the Gravity Bridge chain side of the bridge.
@@ -149,5 +149,5 @@ Gravity Bridge has an open connection to the Osmosis chain. You can find a full 
 You can also use this [Keplr based guide](https://catdotfish.medium.com/getting-started-with-ibc-transfers-276e9ce91e17).
 
 ```bash
-gravity tx ibc-transfer transfer transfer channel-2 osmosis1ADDRESS 1000000ugraviton --from yourkeyname --chain-id gravity-bridge-2
+gravity tx ibc-transfer transfer transfer channel-2 osmosis1ADDRESS 1000000ugraviton --from yourkeyname --chain-id gravity-bridge-3
 ```

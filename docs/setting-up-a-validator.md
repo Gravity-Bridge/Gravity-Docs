@@ -19,12 +19,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -32,7 +32,7 @@ sudo mv * /usr/bin/
 
 At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.2.2`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.3.2`
 
 ## Download and install geth
 
@@ -53,7 +53,7 @@ The genesis file represents the current state of the blockchain and allows your 
 with the rest.
 
 ```bash
-gravity init mymoniker --chain-id gravity-bridge-2
+gravity init mymoniker --chain-id gravity-bridge-3
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
 cp genesis.json $HOME/.gravity/config/genesis.json
 
@@ -187,7 +187,7 @@ gravity tx staking create-validator \
  --amount=<the amount of graviton you wish to stake>ugraviton \
  --pubkey=$(gravity tendermint show-validator) \
  --moniker="put your validator name here" \
- --chain-id=gravity-bridge-2 \
+ --chain-id=gravity-bridge-3 \
  --from=myvalidatorkeyname \
  --commission-rate="0.10" \
  --commission-max-rate="0.20" \
