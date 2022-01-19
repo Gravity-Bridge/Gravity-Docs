@@ -74,7 +74,9 @@ Optionally review the changes to the genesis.json made in [this pr](https://gith
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
 md5sum ~/.gravity/config/genesis.json
+# md5sum output should be: 03771d094b998b4a39136d11fb7cd338
 diff ~/.gravity/config/genesis.json gravity-bridge-3-genesis.json
+# this diff output will show you the changes made to the genesis to fix the problem
 ```
 
 ```bash
