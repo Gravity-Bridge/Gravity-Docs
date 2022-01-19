@@ -18,12 +18,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -31,7 +31,7 @@ sudo mv * /usr/bin/
 
 ### Windows
 
-Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gbt.exe)
+Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt.exe)
 
 You will need to open a terminal and nagivate to the directory where these files where downloaded before running any commands.
 

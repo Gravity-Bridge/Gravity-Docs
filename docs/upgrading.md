@@ -10,10 +10,6 @@ Since an upgrade proposal has passed no prep is required. Your node will automat
 
 Once your node has halted we will need to wait while the final slashing fixes are applied to the genesis file.
 
-## Wait for it
-
-The corrected genesis is not yet available, please wait.
-
 ## (Optional) Verifying The Upgraded Genesis
 
 ```bash
@@ -30,7 +26,7 @@ md5sum gravity-bridge-3-genesis.json
 You should see
 
 ```text
-<not yet available>
+42c7c1cee8d912ef671af1aad89e7de6  gravity-bridge-3-genesis.json
 ```
 
 This file *will differ* from the published genesis.json. You should perform a diff between your local state and the published state and confirm that the changes are the same as outlined [here](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/20)
@@ -43,12 +39,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.2/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
@@ -73,7 +69,7 @@ ExecStart=/usr/bin/gravity start
 
 ## Restart the chain using the new genesis.json
 
-Optionally confirm that this genesis.json has the same md5sum as the one you generated from your own state earlier
+Optionally review the changes to the genesis.json made in [this pr](https://github.com/Gravity-Bridge/Gravity-Docs/pull/306). By diffing your local copy with the changed version.
 
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
