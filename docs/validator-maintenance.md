@@ -26,7 +26,7 @@ To increase your ugraviton stake, if you have extra tokens lying around. The fir
 
 ```bash
 gravity keys show myvalidatorkeyname --bech val
-gravity tx staking delegate <the address from the above command> 99000000ualtg --from myvalidatorkeyname --chain-id gravity-bridge-3 --fees 1altg --broadcast-mode block
+gravity tx staking delegate <the address from the above command> 99000000ugraviton --from myvalidatorkeyname --chain-id gravity-bridge-3 --fees 1ugraviton --broadcast-mode block
 ```
 
 ## Withdraw your validator rewards
