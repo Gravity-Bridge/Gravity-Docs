@@ -149,5 +149,5 @@ Gravity Bridge has an open connection to the Osmosis chain. You can find a full 
 You can also use this [Keplr based guide](https://catdotfish.medium.com/getting-started-with-ibc-transfers-276e9ce91e17).
 
 ```bash
-gravity tx ibc-transfer transfer transfer channel-2 osmosis1ADDRESS 1000000ugraviton --from yourkeyname --chain-id gravity-bridge-3
+gravity tx ibc-transfer transfer transfer channel-10 osmosis1ADDRESS 1000000ugraviton --from yourkeyname --chain-id gravity-bridge-3
 ```
