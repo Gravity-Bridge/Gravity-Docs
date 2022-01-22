@@ -258,7 +258,7 @@ If the previous step revealed a longer than desired wait time for sync, you can 
 https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
 ```
 
-(This is from the project <a> https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge </a>) </br>
+(This is from the project <https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge> ) </br>
 In the snapshot.json look at the line 'latest', it should look something like:
 
 ```
