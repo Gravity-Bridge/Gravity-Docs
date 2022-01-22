@@ -178,7 +178,7 @@ sudo service geth start
 Once you have completed this setup your node will be started and waiting for the chain to move in the background.
 
 ## Troubleshooting SELinux
-If you are running SELinux and your services are not starting, you may want to try disabling it to see if it resolves the issue </br> 
+If your services are not starting, you may want to try disabling it to see if it resolves the issue </br> 
 ```
 sed -i""  -e "s/SELINUX=enforcing/SELINUX=disabled/" /etc/selinux/config
 ```
