@@ -149,15 +149,6 @@ ExecStart=/usr/bin/gbt orchestrator \
 
 For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
 
-## Add Skip Invariants to Gravity Command
-This will be fixed in a future upgrade, if it is not already fixed follow these steps. </br> 
-Look at the service run script for gravity-node, which should be located at `/etc/systemd/system/gravity-node.service` </br> 
-Update the `ExecStart` line to look like the following: 
-
-```
-ExecStart=/usr/bin/gravity start --x-crisis-skip-assert-invariants
-```
-
 ## Update Geth Service ExecStart Reference
 In the previous step we moved geth to /usr/sbin but the ExecStart may stil reference it in /usr/bin/ </br> 
 Look at the reference by opening the following file: </br>
