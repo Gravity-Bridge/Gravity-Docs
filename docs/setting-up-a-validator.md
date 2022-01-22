@@ -250,9 +250,10 @@ You can calculate remaining time in seconds with:
 (max_peer_height - height) / Fast Sync Rate blocks/s
 ```
 
-## Download Blockchain Snapshot
+## Download Blockchain Snapshot (Optional)
 
-If the previous step revealed a longer than desired wait time for sync, you can download the latest snapshot
+If the previous step revealed a longer than desired wait time for sync, you can download the latest snapshot. </br>
+Note that the most secure way to sync the chain is to sync the data yourself instead of using a snapshot. 
 
 ```
 https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
