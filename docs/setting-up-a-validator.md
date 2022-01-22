@@ -159,6 +159,7 @@ Look at the reference by opening the following file: </br>
 ```
 
 Check and/or update ExecStart references proper location of geth: </br>
+
 ```
 ExecStart=/usr/sbin/geth
 ```
@@ -216,6 +217,7 @@ curl -H "Content-Type:application/json" -X POST -d '{"jsonrpc":"2.0","method":"e
 ```
 
 When result is 'false' that means it is now synced ('true' is not synced).
+
 ### Gravity Node
 
 You can issue the following command to check the sync status of the Gravity Node </br>
@@ -250,13 +252,13 @@ You can calculate remaining time in seconds with:
 
 ## Download Blockchain Snapshot
 
-If the previous step revealed a longer than desired wait time for sync, you can download the latest snapshot 
+If the previous step revealed a longer than desired wait time for sync, you can download the latest snapshot
 
 ```
 https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
 ```
 
-(This is from the project https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge) </br>
+(This is from the project <a> https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge </a>) </br>
 In the snapshot.json look at the line 'latest', it should look something like:
 
 ```
