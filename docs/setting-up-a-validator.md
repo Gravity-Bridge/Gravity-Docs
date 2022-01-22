@@ -74,6 +74,7 @@ We need to import the validator key. This is the key containing Graviton tokens
 ```bash
 gravity keys add <my validator key name> --recover <your seed phrase>
 ```
+
 Or if your key is stored in a ledger device.
 
 ```bash
