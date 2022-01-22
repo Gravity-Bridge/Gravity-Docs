@@ -81,6 +81,7 @@ gravity keys add <my validator key name> --ledger
 ```
 
 #### View your key (optional)
+
 If you need to view the address of your validator operator key, you can do so with the following command: </br>
 
 ```
@@ -90,7 +91,7 @@ gravity keys show <validator key name> --bech val
 You should see an output like so:
 
 ```
-- name: <validator key name> 
+- name: <validator key name>
   ...
   address: gravityvaloper<keystring>
   ...
