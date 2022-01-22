@@ -180,7 +180,7 @@ Once the chains starts your Orchestrator delegate key will need some `ugraviton`
 
 ```bash
 
-gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-2
-gravity tx bank send <validator-key-name> <orchestrator address> 1ugraviton --chain-id gravity-bridge-2
+gravity tx distribution withdraw-all-rewards --from <validator-key-name> --chain-id gravity-bridge-3
+gravity tx bank send <validator-key-name> <orchestrator address> 1ugraviton --chain-id gravity-bridge-3
 
 ```

@@ -18,7 +18,7 @@ to Mac
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -26,7 +26,7 @@ sudo mv * /usr/bin/
 
 ### Windows
 
-Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.2.2/gbt.exe)
+Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt.exe)
 
 You will need to open a terminal and nagivate to the directory where these files where downloaded before running any commands.
 

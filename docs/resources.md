@@ -40,3 +40,8 @@ Not yet online
 
 [google drive](https://drive.google.com/file/d/1LsGK-eBSfAditKHAJDBVQ0RhRRE4e8u0/view?usp=sharing)
 torrent: WIP
+
+### gravity-bridge-2
+
+[google drive](https://drive.google.com/file/d/1gdYvEiLTDEGz1IY0kzhTG0ah5bz26uWW/view?usp=sharing)
+torrent: WIP
