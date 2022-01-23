@@ -115,7 +115,7 @@ In this context 'Cosmos originated' essentially means IBC tokens. Graviton is of
 
 Once all three of these conditions are met, they are permanent, and the token can be moved back and forth freely.
 
-For more information on setting up an IBC channel between your chain and Gravity Bridge, see: https://hermes.informal.systems/
+For more information on setting up an IBC channel between your chain and Gravity Bridge, see: [https://hermes.informal.systems/](https://hermes.informal.systems/)
 
 ### Setting metadata
 
