@@ -149,21 +149,6 @@ ExecStart=/usr/bin/gbt orchestrator \
 
 For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
 
-## Update Geth Service ExecStart Reference
-
-In the previous step we moved geth to /usr/sbin but the ExecStart may stil reference it in /usr/bin/ </br>
-Look at the reference by opening the following file: </br>
-
-```
-/etc/systemd/system/geth.service
-```
-
-Check and/or update ExecStart references proper location of geth: </br>
-
-```
-ExecStart=/usr/sbin/geth
-```
-
 ## Run Validator Services
 
 Now that we have modified these services it's time to set them to run on startup
