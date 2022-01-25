@@ -74,7 +74,8 @@ seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656,63e662f5e0
 We need to import the validator key. This is the key containing Graviton tokens
 
 ```bash
-gravity keys add <my validator key name> --recover <your seed phrase>
+# you will be prompted for your key phrase
+gravity keys add <my validator key name> --recover
 ```
 
 Or if your key is stored in a ledger device.
