@@ -22,8 +22,6 @@ The Gravity Bridge Blockchain contract address is.
 
 ## RPC
 
-Temporary RPC url
-
 provides ABCI on `26657` Legacy RPC on port `1317` and gRPC on port `9090`
 
 ```text
