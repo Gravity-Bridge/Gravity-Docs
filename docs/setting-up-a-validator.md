@@ -19,12 +19,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.4/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.4/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -32,7 +32,7 @@ sudo mv * /usr/bin/
 
 At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.3.3`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.3.4`
 
 ## Download and install geth
 
