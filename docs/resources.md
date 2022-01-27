@@ -2,6 +2,10 @@
 
 This document contains a list of block explorers and frontend interfaces for use with Gravity
 
+## Bridge frontends
+
+[Spacestation](https://spacestation.zone/)
+
 ## Governance Forum
 
 Governance proposals should be coordinated using the [Commonwealth](https://commonwealth.im/gravity-bridge) forum.
@@ -16,9 +20,7 @@ Governance proposals should be coordinated using the [Commonwealth](https://comm
 
 The Gravity Bridge Blockchain contract address is.
 
-```text
-0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906
-```
+[0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906)
 
 ## RPC
 
@@ -27,10 +29,6 @@ provides ABCI on `26657` Legacy RPC on port `1317` and gRPC on port `9090`
 ```text
 https://gravitychain.io
 ```
-
-## Bridge frontends
-
-[Spacestation](https://spacestation.zone/)
 
 ## Chain history snapshots
 
