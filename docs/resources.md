@@ -10,7 +10,7 @@ Governance proposals should be coordinated using the [Commonwealth](https://comm
 
 - [Mintscan Explorer](https://www.mintscan.io/gravity-bridge)
 - [Aneka Explorer](https://gravity.aneka.io/)
-- [Skynet Explorer](https://gravity-bridge.skynetexplorers.com/)
+- [Skynet Explorer](https://www.skynetexplorers.com/gravity-bridge)
 
 ## Gravity.sol Contract Address
 
