@@ -28,9 +28,9 @@ provides ABCI on `26657` Legacy RPC on port `1317` and gRPC on port `9090`
 https://gravitychain.io
 ```
 
-## Bridge frontend
+## Bridge frontends
 
-Not yet online
+[Spacestation](https://spacestation.zone/)
 
 ## Chain history snapshots
 
