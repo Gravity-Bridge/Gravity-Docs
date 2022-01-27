@@ -30,6 +30,48 @@ provides ABCI on `26657` Legacy RPC on port `1317` and gRPC on port `9090`
 https://gravitychain.io
 ```
 
+## Testnet
+
+The Gravity Bridge testnet is simply a copy of the [local developer environment](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/docs/developer/environment-setup.md) exposed to the outside world.
+
+Testnet RPC
+
+```text
+http://testnet.gravitychain.io:1317  # Legacy RPC
+http://testnet.gravitychain.io:9090  # gRPC
+http://testnet.gravitychain.io:26657 # ABCI
+
+http://testnet.gravitychain.io:8545  # Ethereum
+```
+
+Keys containing test tokens
+
+This is the private key for validator1 on the testnet
+
+```text
+actual choose example drift protect motor era step company resource auto tower trap hire ripple attitude stem mask riot general pen brass stand clown
+```
+
+This is the private key for the Ethereum miner, it has access to ETH and several ERC20's pre-deployed
+
+```text
+0xb1bab011e03a9862664706fc3bbaa1b16651528e5f0e7fbfcbfdd8be302a13e7
+```
+
+Test Gravity Bridge Address DO NOT SEND REAL FUNDS HERE, THIS IS A TESTNET ADDRESS
+
+```text
+0xD7600ae27C99988A6CD360234062b540F88ECA43
+```
+
+ERC20 tokens to test with, the miner private key has access
+
+```text
+0x0412C7c846bb6b7DC462CF6B453f76D8440b2609
+0x30dA8589BFa1E509A319489E014d384b87815D89
+0x9676519d99E390A180Ab1445d5d857E3f6869065
+```
+
 ## Chain history snapshots
 
 ### gravity-bridge-1
