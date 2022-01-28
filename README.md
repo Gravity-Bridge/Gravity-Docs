@@ -12,4 +12,14 @@
 
 ## Status
 
-The Gravity Bridge Blockchain is online! See the Resources page for integration details.
+The Gravity Bridge Blockchain is online! See the Resources page for frontends and integration details.
+
+## Quick info
+
+[Spacestation Frontend](https://spacestation.zone/)
+
+[Mintscan Explorer](https://www.mintscan.io/gravity-bridge)
+
+[Ethereum Contract](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906)
+
+[gravitybridge.net](https://www.gravitybridge.net/)
