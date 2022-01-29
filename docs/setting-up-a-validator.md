@@ -43,7 +43,7 @@ wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.15-8be
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml -O /etc/geth-light-config.toml
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml -O /etc/geth-full-config.toml
 tar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
-cd geth-linux-amd64-1.10.15-8be800ff.tar.gz
+cd geth-linux-amd64-1.10.15-8be800ff
 mv geth /usr/sbin/
 ```
 
