@@ -11,7 +11,7 @@ cd gravity-bin
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.5/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
