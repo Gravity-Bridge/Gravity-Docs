@@ -1,9 +1,10 @@
-#
+# **Current IBC channels between Gravity Bridge and other chains**
+IBC channels are added based on community consensus<br><br>
 **Osmosis** (osmosis-1)
 | Gravity Bridge  | Osmosis |
 | ------------- | ------------- | 
-| Channel-10  | Channel-144  |
-#
+| Channel-10  | Channel-144  | 
+  
 **ATOM** (cosmoshub-4)
 | Gravity Bridge  | Cosmos | 
 | ------------- | ------------- | 
