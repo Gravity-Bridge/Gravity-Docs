@@ -49,7 +49,7 @@ Keys containing test tokens
 This is the private key for validator1 on the testnet
 
 ```text
-actual choose example drift protect motor era step company resource auto tower trap hire ripple attitude stem mask riot general pen brass stand clown
+frequent again glass wall crack glad eye work pencil color outside cabin puppy tomato other cave metal speak deposit universe spawn scatter apple flash
 ```
 
 This is the private key for the Ethereum miner, it has access to ETH and several ERC20's pre-deployed
@@ -82,4 +82,9 @@ torrent: WIP
 ### gravity-bridge-2
 
 [google drive](https://drive.google.com/file/d/1gdYvEiLTDEGz1IY0kzhTG0ah5bz26uWW/view?usp=sharing)
+torrent: WIP
+
+### gravity-bridge-3 quicksync snapshot
+
+[google drive](https://drive.google.com/file/d/1_zdRpvhKCpyeAM43tLZD1XSYbXu7ZLmR/view?usp=sharing)
 torrent: WIP
