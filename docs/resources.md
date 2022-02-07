@@ -49,7 +49,7 @@ Keys containing test tokens
 This is the private key for validator1 on the testnet
 
 ```text
-glance better tobacco ridge nominee example soda position twenty panel swamp enrich absurd leopard slam road enter ugly track option aisle enjoy camera acoustic
+hope easy account equal cream cousin next hire tiger oppose sail ski school buzz grocery solve ahead chunk spoon spike capable inch poem sample
 ```
 
 This is the private key for the Ethereum miner, it has access to ETH and several ERC20's pre-deployed
