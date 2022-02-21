@@ -4,6 +4,7 @@
 
 1. [Resources](/docs/resources.md)
 1. [Delegating](/docs/delegating.md)
+1. [Using Gravity Bridge to create ERC20 representations](/docs/erc20-representation.md)
 1. [Using Gravity Bridge via the CLI](/docs/cli-usage.md)
 1. [Setting up a fullnode](/docs/setting-up-a-fullnode.md)
 1. [Setting up a validator](/docs/setting-up-a-validator.md)
@@ -18,6 +19,7 @@ The Gravity Bridge Blockchain is online! See the Resources page for frontends an
 ## Quick info
 
 [Blockscape Frontend](https://bridge.blockscape.network/#/)
+
 [Spacestation Frontend](https://spacestation.zone/)
 
 [Mintscan Explorer](https://www.mintscan.io/gravity-bridge)
