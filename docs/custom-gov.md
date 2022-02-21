@@ -1,6 +1,9 @@
 # Gravity Bridge specific governance proposals
 
-Gravity Bridge has a series of custom governance proposal types. This documents what these proposal types are and how to submit them.
+If you are looking to create a proposal please post on the [Commonwealth](https://commonwealth.im/gravity-bridge) forum to gather sentiment
+and advice.
+
+Gravity Bridge has a series of custom governance proposal types. This documents what these proposal types are and how to submit them at a technical level.
 
 ## IBC metadata
 

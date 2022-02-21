@@ -4,8 +4,8 @@ This document contains a list of block explorers and frontend interfaces for use
 
 ## Bridge frontends
 
-[Blockscape](https://bridge.blockscape.network/#/)
-[Spacestation](https://spacestation.zone/)
+- [Blockscape](https://bridge.blockscape.network/#/)
+- [Spacestation](https://spacestation.zone/)
 
 ## Governance Forum
 

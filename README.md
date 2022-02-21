@@ -9,6 +9,7 @@
 1. [Setting up a validator](/docs/setting-up-a-validator.md)
 1. [Validator maintenance](/docs/validator-maintenance.md)
 1. [Relaying for Gravity Bridge](/docs/relaying.md)
+1. [Governance proposal creation guide](/docs/custom-gov.md)
 
 ## Status
 
