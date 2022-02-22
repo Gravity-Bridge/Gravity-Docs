@@ -19,12 +19,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -32,7 +32,7 @@ sudo mv * /usr/bin/
 
 At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.3.3`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.3.5`
 
 ## Download and install geth
 
@@ -74,13 +74,31 @@ seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656,63e662f5e0
 We need to import the validator key. This is the key containing Graviton tokens
 
 ```bash
-gravity keys add <my validator key name> --recover <your seed phrase>
+# you will be prompted for your key phrase
+gravity keys add <my validator key name> --recover
 ```
 
 Or if your key is stored in a ledger device.
 
 ```bash
 gravity keys add <my validator key name> --ledger
+```
+
+#### View your key (optional)
+
+If you need to view the address of your validator operator key, you can do so with the following command: </br>
+
+```
+gravity keys show <validator key name> --bech val
+```
+
+You should see an output like so:
+
+```
+- name: <validator key name>
+  ...
+  address: gravityvaloper<keystring>
+  ...
 ```
 
 ### Generate your Delegate keys
@@ -149,6 +167,8 @@ ExecStart=/usr/bin/gbt orchestrator \
 
 For the Geth node, if you are going to run a geth full node delete lines 11-15 and uncomment lines 17-21
 
+## Run Validator Services
+
 Now that we have modified these services it's time to set them to run on startup
 
 ```bash
@@ -163,6 +183,18 @@ sudo service geth start
 
 Once you have completed this setup your node will be started and waiting for the chain to move in the background.
 
+## Troubleshooting SELinux
+
+If your services are not starting, you may want to try disabling it to see if it resolves the issue </br>
+
+```
+sed -i""  -e "s/SELINUX=enforcing/SELINUX=disabled/" /etc/selinux/config
+```
+
+```
+setenforce 0
+```
+
 ## Monitoring your logs
 
 These lines will allow you to watch the logs coming out of your Gravity full node and Orchestrator as if you where directly attached to the process rather than using systemd. Run each in a separate terminal
@@ -175,9 +207,75 @@ journalctl -u orchestrator.service -f --output cat
 journalctl -u geth.service -f --output cat
 ```
 
-## Wait for it
+## Observe Sync Status and Time Remaining
 
-you will need to wait for your Gravity Bridge node and Ethereum Node to fully sync before progressing in the instructions
+You will need to wait for your Gravity Bridge node and Ethereum Node to fully sync before progressing in the instructions </br>
+
+### Ethereum
+
+You can view the status of your Ethereum node by issuing the following command: </br>
+
+```
+curl -H "Content-Type:application/json" -X POST -d '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://127.0.0.1:8545
+```
+
+When result is 'false' that means it is now synced ('true' is not synced).
+
+### Gravity Node
+
+You can issue the following command to check the sync status of the Gravity Node </br>
+
+```
+gravity status 2>&1| jq .SyncInfo.catching_up
+```
+
+Value of 'false' means that it is now synced, 'true' means that sync is still in process.
+
+### Look at Time Remaining for Gravity Sync
+
+If you look at your journal logs for gravity-node like so:
+
+```
+journalctl -u gravity-node.service -f --output cat
+```
+
+You should see a message in the logs that looks like (search for 'fast'):
+
+```
+9:49PM INF committed state app_hash=76B7FFFA844FA8EABA6E2C400DBE53C22A6F94A36E41922F06C0D57417E118EB height=350595 module=state num_txs=1
+9:49PM INF Fast Sync Rate blocks/s=6.0707074013746825 height=350596 max_peer_height=422352 module=blockchain
+9:49PM INF indexed block height=350595 module=txindex
+```
+
+You can calculate remaining time in seconds with:
+
+```
+(max_peer_height - height) / Fast Sync Rate blocks/s
+```
+
+## Download Blockchain Snapshot (Optional)
+
+If the previous step revealed a longer than desired wait time for sync, you can download the latest snapshot. </br>
+Note that the most secure way to sync the chain is to sync the data yourself instead of using a snapshot.
+
+```
+https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
+```
+
+(This is from the project <https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge> ) </br>
+In the snapshot.json look at the line 'latest', it should look something like:
+
+```
+"latest": "https://cosmos-snapshots.s3.filebase.com/gravitybridge/gravity-bridge-<date>-<time>.tar.gz"
+```
+
+Download and unzip that that file, use the contents to replace your gravity data folder which should be located at:
+
+```
+.gravity/data/
+```
+
+After you replace the gravity data folder, restart your gravity-node.
 
 ## Send your validator setup transaction
 

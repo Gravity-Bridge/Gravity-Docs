@@ -18,7 +18,7 @@ to Mac
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -26,7 +26,7 @@ sudo mv * /usr/bin/
 
 ### Windows
 
-Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.3.3/gbt.exe)
+Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt.exe)
 
 You will need to open a terminal and nagivate to the directory where these files where downloaded before running any commands.
 
@@ -78,4 +78,26 @@ gbt relayer \
 --cosmos-grpc https://gravitychain.io:9090
 --ethereum-rpc https://eth.althea.net
 --gravity-contract-address "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906" \
+```
+
+## Relaying a specific token
+
+Please see the [reference config](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/orchestrator/gbt/src/default-config.toml).
+
+By placing the following config block into `~/.gbt/config` you can configure your relayer to relay all profitable batches at the provided profit margin. With profitable being defined
+as the price in Uniswap vs ETH spent to relay the batch. You can also add specific whitelisted tokens where you will relay any batch with a reward above the given value.
+
+For both these parameters it is possible to set low values. For example an `amount` of zero in the whitelist will relay any batch of that token type without regard for reward. Likewise a `margin` value less than `1.0` will relay batches that only partially cover the cost of relaying.
+
+```text
+# Use whitelist mode to relay tokens which may not be listed
+# in Uniswap, or if you want to relay a specific type for free
+# you can set the amount to "0"
+#
+[relayer.batch_relaying_mode]
+mode = "ProfitableWithWhitelist"
+margin = 1.5
+[[relayer.batch_relaying_mode.whitelist]]
+token = "0x6Bd41fCdF129297c3524395d669c0865b3CA85B2"
+amount = "50000"
 ```
