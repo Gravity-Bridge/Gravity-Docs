@@ -82,7 +82,7 @@ Note a few key elements here. The base denom and the `ibc_denom` field must line
 Once you have formed your `proposal.json` simply submit it
 
 ```bash
-gravity tx gravity gov-ibc-metadata proposal.json 10000000ugraviton
+gravity tx gravity gov-ibc-metadata proposal.json 10000000ugraviton --from <key_name> --chain-id gravity-bridge-3
 ```
 
 Once the proposal has passed confirm your metadata has been set
