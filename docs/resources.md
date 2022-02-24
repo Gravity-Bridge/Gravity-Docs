@@ -16,6 +16,7 @@ Governance proposals should be coordinated using the [Commonwealth](https://comm
 - [Mintscan Explorer](https://www.mintscan.io/gravity-bridge)
 - [Aneka Explorer](https://gravity.aneka.io/)
 - [Skynet Explorer](https://www.skynetexplorers.com/gravity-bridge)
+- [Atomscan Explorer](https://atomscan.com/gravity-bridge)
 
 ## Gravity.sol Contract Address
 
@@ -87,5 +88,5 @@ torrent: WIP
 
 ### gravity-bridge-3 quicksync snapshot
 
-[google drive](https://drive.google.com/file/d/1_zdRpvhKCpyeAM43tLZD1XSYbXu7ZLmR/view?usp=sharing)
+[google drive](https://drive.google.com/file/d/1Ht7GK9x7cHDf-7hgvYfPuczaixv8TCsb/view?usp=sharing)
 torrent: WIP
