@@ -46,7 +46,7 @@ The easiest way to run the command is to paste the following in a text editor, m
 
 ```bash
 gbt client eth-to-cosmos --amount 10.5 \
---token-contact-address "0xERC20ADDRESS" \
+--token-contract-address "0xERC20ADDRESS" \
 --destination "gravity1EXAMPLEADDRESS" \
 --ethereum-key "0xETHPRIVATEKEY" \
 --gravity-contract-address "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906" \
