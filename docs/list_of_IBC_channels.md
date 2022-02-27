@@ -10,4 +10,4 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 **ATOM** (cosmoshub-4)
 | Gravity Bridge  | Cosmos |
 | ------------- | ------------- |
-| Channel-17  | Channel-144  |
+| Channel-17  | Channel-281  |
