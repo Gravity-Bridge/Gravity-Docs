@@ -5,6 +5,7 @@
 1. [Resources](/docs/resources.md)
 1. [Delegating](/docs/delegating.md)
 1. [Using Gravity Bridge to create ERC20 representations](/docs/erc20-representation.md)
+1. [Creating a Gravity Bridge frontend](/docs/frontend-creation.md)
 1. [Using Gravity Bridge via the CLI](/docs/cli-usage.md)
 1. [Setting up a fullnode](/docs/setting-up-a-fullnode.md)
 1. [Setting up a validator](/docs/setting-up-a-validator.md)
