@@ -103,47 +103,6 @@ Note that this transaction must be from the same private key as the one that sen
 
 As the final step, check your balance and confirm the tokens have been refunded. If you do not see the tokens check Ethereum and reconfirm that the transfer you have tried to cancel is in `unbatched_transfers`.
 
-## Preparing Cosmos originated tokens to send to Ethereum
-
-In order to send Cosmos-originated tokens to Ethereum there are three prerequisites.
-
-1) An IBC channel must be established between your chain and Gravity Bridge
-2) The token must have metadata set
-3) An ERC20 representation must be deployed
-
-In this context 'Cosmos originated' essentially means IBC tokens. Graviton is of course included with its metadata already set, as it is the native token.
-
-Once all three of these conditions are met, they are permanent, and the token can be moved back and forth freely.
-
-For more information on setting up an IBC channel between your chain and Gravity Bridge, see: [https://hermes.informal.systems/](https://hermes.informal.systems/)
-
-### Setting metadata
-
-First check if the token has metadata already set run:
-
-```bash
-gravity query bank denom-metadata --node https://gravitychain.io:26657
-```
-
-If metadata is not been set you will need to submit an ERC20MetadataProposal. Please see [custom governance proposals](custom-gov.md) for reference. Once this proposal has passed, you can move onto deploying the ERC20 contract.
-
-### Deploying the ERC20 contract
-
-This step involves deploying an ERC20 contract on Ethereum, the validators of the Gravity Bridge will then check this ERC20 and if it is valid, it will be adopted as the representation of this token-type.
-
-You will need to provide an Ethereum key with enough Ethereum to cover the 700k gas required to deploy the contract. We suggest doing this early morning PST as this is when gas prices are lowest.
-
-```bash
-gbt client deploy-erc20-representation \
---cosmos-denom "denom of the token goes here, use the ibc/ or just graviton"
---ethereum-key "0xETHPRIVATEKEY" \
---gravity-contract-address "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906" \
---ethereum-rpc https://eth.althea.net
---cosmos-grpc https://gravitychain.io:9090
-```
-
-Once your contract is deployed `gbt` will monitor the adoption process and let you know if the validators accept it. After that you can send the tokens to Ethereum following the instructions above.
-
 ## Sending tokens on Gravity Bridge to Osmosis via IBC
 
 Gravity Bridge has an open connection to the Osmosis chain. You can find a full list of channels on Gravity Bridge [here](https://www.mintscan.io/gravity-bridge/relayers).
