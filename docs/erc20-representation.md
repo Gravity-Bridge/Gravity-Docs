@@ -114,5 +114,5 @@ Now that the ERC20 representation is deployed it's time to actually use the newl
 The following command will put some tokens into the batch pool. It will take some time for a relayer to relay them, once the token is listed in Uniswap relayers will automatically relay profitable batches right away.
 
 ```bash
-gravity tx gravity send-to-eth 0xDESTINATIONONETH 1000000ibc/hash 500ibc/hash --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
+gravity tx gravity send-to-eth gravityORIGIN_ADDRESS 0xDESTINATIONONETH 1000000ibc/hash 500ibc/hash --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
 ```
