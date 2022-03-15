@@ -99,9 +99,9 @@ You will need to provide an Ethereum key with enough Ethereum to cover the 700k 
 
 ```bash
 gbt client deploy-erc20-representation \
---cosmos-denom "denom of the token goes here, use the ibc/hash or just graviton"
+--cosmos-denom "denom of the token goes here, use the ibc/hash or just graviton" \
 --ethereum-key "0xETHPRIVATEKEY" \
---ethereum-rpc https://eth.althea.net
+--ethereum-rpc https://eth.althea.net \
 --cosmos-grpc https://gravitychain.io:9090
 ```
 
