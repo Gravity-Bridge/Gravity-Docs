@@ -19,7 +19,7 @@ Communication with the Gravity Bridge team and the Gravity Community are essenti
 
 ## Proposed Grant Amount 
 
-290K GRAV in total, 250K GRAV to be awarded in four installments. 25% awarded upon receipt of grant; 25% awarded upon awarded upon completion of user selectable menu displaying ERC20 ETH tokens + Metamask / Keplr integration, 25% awarded upon completion of option to send ERC 20 Gravity or IBC to other cosmos chains + withdraw back across bridge to ETH with fee selection. 25% awarded upon final review and verdict that all milestones and functionalities are completed and functioning. 40k GRAV paid to MKT Team, who are administering the grant application, selection and administration of the grant.
+290K GRAV in total, 250K GRAV to be awarded in four installments. 25% awarded upon receipt of grant; 25% awarded upon awarded upon completion of user selectable menu displaying ERC20 ETH tokens + Metamask / Keplr integration, 25% awarded upon completion of option to send ERC 20 Gravity or IBC to other cosmos chains + withdraw back across bridge to ETH with fee selection. 25% awarded upon final review and verdict that all milestones and functionalities are completed and functioning. 40k GRAV paid to MKT Team, who are responsible for administration of the grant process.
 
 Project completion will be determined by Gravity Grants working groups and members of the core Gravity contributors. Gravity multi-sig holders will disburse funds. If the awardee disagrees with the MKT team* or Gravity working group’s decision, a governance vote can be held to overrule the decision.
 
