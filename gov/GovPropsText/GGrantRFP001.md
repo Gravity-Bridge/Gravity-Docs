@@ -1,4 +1,4 @@
-##  Proposal for Gravity Grants RFP #1 (Gravity Bridge GUI/Front end)
+##  Proposal for Gravity Grants RFP No. 1 (Gravity Bridge GUI/Front end)
 
 The Gravity Bridge community proposes to allocate 290,000 Gravitons towards a UI enhancement, specifically an independent front end with the feature set laid out in the signaling proposal from March 10, 2022 (Signaling proposal for first Gravity Grant RFP - additional GUI/front end).\n\n
 
