@@ -99,4 +99,4 @@ Zaki Manian, Sommelier/Iqlusion<br>
 Ethan Kravitz, AGE Fund<br>
 Žygimantas Magelinskas, Figment
 
-For more about grant admin team MKT: For more about grant admin team MKT: [enter link description here](https://commonwealth.im/gravity-bridge/discussion/4055-introduction-mkt-team-gravity-grant-administrator)
+For more about grant admin team MKT: For more about grant admin team MKT: [https://commonwealth.im/gravity-bridge/discussion/4055-introduction-mkt-team-gravity-grant-administrator](https://commonwealth.im/gravity-bridge/discussion/4055-introduction-mkt-team-gravity-grant-administrator)
