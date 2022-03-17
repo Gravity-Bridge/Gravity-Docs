@@ -105,4 +105,8 @@ Describe your communication strategies while meeting grant deliverables. Be sure
 
 \n\n This proposal, if passed, would disperse the requested Community Pool funds (290k GRAV) to a multi-sig account, which will disperse the funds to the individual or team selected to complete this grant proposal (as well as funds to MKT team for administration).
 
-\n\nThe members of the multi-sig will be:\n\n Zaki Manian, Sommelier/Iqlusion\n NEthan Kravitz, AGE Fund\n Žygimantas Magelinskas, Figment\n\n
+The members of the multi-sig will be:
+
+Zaki Manian, Sommelier/Iqlusion
+Ethan Kravitz, AGE Fund
+Žygimantas Magelinskas, Figment
