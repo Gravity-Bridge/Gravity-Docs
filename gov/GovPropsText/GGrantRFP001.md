@@ -13,7 +13,7 @@ The proposed front end interface should be able to perform the following functio
 -   Option to send selected ERC-20 tokens to Gravity Bridge or another Cosmos chain
 -   Withdraw EVM tokens/Ethereum from Gravity Bridge/Cosmos back to their native state on Ethereum, and provide the user the option to choose between speed and cost (Low fees: send as a batched transaction, to be processed once a batch is filled -- Medium fees: Transaction observes gas fee fluctuations over a period of time (typically 1-3 hours) until median fee is sufficient for a relayer to profitably process the batch -- High fees: Instant transaction)
 -   Optional: ability to connect with additional wallets
--   Preferred: Open source code\n\n
+-   Preferred: Open source code
 
 Communication with the Gravity Bridge team and the Gravity Community are essential steps throughout the completion of this grant. Grant recipients will be expected to create a communication interface between teams and develop a methodology to transparently convey those updates to the community.
 
@@ -60,9 +60,9 @@ The review team will take their final recommendations to the multi-sig holders i
 
 ### Application Overview
 
-Applications must be submitted online using the online application form. Applicants are encouraged to prepare all items for the application before beginning the online submission process. \n\n
+Applications must be submitted online using the online application form. Applicants are encouraged to prepare all items for the application before beginning the online submission process.
 
-Applicants should use the following overview as a checklist to ensure that they submit a complete application: \n\n
+Applicants should use the following overview as a checklist to ensure that they submit a complete application:
 
 **Application information**
 - Applicant name
@@ -103,7 +103,7 @@ Describe your communication strategies while meeting grant deliverables. Be sure
 
 ### Closing
 
-\n\n This proposal, if passed, would disperse the requested Community Pool funds (290k GRAV) to a multi-sig account, which will disperse the funds to the individual or team selected to complete this grant proposal (as well as funds to MKT team for administration).
+This proposal, if passed, would disperse the requested Community Pool funds (290k GRAV) to a multi-sig account, which will disperse the funds to the individual or team selected to complete this grant proposal (as well as funds to MKT team for administration).
 
 The members of the multi-sig will be: <br><br>
 Zaki Manian, Sommelier/Iqlusion<br>
