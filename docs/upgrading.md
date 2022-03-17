@@ -1,35 +1,50 @@
-# Gravity bridge 3 upgrade
+# Gravity bridge Mercury Upgrade
 
-As outlined in this [governance proposal](https://www.mintscan.io/gravity-bridge/proposals/6)
+As outlined in this [governance proposal](https://www.mintscan.io/gravity-bridge/proposals/27)
 
-We are upgrading from `gravity-bridge-2` to `gravity-bridge-3` in order to provide a fix to those affected by the staking and delegation bug and deploy improvements to the IBCMetadata and Airdrop custom governance proposals. These upgrades will allow the Gravity Bridge community to move forward with more advanced usage of the bridge.
+Gravity Bridge will be upgrading to Mercury, a version which includes several new features.
+
+* IBC forwarding from Ethereum directly to a destination chain
+
+* 5% minimum staking commission enforcement
+
+* Improved indexing / store configuration
+
+* Improved query endpoints for claims
+
+* Improvements for Airdrops of Ethereum tokens
+
+* Improved security checks for bridge operations
+
+* Upgrade to CosmosSDK v0.44.6
+
+This upgrade *will not* change the chain-id and will occur at block height `1282013`
 
 ## Preparing for the upgrade
 
 Since an upgrade proposal has passed no prep is required. Your node will automatically halt at the correct height.
 
-Once your node has halted we will need to wait while the final slashing fixes are applied to the genesis file.
+## Backup your node
 
-## (Optional) Verifying The Upgraded Genesis
+If your node has not yet halted at block `1282013` you are too early! Please wait.
+
+Once your node has halted **Once your node has halts you must backup your chain state**. Make a complete copy of your `$HOME/.gravity` folder.
 
 ```bash
-# first stop your node to gain access to the database
-service gravity-node stop
-
-# now we will generate the new genesis.json
-gravity export --height 487539 &> tmp.json
-jq '' tmp.json > tmp-fmt.json
-jq '.chain_id = "gravity-bridge-3"' tmp-fmt.json > gravity-bridge-3-genesis.json
-md5sum gravity-bridge-3-genesis.json
+tar -czvf gravity-bridge-pre-mercury.tar.gz ~/.gravity
 ```
 
-You should see
+This will take a long time to run, you will need a hundred GB or more free disk space. If you do not have sufficient disk space to backup your entire gravity folder backup your `priv_validator_state.json`
 
-```text
-42c7c1cee8d912ef671af1aad89e7de6  gravity-bridge-3-genesis.json
+```bash
+cp ~/.gravity/data/priv_validator_state.json validator-state-backup.json
 ```
 
-This file *will differ* from the published genesis.json. You should perform a diff between your local state and the published state and confirm that the changes are the same as outlined [here](https://github.com/Gravity-Bridge/Gravity-Bridge/pull/20)
+If all goes well you will not need either of these. If the upgrade fails we will roll back to this backup state and try to run it again, if you don't have a backup you will be unable to roll back, or worse you may double sign.
+
+## Double check your backups
+
+Read the previous section again, make sure you followed the steps correctly. You probably won't need these backups but if you do need them they will help keep you from getting slashed or being unable to rejoin the validator set.
 
 ## Upgrading node software
 
@@ -39,52 +54,27 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
 
-## Backup old chain state
-
-Hopefully you won't need this, but if you do you'll be glad to have it. You may want to keep this archive around for future reference.
+## Restart the chain
 
 ```bash
-tar -czvf gravity-bridge-2.tar.gz ~/.gravity
-```
-
-## Remove skipping invariants
-
-To prepare for the last upgrade you added the launch argument to skip invariants. That can now be removed since the chain state has been corrected.
-
-If you have followed the guide for [setting up your validator](/docs/setting-up-a-validator.md) then the file you need to edit is `/etc/systemd/system/gravity-node.service` and remove the argument `--x-crisis-skip-assert-invariants`
-
-```text
-ExecStart=/usr/bin/gravity start
-```
-
-## Restart the chain using the new genesis.json
-
-Optionally review the changes to the genesis.json made in [this pr](https://github.com/Gravity-Bridge/Gravity-Docs/pull/306). By diffing your local copy with the changed version.
-
-```bash
-wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
-md5sum ~/.gravity/config/genesis.json
-# md5sum output should be: 03771d094b998b4a39136d11fb7cd338
-diff ~/.gravity/config/genesis.json gravity-bridge-3-genesis.json
-# this diff output will show you the changes made to the genesis to fix the problem
-```
-
-```bash
-wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/genesis.json -O ~/.gravity/config/genesis.json
-gravity unsafe-reset-all
-systemctl daemon-reload
 service gravity-node start
 service orchestrator restart
 ```
 
-Now we wait for the blockchain to successfully resume.
+Your node will be slow to start as it performs the migrations, after that we will wait for all the other validators to join for the chain to resume.
+
+A few tips
+
+* In place upgrades have a different risk profile than genesis upgrades, a lot more care needs to be taken with your local state and the potential for double signing
+* Once your node is setup and waiting for a block feel free to go to sleep or walk away for a while.
+* If you get an unexpected error ask in the chat before restarting your node
