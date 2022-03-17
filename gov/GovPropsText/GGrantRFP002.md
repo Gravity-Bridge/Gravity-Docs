@@ -19,8 +19,10 @@ Communication with the Gravity Bridge team and the Gravity Community are essenti
 
 The Snapshot Gravity Grant is open to a team or individual. Grants will be disbursed as GRAV, so applicants must supply a single valid GRAV address.
 
+
 ### Proposal Deadline
-March 18, 2022
+
+March 24, 2022
 
 ### Timeline of Granting Process
 
@@ -44,7 +46,6 @@ The review team will be composed of volunteer Gravity groups, Gravity developers
 Applications will be assessed for the quality of proposed activities and the capability of the applicants to implement those activities.
 
 The review team will take their final recommendations to the multi-sig holders in the form of a public recommendation in the Commonwealth forum. The forum post should solicit community input for 3 days. The review team will direct the multi-sig holders to send funds to the applicant no later than 5 business days after the grant contract is signed.
-
 
 ## Application Information
 
@@ -94,7 +95,7 @@ Describe your communication strategies while meeting grant deliverables. Be sure
 
 This proposal, if passed, would disperse the requested Community Pool funds (190k GRAV) to a multi-sig account, which will disperse the funds to the individual or team selected to complete this grant proposal (150K GRAV) as well as funds (40K GRAV) to MKT team for administration of the grant).
 
-The members of the multi-sig will be:
-<br><br> Zaki Manian, Sommelier/Iqlusion<br>
+The members of the multi-sig will be: <br>
+Zaki Manian, Sommelier/Iqlusion<br>
 Ethan Kravitz, AGE Fund<br>
 Žygimantas Magelinskas, Figment
