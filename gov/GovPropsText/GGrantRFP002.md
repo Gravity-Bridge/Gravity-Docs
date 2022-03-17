@@ -1,4 +1,4 @@
-# Automated Snapshots of Gravity Bridge Blockchain
+# Automated Snapshots of Gravity Bridge Blockchain (Gravity Grant RFP #2)
 
 ## General Information
 
