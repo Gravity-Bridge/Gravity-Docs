@@ -6,7 +6,7 @@ The Gravity Bridge community proposes to allocate 290,000 Gravitons towards a UI
 
 The objective of the GUI Gravity Grant is to build and maintain an independent front end to integrate with the Gravity Bridge. Grant recipients will partner together with the Gravity Bridge team to iterate on UX and integrate with new EVM chains and Cosmos Blockchains. For example, additional ERC-20 or Cosmos tokens could be suggested, as well as changes to the UI or UX flow.
 
-The proposed front end interface should be able to perform the following functions:\n\n
+The proposed front end interface should be able to perform the following functions:
 
 - A menu displaying ERC-20 tokens and Ethereum, from which the user can select the token they wish to send
 - Integration of Keplr wallet and MetaMask for signing Cosmos and Ethereum transactions
