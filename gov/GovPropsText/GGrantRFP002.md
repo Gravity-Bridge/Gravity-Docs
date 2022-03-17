@@ -13,7 +13,7 @@ Communication with the Gravity Bridge team and the Gravity Community are essenti
 
 ## Grant Amount
 
-150K GRAV, awarded in four installments: 25% awarded upon receipt of grant, 50% upon preview of website and functionalities working in beta form, 25% awarded upon project completion and 40k GRAV paid to MKT Team, who are responsible for administration of the grant process.
+190K GRAV total, 150K awarded in four installments: 25% awarded upon receipt of grant, 50% upon preview of website and functionalities working in beta form, 25% awarded upon project completion. 40k GRAV paid to MKT Team, who are responsible for administration of the grant process.
 
 ### Who can apply
 
