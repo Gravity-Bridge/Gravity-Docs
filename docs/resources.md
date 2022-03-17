@@ -90,5 +90,5 @@ torrent: WIP
 
 ### gravity-bridge-3 quicksync snapshot
 
-[google drive](https://drive.google.com/file/d/1Ht7GK9x7cHDf-7hgvYfPuczaixv8TCsb/view?usp=sharing)
+[google drive](https://drive.google.com/file/d/1gSjR8tM_O-PhzvM2EjFDltFPC-Jt91Ih/view?usp=sharing)
 torrent: WIP
