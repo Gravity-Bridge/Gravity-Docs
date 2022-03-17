@@ -64,9 +64,26 @@ chmod +x *
 sudo mv * /usr/bin/
 ```
 
+## Enable invariants
+
+Invariants are integrity checking code that is only run optionally by the CosmosSDK. For this upgrade we will be enabling invariants to increase the security of the bridge. This will slow down block times some and will halt the chain if state corruption is detected.
+
+Pick a prime number greater than 100 but smaller than 1000. [List of prime numbers](https://en.wikipedia.org/wiki/List_of_prime_numbers#The_first_1000_prime_numbers)
+
+```bash
+vim /etc/systemd/system/gravity-node.service
+```
+
+```text
+ExecStart=/usr/bin/gravity start --inv-check-period <small prime number>
+```
+
+The use of prime numbers will prevent invariant checking, which uses a lot of disk-io from slowing down the block times of the entire chain. Individual validators may miss a block when their invariant checking occurs but because of the randomly selected primes the chain itself will go on at the normal speed.
+
 ## Restart the chain
 
 ```bash
+systemctl daemon-reload
 service gravity-node start
 service orchestrator restart
 ```
