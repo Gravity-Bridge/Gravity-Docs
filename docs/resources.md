@@ -78,6 +78,10 @@ ERC20 tokens to test with, the miner private key has access
 
 ## Chain history snapshots
 
+### Recent snapshots
+
+[Weakhand (default pruning)](https://snapshots.weakhand.xyz/gravity/)
+
 ### gravity-bridge-1
 
 [google drive](https://drive.google.com/file/d/1LsGK-eBSfAditKHAJDBVQ0RhRRE4e8u0/view?usp=sharing)
