@@ -9,8 +9,10 @@ A Linux server with any modern Linux distribution, 2gb of ram and at least 20gb 
 
 ### Download Gravity chain software
 
+Syncing starts with v1.4.0 and you should upgrade to v1.5.0 when prompted.
+
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 chmod +x gravity
