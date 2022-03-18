@@ -9,24 +9,32 @@ To understand more see the [relaying rewards](https://github.com/Gravity-Bridge/
 
 ## Download and install the relayer
 
-Currently `gbt` is Linux and Windows only, not for any specific reason but because the release builder has not yet been updated to cross-compile
-to Mac
-
 ### Linux
 
 ```bash
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
 ```
 
+### Mac
+
+```bash
+
+mkdir gravity-bin
+cd gravity-bin
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gbt-mac-amd64
+chmod +x *
+
+```
+
 ### Windows
 
-Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt.exe)
+Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gbt.exe)
 
 You will need to open a terminal and nagivate to the directory where these files where downloaded before running any commands.
 
