@@ -53,7 +53,7 @@ Keys containing test tokens
 This is the private key for validator1 on the testnet
 
 ```text
-hope easy account equal cream cousin next hire tiger oppose sail ski school buzz grocery solve ahead chunk spoon spike capable inch poem sample
+report napkin garage ring fluid into verify list mosquito broken peanut pencil bounce bitter piano layer fabric verb inhale congress auction display dutch ugly
 ```
 
 This is the private key for the Ethereum miner, it has access to ETH and several ERC20's pre-deployed
@@ -65,15 +65,21 @@ This is the private key for the Ethereum miner, it has access to ETH and several
 Test Gravity Bridge Address DO NOT SEND REAL FUNDS HERE, THIS IS A TESTNET ADDRESS
 
 ```text
-0xD7600ae27C99988A6CD360234062b540F88ECA43
+0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
 ```
 
 ERC20 tokens to test with, the miner private key has access
 
 ```text
-0x0412C7c846bb6b7DC462CF6B453f76D8440b2609
-0x30dA8589BFa1E509A319489E014d384b87815D89
-0x9676519d99E390A180Ab1445d5d857E3f6869065
+0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
+0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
+0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
+```
+
+ERC721 NFTs to test with, the miner private key has access
+
+```text
+0xD7600ae27C99988A6CD360234062b540F88ECA43
 ```
 
 ## Chain history snapshots
