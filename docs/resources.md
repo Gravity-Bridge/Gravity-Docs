@@ -43,6 +43,7 @@ Testnet RPC
 ```text
 http://testnet.gravitychain.io:1317  # Legacy RPC
 http://testnet.gravitychain.io:9090  # gRPC
+http://testnet.gravitychain.io:9091  # gRPC-web
 http://testnet.gravitychain.io:26657 # ABCI
 
 http://testnet.gravitychain.io:8545  # Ethereum
@@ -50,10 +51,21 @@ http://testnet.gravitychain.io:8545  # Ethereum
 
 Keys containing test tokens
 
-This is the private key for validator1 on the testnet
+This is the private key for the validators on the testnet
 
 ```text
-report napkin garage ring fluid into verify list mosquito broken peanut pencil bounce bitter piano layer fabric verb inhale congress auction display dutch ugly
+
+blush pear used guide case drum stove sweet imitate organ hedgehog matter guitar coral word fly improve combine fox demise need wedding genuine thunder
+
+
+object response alarm treat rebuild remind just bless brave still cheese pen lecture lesson ignore replace glad client explain infant tunnel diesel kangaroo pull
+
+
+shoe urge vicious inspire comic benefit client host bunker next secret huge adapt picnic fiscal frozen wing repeat mimic ready next imitate consider famous
+
+
+silk wild seven meat smile envelope casino tragic canyon author typical luxury pole suspect soldier network impose rose patch fresh adjust curtain basket discover
+
 ```
 
 This is the private key for the Ethereum miner, it has access to ETH and several ERC20's pre-deployed
