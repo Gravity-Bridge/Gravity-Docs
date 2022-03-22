@@ -4,10 +4,10 @@ This is an introduction to using Gravity Bridge to bridge Ethereum ERC20 tokens 
 
 Before proceeding, you’ll need to take the following preliminary steps:
 
--   Install both Keplr and Metamask wallet browser extensions in the browser you will be using
--   Add Gravity to your Keplr wallet (visit the [Gravity Bridge Commonwealth forum](https://commonwealth.im/gravity-bridge) and connect your wallet, this will add it to Keplr)
--   Have USDC, wETH, or DAI in your Metamask wallet (to be bridged)
--   Have ETH in your Metamask wallet to pay gas fees
+- Install both Keplr and Metamask wallet browser extensions in the browser you will be using
+- Add Gravity to your Keplr wallet (visit the [Gravity Bridge Commonwealth forum](https://commonwealth.im/gravity-bridge) and connect your wallet, this will add it to Keplr)
+- Have USDC, wETH, or DAI in your Metamask wallet (to be bridged)
+- Have ETH in your Metamask wallet to pay gas fees
 
 ## Step 1: Gravity Bridge front-end
 

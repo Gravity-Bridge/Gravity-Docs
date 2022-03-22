@@ -94,7 +94,7 @@ Suggested fees:
 In order to convert these values to ETH you should query the `eth_gasPrice` endpoint, and multiply the resulting value by the suggested values above.
 
 ```math
-fee_cost_in_wei = eth_gasPrice * gasAmount 
+fee_cost_in_wei = eth_gasPrice * gasAmount
 ```
 
 This will give you a gas cost in wei, convert this value to the equivalent cost in the bridged token using a price oracle.
