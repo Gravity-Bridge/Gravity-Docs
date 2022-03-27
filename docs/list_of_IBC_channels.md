@@ -33,11 +33,12 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | FETCH.AI | fetchhub-3 | FishSpin#3616, feida \| Blockscope#8484 |
 | BITCANNA | bitcanna-1 | FishSpin#3616, feida \| Blockscope#8484 |
 | IXO | impacthub-3 | FishSpin#3616, feida \| Blockscope#8484 |
-| EVMOS | evmos_9001-?| secondary#2530, theBro#6092, SW33\|pro-nodes#0534 |
-| STARGAZE | stargaze-1 | secondary#2530, Ramuchi#3020, FishSpin#3616, Zak \| EZStaking.io \| FR#4931 |
+| EVMOS | evmos_9001-?| secondary#2530, theBro#6092, SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844 |
+| STARGAZE | stargaze-1 | secondary#2530, Ramuchi#3020, FishSpin#3616, Zak \| EZStaking.io \| FR#4931, goooodnes#8929 |
 | COMDEX | comdex-1 | Zak \| EZStaking.io \| FR#4931 |
-| JUNO | juno-1 | theBro#6092, secondary#2530, FishSpin#3616, Zak \| EZStaking.io \| FR#4931 |
+| JUNO | juno-1 | theBro#6092, secondary#2530, FishSpin#3616, Zak \| EZStaking.io \| FR#4931, goooodnes#8929 |
 | PERSISTENCE | core-1 | theBro#6092, Ramuchi#3020 |
 | BOSTROM | bostrom-? | mr_bro \| cyber_devs#5691 |
-| COSMOS | cosmoshub-4 | theBro#6092, MT#5364 |
+| COSMOS | cosmoshub-4 | theBro#6092, MT#5364, goooodnes#8929 |
 | CERTIK | shentu-2.2 | theBro#6092 |
+| CHIHUAHUA | chihuahua-1 | goooodnes#8929 |
