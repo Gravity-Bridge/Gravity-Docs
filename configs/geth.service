@@ -1,0 +1,22 @@
+# Geth Ethereum fullnode
+[Unit]
+Description=Geth Ethereum fullnode
+Requires=network.target
+
+[Service]
+Type=simple
+TimeoutStartSec=10s
+Restart=always
+RestartSec=10
+ExecStart=/usr/sbin/geth \
+--syncmode "light" \
+--http \
+--config /etc/geth-light-config.toml
+
+# if you want to run a geth fullnode
+#ExecStart=/usr/bin/geth \
+#--http \
+#--config /etc/geth-full-config.toml
+
+[Install]
+WantedBy=default.target

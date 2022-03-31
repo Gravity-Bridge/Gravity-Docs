@@ -1,9 +1,9 @@
 # Note: this config doesn't contain the genesis block.
 
 [Eth]
-NetworkId = 5
+NetworkId = 1
 SyncMode = "light"
-EthDiscoveryURLs = ["enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@les.goerli.ethdisco.net"]
+EthDiscoveryURLs = ["enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@les.mainnet.ethdisco.net"]
 SnapDiscoveryURLs = []
 NoPruning = false
 NoPrefetch = false

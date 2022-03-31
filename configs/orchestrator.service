@@ -7,7 +7,8 @@ Type=simple
 TimeoutStartSec=10s
 Restart=always
 RestartSec=10
-ExecStart=/usr/bin/gbt orchestrator start
+ExecStart=/usr/bin/gbt orchestrator --fees "0ugraviton"
+Environment="HOME=/root"
 
 [Install]
 WantedBy=default.target
