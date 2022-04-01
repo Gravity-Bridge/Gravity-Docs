@@ -55,16 +55,16 @@ This is the private key for the validators on the testnet
 
 ```text
 
-blush pear used guide case drum stove sweet imitate organ hedgehog matter guitar coral word fly improve combine fox demise need wedding genuine thunder
+approve skirt mask rate marine net guide fortune virtual detail aisle eager wheat marriage aerobic still nut hole whip corn evolve grant walnut shine
 
 
-object response alarm treat rebuild remind just bless brave still cheese pen lecture lesson ignore replace glad client explain infant tunnel diesel kangaroo pull
+engine tennis talent demand picture erupt ask struggle carry raven tree wine pass door leaf fade thunder future electric female behind body have annual
 
 
-shoe urge vicious inspire comic benefit client host bunker next secret huge adapt picnic fiscal frozen wing repeat mimic ready next imitate consider famous
+current unhappy exotic renew easy harbor diesel vibrant also recall leg hamster rally pulp spatial depth never match grab broom recycle unfair gallery story
 
+hospital food genre honey energy lens south indicate great tiger program carbon link elite auto mask barrel field plug person sunset brother pond glad
 
-silk wild seven meat smile envelope casino tragic canyon author typical luxury pole suspect soldier network impose rose patch fresh adjust curtain basket discover
 
 ```
 
@@ -77,13 +77,15 @@ This is the private key for the Ethereum miner, it has access to ETH and several
 Test Gravity Bridge Address DO NOT SEND REAL FUNDS HERE, THIS IS A TESTNET ADDRESS
 
 ```text
-0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
+Main Gravity 0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
+Gravity ERC721 0xD50c0953a99325d01cca655E57070F1be4983b6b
 ```
+
 
 ERC20 tokens to test with, the miner private key has access
 
 ```text
-0xD50c0953a99325d01cca655E57070F1be4983b6b
+0x0412C7c846bb6b7DC462CF6B453f76D8440b2609
 0x30dA8589BFa1E509A319489E014d384b87815D89
 0x9676519d99E390A180Ab1445d5d857E3f6869065
 ```
@@ -91,7 +93,7 @@ ERC20 tokens to test with, the miner private key has access
 ERC721 NFTs to test with, the miner private key has access
 
 ```text
-0xD50c0953a99325d01cca655E57070F1be4983b6b
+0xD7600ae27C99988A6CD360234062b540F88ECA43
 ```
 
 ## Chain history snapshots
