@@ -12,7 +12,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | PERSISTENCE | core-1 | XPRT | Channel-24 | Channel-38 |
 | BOSTROM | bostrom-? | BOOT | Channel-33 | Channel-6 |
 | CHIHUAHUA | chihuahua-1 | HUAHUA | Channel-34 | Channel-15 |
-| OMNIFLIX | omniflixhub-1 | FLIX | Channel-35 | Channel-3 |
+| OMNIFLIX | omniflixhub-1 | FLIX | Channel-51 | Channel-14 |
 | KI CHAIN | kichain-2 | XKI | Channel-37 | Channel-11 |
 | CHEQD | cheqd-mainnet-1 | CHEQ | Channel-43 | Channel-2 |
 | TERRA | columbus-5 | LUNA, USD | Channel-48 | Channel-38 |
@@ -28,12 +28,12 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | KI CHAIN | kichain-2 | goooodnes#8929, mzonder#5844, Alan \| NodeStake.top#2237, FishSpin#3616, feida \| Blockscope#8484, Zak \| EZStaking.io \| FR#4931 |
 | TERRA | columbus-5 | SW33\|pro-nodes#0534 |
 | UMEE | umee-1 | SW33\|pro-nodes#0534, feida \| Blockscope#8484, mzonder#5844, antropocosmist#5394 |
-| OMNIFLIX | omniflixhub-1 | goooodnes#8929, cyberomanov#7985, mzonder#5844, Zak \| EZStaking.io \| FR#4931, Alan \| NodeStake.top#2237, feida \| Blockscope#8484 |
-| OSMOSIS | osmosis-1 | theBro#6092, secondary#2530, romadr#6137, Ramuchi#3020, FishSpin#3616, feida \| Blockscope#8484  |
+| OMNIFLIX | omniflixhub-1 | goooodnes#8929, cyberomanov#7985, mzonder#5844, Zak \| EZStaking.io \| FR#4931, Alan \| NodeStake.top#2237, feida \| Blockscope#8484, StingRay \| Mikhail#5221 |
+| OSMOSIS | osmosis-1 | theBro#6092, secondary#2530, romadr#6137, Ramuchi#3020, FishSpin#3616, feida \| Blockscope#8484, StingRay \| Mikhail#5221 |
 | FETCH.AI | fetchhub-3 | FishSpin#3616, feida \| Blockscope#8484 |
 | BITCANNA | bitcanna-1 | FishSpin#3616, feida \| Blockscope#8484 |
 | IXO | impacthub-3 | FishSpin#3616, feida \| Blockscope#8484 |
-| EVMOS | evmos_9001-?| secondary#2530, theBro#6092, SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844 |
+| EVMOS | evmos_9001-?| secondary#2530, theBro#6092, SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844, StingRay \| Mikhail#5221 |
 | STARGAZE | stargaze-1 | secondary#2530, Ramuchi#3020, FishSpin#3616, Zak \| EZStaking.io \| FR#4931, goooodnes#8929 |
 | COMDEX | comdex-1 | Zak \| EZStaking.io \| FR#4931 |
 | JUNO | juno-1 | theBro#6092, secondary#2530, FishSpin#3616, Zak \| EZStaking.io \| FR#4931, goooodnes#8929 |
