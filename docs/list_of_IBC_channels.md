@@ -29,7 +29,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 
 | Chain Name | Chain ID | volunteers (discord ID)  |
 | ---------- | -------- | ---------- |
-| KI CHAIN | kichain-2 | goooodnes#8929, mzonder#5844, Alan \| NodeStake.top#2237, FishSpin#3616,  
+| KI CHAIN | kichain-2 | goooodnes#8929, mzonder#5844, Alan \| NodeStake.top#2237, FishSpin#3616, |
 |||feida \| Blockscope#8484, Zak \| EZStaking.io \| FR#4931, Voynitskiy \| AlxVoy#7896 |
 | TERRA | columbus-5 | SW33\|pro-nodes#0534 |
 | UMEE | umee-1 | SW33\|pro-nodes#0534, feida \| Blockscope#8484, mzonder#5844, antropocosmist#5394 |
