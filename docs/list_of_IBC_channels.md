@@ -22,14 +22,18 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | STARGAZE | stargaze-1 | STARS | channel-7 | channel-6 |
 | FETCH.AI | fetchhub-3 | FET | channel-30 | channel-7 |
 | IRIS | irishub-1 | IRIS | channel-47 | channel-29 |
+| RIZON | titan-1 | ATOLO | channel-53 | channel-4 |
+| LUM | lum-network-1 | LUM | channel-55 | channel-6 |
+| SIFCHAIN |  sifchain-1 | ROWAN | channel-54 | channel-52 |
+| Konstellation |  darchub | DARC | channel-57 | channel-2 |
 
-| Chain Name | Chain ID | volunteers (discord ID)  |
+| Chain Name | Chain ID | volunteers (discord ID) |
 | ---------- | -------- | ---------- |
 | KI CHAIN | kichain-2 | goooodnes#8929, mzonder#5844, Alan \| NodeStake.top#2237, FishSpin#3616, feida \| Blockscope#8484, Zak \| EZStaking.io \| FR#4931 |
 | TERRA | columbus-5 | SW33\|pro-nodes#0534 |
 | UMEE | umee-1 | SW33\|pro-nodes#0534, feida \| Blockscope#8484, mzonder#5844, antropocosmist#5394 |
 | OMNIFLIX | omniflixhub-1 | goooodnes#8929, cyberomanov#7985, mzonder#5844, Zak \| EZStaking.io \| FR#4931, Alan \| NodeStake.top#2237, feida \| Blockscope#8484 |
-| OSMOSIS | osmosis-1 | theBro#6092, secondary#2530, romadr#6137, Ramuchi#3020, FishSpin#3616, feida \| Blockscope#8484  |
+| OSMOSIS | osmosis-1 | theBro#6092, secondary#2530, romadr#6137, Ramuchi#3020, FishSpin#3616, feida \| Blockscope#8484 |
 | FETCH.AI | fetchhub-3 | FishSpin#3616, feida \| Blockscope#8484 |
 | BITCANNA | bitcanna-1 | FishSpin#3616, feida \| Blockscope#8484 |
 | IXO | impacthub-3 | FishSpin#3616, feida \| Blockscope#8484 |
