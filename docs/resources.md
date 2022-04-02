@@ -81,7 +81,6 @@ Main Gravity 0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
 Gravity ERC721 0xD50c0953a99325d01cca655E57070F1be4983b6b
 ```
 
-
 ERC20 tokens to test with, the miner private key has access
 
 ```text
