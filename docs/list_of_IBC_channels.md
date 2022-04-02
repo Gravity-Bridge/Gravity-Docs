@@ -22,6 +22,10 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | STARGAZE | stargaze-1 | STARS | channel-7 | channel-6 |
 | FETCH.AI | fetchhub-3 | FET | channel-30 | channel-7 |
 | IRIS | irishub-1 | IRIS | channel-47 | channel-29 |
+| RIZON | titan-1 | ATOLO | channel-53 | channel-4 |
+| LUM | lum-network-1 | LUM | channel-55 | channel-6 |
+| SIFCHAIN |  sifchain-1 | ROWAN | channel-54 | channel-52 |
+| Konstellation |  darchub | DARC | channel-57 | channel-2 |
 
 | Chain Name | Chain ID | volunteers (discord ID)  |
 | ---------- | -------- | ---------- |
