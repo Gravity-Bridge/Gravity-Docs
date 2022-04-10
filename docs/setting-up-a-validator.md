@@ -69,6 +69,31 @@ seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656,63e662f5e0
 
 ```
 
+### Configure your node for state sync OR Download a snapshot
+
+Note that the most secure way to sync the chain is to sync the data yourself instead of using a snapshot or statesync. But it takes a long time and several software version upgrades.
+
+If you are syncing from scratch you will need to start with Gravity Bridge version v1.0.0 and upgrade when prompted.
+
+Follow [this guide](https://ping.pub/gravity-bridge/statesync) to configure your node for state sync. Or follow the steps below to download a snapshot.
+
+```text
+https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
+```
+
+(This is from the project <https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge> ) </br>
+In the snapshot.json look at the line 'latest', it should look something like:
+
+```text
+"latest": "https://cosmos-snapshots.s3.filebase.com/gravitybridge/gravity-bridge-<date>-<time>.tar.gz"
+```
+
+Download and unzip that that file, use the contents to replace your gravity data folder which should be located at:
+
+```bash
+.gravity/data/
+```
+
 ### Add your validator key
 
 We need to import the validator key. This is the key containing Graviton tokens
@@ -252,32 +277,6 @@ You can calculate remaining time in seconds with:
 ```text
 (max_peer_height - height) / Fast Sync Rate blocks/s
 ```
-
-## Download Blockchain Snapshot (Optional)
-
-If the previous step revealed a longer than desired wait time for sync, you can download the latest snapshot. </br>
-Note that the most secure way to sync the chain is to sync the data yourself instead of using a snapshot.
-
-If you are syncing from scratch you will need to start with Gravity Bridge version v1.4.0 and upgrade when prompted.
-
-```text
-https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
-```
-
-(This is from the project <https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge> ) </br>
-In the snapshot.json look at the line 'latest', it should look something like:
-
-```text
-"latest": "https://cosmos-snapshots.s3.filebase.com/gravitybridge/gravity-bridge-<date>-<time>.tar.gz"
-```
-
-Download and unzip that that file, use the contents to replace your gravity data folder which should be located at:
-
-```bash
-.gravity/data/
-```
-
-After you replace the gravity data folder, restart your gravity-node.
 
 ## Send your validator setup transaction
 
