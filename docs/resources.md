@@ -99,6 +99,7 @@ ERC721 NFTs to test with, the miner private key has access
 
 ### Recent snapshots
 
+[Cros Nest (100/0/11)](https://quicksync.cros-nest.com/GravityBridge)
 [Weakhand (default pruning)](https://snapshots.weakhand.xyz/gravity/)
 
 ### gravity-bridge-1
