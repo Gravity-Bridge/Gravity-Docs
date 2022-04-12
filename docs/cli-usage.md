@@ -94,7 +94,7 @@ Suggested fees:
 The easiest way to run this is to paste the following in a text editor, modify, then copy/paste into a terminal. The first value is the amount you are sending, the second is the bridge fee being paid. The `--fees` argument is the transaction fee on the Gravity Bridge chain and can be denominated in any token the validators will accept.
 
 ```bash
-gravity tx gravity send-to-eth gravityORIGIN_ADDRESS 0xDESTINATIONONETH <AMOUNTdenom to send e.g. 1000000ugraviton> 500ugraviton --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
+gravity tx gravity send-to-eth 0xDESTINATIONONETH <AMOUNTdenom to send e.g. 1000000ugraviton> 500ugraviton --node https://gravitychain.io:26657 --from gravityORIGIN_ADDRESS --fees 0ugraviton --chain-id gravity-bridge-3
 ```
 
 Once your tx is sent you can wait for a relayer to relay it. If you become impatient, it is possible to cancel the transaction and receive your funds back in your account on the Gravity Bridge chain side of the bridge.
