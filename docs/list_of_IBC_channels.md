@@ -33,7 +33,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 |||feida \| Blockscope#8484, Zak \| EZStaking.io \| FR#4931, Voynitskiy \| AlxVoy#7896 |
 | TERRA | columbus-5 | SW33\|pro-nodes#0534 |
 | UMEE | umee-1 | SW33\|pro-nodes#0534, feida \| Blockscope#8484, mzonder#5844, antropocosmist#5394 |
-| OMNIFLIX | omniflixhub-1 | goooodnes#8929, cyberomanov#7985, mzonder#5844, |
+| OMNIFLIX | omniflixhub-1 | goooodnes#8929, cyberomanov#7985, mzonder#5844, Mikhail#5221 |
 |||Zak \| EZStaking.io \| FR#4931, Alan \| NodeStake.top#2237, feida \| Blockscope#8484, Voynitskiy \| AlxVoy#7896 |
 | OSMOSIS | osmosis-1 | theBro#6092, secondary#2530, romadr#6137, Ramuchi#3020, |
 |||Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653,  feida \| Blockscope#8484, StingRay \|Mikhail#5221, plsr#1898  |
@@ -53,4 +53,4 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | LUM | lum-network-1 | goooodnes#8929, Voynitskiy \| AlxVoy#7896 |
 | SIFCHAIN | sifchain-1 | goooodnes#8929, Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653 |
 | RIZON | titan-1 | Voynitskiy \| AlxVoy#7896, goooodnes#8929,Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653 |
-| Konstellation | darchub | SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844, Voynitskiy \| AlxVoy#7896 | |
+| Konstellation | darchub | SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844, Voynitskiy \| AlxVoy#7896, Mikhail#5221 | |
