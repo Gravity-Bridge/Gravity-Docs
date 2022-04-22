@@ -130,3 +130,10 @@ You can also use this [Keplr based guide](https://catdotfish.medium.com/getting-
 ```bash
 gravity tx ibc-transfer transfer transfer channel-10 osmosis1ADDRESS 1000000ugraviton --from yourkeyname --chain-id gravity-bridge-3
 ```
+## Importing Keys
+
+To import an existing wallet, use the following command:
+
+	gravity keys add (PREFERRED_KEYNAME) --recover
+
+This will prompt you to enter your mnemonic phrase. You will then be asked to create a passphrase.
