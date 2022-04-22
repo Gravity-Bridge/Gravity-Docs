@@ -12,7 +12,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | PERSISTENCE | core-1 | XPRT | Channel-24 | Channel-38 |
 | BOSTROM | bostrom-? | BOOT | Channel-33 | Channel-6 |
 | CHIHUAHUA | chihuahua-1 | HUAHUA | Channel-34 | Channel-15 |
-| OMNIFLIX | omniflixhub-1 | FLIX | Channel-35 | Channel-3 |
+| OMNIFLIX | omniflixhub-1 | FLIX | Channel-51 | Channel-14 |
 | KI CHAIN | kichain-2 | XKI | Channel-37 | Channel-11 |
 | CHEQD | cheqd-mainnet-1 | CHEQ | Channel-43 | Channel-2 |
 | TERRA | columbus-5 | LUNA, USD | Channel-48 | Channel-38 |
