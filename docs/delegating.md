@@ -13,7 +13,7 @@ This document covers how to delegate your Graviton token
 If you are running Linux and have your keys stored in a ledger do the following
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-linux-amd64
 chmod +x gravity-linux-amd64
 mv gravity-linux-amd gravity
 sudo mv gravity /usr/bin/
@@ -33,7 +33,7 @@ gravity tx staking delegate --from <your ledger key name> <valoper address> <amo
 If you are running Mac and have your keys stored in a ledger do the following
 
 ```bash
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gravity-darwin-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-darwin-amd64
 sudo mv gravity-darwin-amd64 /usr/bin/
 
 gravity init gravity-bridge-3
