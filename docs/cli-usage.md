@@ -15,12 +15,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -35,12 +35,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gravity-darwin-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-darwin-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gbt-mac-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt-mac-amd64
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -48,7 +48,7 @@ sudo mv * /usr/bin/
 
 ### Windows
 
-Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.0/gbt.exe)
+Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt.exe)
 
 You will need to open a terminal and, before running any commands, nagivate to the directory where these files were downloaded.
 

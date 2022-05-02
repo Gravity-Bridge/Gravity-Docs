@@ -16,6 +16,8 @@ This upgrade *does not* perform any store migrations, it contains only fixes so 
 
 It is still *recommended* that you prepare enough disk space for a full backup of your node disk state. Or use a compact snapshot generated via [state sync](https://ping.pub/gravity-bridge/statesync) this will help you upgrade faster.
 
+It is *required* that you backup your `_priv_validator_state.json`. If you do a full backup it will be included, but if you don't have the space backup at least this small file from `.gravity/data/priv_validator_state.json`. It will allow you to manually reconstruct a 'backup' from a snapshot and this file if required.
+
 You may wish to research BTRFS and ZFS for your validator. As they will allow instant snapshots and backups that require no additional space on your disk.
 
 ## Backup your node
@@ -46,12 +48,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.1/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.1/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
