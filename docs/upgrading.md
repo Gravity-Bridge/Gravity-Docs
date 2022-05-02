@@ -24,7 +24,9 @@ You may wish to research BTRFS and ZFS for your validator. As they will allow in
 
 If your node has not yet halted at block `1888600` you are too early! Please wait.
 
-Once your node has halted **Once your node has halts it is recommended you backup your chain state**.
+Once the chain has reached block height `1888600` run `service gravity-bridge-stop`
+
+**Once your node has halted it is recommended you backup your chain state**.
 
 Make a complete copy of your `$HOME/.gravity` folder.
 
