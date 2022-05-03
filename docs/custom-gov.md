@@ -75,3 +75,11 @@ Once you have formed your `proposal.json` simply submit it
 ```bash
 gravity tx gravity gov-airdrop proposal.json 10000000ugraviton
 ```
+
+## IBC auto forwarding
+
+The `UpdateHrpIbcChannelProposal` allows for sends to go directly from Ethereum to a Cosmos destination chain. For example a send to a cosmos1 address string sent to `Gravity.sol` will arrive directly at that address on the cosmos hub without stopping by Gravity Bridge and forcing the user to send an IBC transaction
+
+In order to map the address prefix to the ibc channel you must submit a proposal using the command
+
+`gravity tx bech32ibc update-hrp-ibc-record`

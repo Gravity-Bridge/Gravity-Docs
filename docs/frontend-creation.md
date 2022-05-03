@@ -117,15 +117,11 @@ Please see the sections, for more info.
 ## Sending tokens from Ethereum through Gravity Bridge to another chain
 
 This feature will become available after the Mercury upgrade and is extremely straightforward to use.
-
 Following the steps outlined in [Sending tokens from Ethereum to Gravity Bridge](#sending-tokens-from-ethereum-to-gravity-bridge) simply replace the `gravity1<hex>` bech32 encoded address with the chain prefix of your choice for example a deposit to `osmosis1` will go to Osmosis and `cosmos1` will go to the Cosmos Hub.
 
-This does require some setup though. Before you can use this feature you must make sure the address prefix you are interested in using has been mapped to an IBC channel with a [UpdateHrpIbcChannelProposal](https://github.com/osmosis-labs/bech32-ibc/blob/master/proto/bech32ibc/v1beta1/gov.proto#L15).
+This does require some setup though. Before you can use this feature you must make sure the address prefix you are interested in using has been mapped to an IBC channel using the command `gravity tx bech32ibc update-hrp-ibc-record` to create a governance proposal
 
-TODO:
-
-1. Add step by step guide for UpdateHrpIbcChannelProposal in custom-gov.md
-1. Provide a way to check if a prefix has already been registered
+Once this proposal has passed simply call `Gravity.sol` `sendToCosmos` endpoint with a native address (for example one starting with `cosmos1`) and the transaction will be instantly forwarded.
 
 ## Sending tokens from another chain through Gravity Bridge and to Ethereum
 
