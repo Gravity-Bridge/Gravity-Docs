@@ -24,7 +24,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | IRIS | irishub-1 | IRIS | channel-47 | channel-29 |
 | RIZON | titan-1 | ATOLO | channel-53 | channel-4 |
 | LUM | lum-network-1 | LUM | channel-55 | channel-6 |
-| SIFCHAIN |  sifchain-1 | ROWAN | channel-54 | channel-52 |
+| SIFCHAIN |  sifchain-1 | ROWAN | channel-66 | channel-60 |
 | Konstellation |  darchub | DARC | channel-57 | channel-2 |
 | Crescent | crescent-1 | CRE/ bCRE | channel-62 | channel-2 |
 | Evmos | evmos_9001-2 | EVMOS | channel-65 | channel-8 |
@@ -42,7 +42,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | FETCH.AI | fetchhub-3 | Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653, feida \| Blockscope#8484 |
 | BITCANNA | bitcanna-1 | Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653, feida \| Blockscope#8484, Voynitskiy \| AlxVoy#7896 | |
 | IXO | impacthub-3 | Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653, feida \| Blockscope#8484 |
-| EVMOS | evmos_9001-?| secondary#2530, theBro#6092, SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844 |
+| EVMOS | evmos_9001-2| secondary#2530, theBro#6092, SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844 |
 | STARGAZE | stargaze-1 | secondary#2530, Ramuchi#3020, Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653, |
 |||Zak \| EZStaking.io \| FR#4931, goooodnes#8929, plsr#1898 |
 | COMDEX | comdex-1 | Zak \| EZStaking.io \| FR#4931 |
@@ -57,4 +57,3 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | RIZON | titan-1 | Voynitskiy \| AlxVoy#7896, goooodnes#8929,Remi \| 3Tekos#3616, jayjay \| 3Tekos#1653 |
 | Konstellation | darchub | SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844, Voynitskiy \| AlxVoy#7896, Mikhail#5221 |
 | Crescent | crescent-1 | SW33\|pro-nodes#0534 |
-| Evmos | evmos_9001-2 | SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844 |
