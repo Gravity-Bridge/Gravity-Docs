@@ -76,6 +76,81 @@ In the Gravity Bridge events section we discuss some events that provide more in
 
 The section [Monitoring a send from Ethereum to Gravity Bridge](#monitoring-a-send-from-ethereum-to-gravity-bridge) contains more info about how to monitor the process from here. But for the most part this won't be required, the tokens will be available on Gravity Bridge in less than 20 minutes with no further action from the user.
 
+### Metamask Example
+
+See the [Metamask docs](https://docs.metamask.io/guide/sending-transactions.html#example) and [Web3 docs](https://web3js.readthedocs.io/en/v1.2.11/getting-started.html) for more context. Note that you could easily use Web3.js to send the transaction if you don't need Metamask to access keys. This code will create your transaction and prompt the user to sign and send.
+
+Once this tx is broadcasted on Ethereum tokens will be delivered directly to the target address on Gravity Bridge
+
+```javascript
+// Gravity Bridge contract address
+let gravityBridge = "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
+// USDC ERC20 contract address 
+let erc20 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+let destination = "gravity18xvpj53vaupyfejpws5sktv5lnas5xj2kwracl"
+// amount of USDC to send
+let amount = 50000
+
+// approve must only be called once on the ERC20, in this example
+// we limit the amount sent to the exact user send. In practice you may
+// want to set a very large amount to save on gas re-sending a new approval
+// each time.
+let approve = web3.eth.abi.encodeFunctionCall({
+    name: 'approve',
+    type: 'function',
+    inputs: [
+    {
+        type: 'address',
+        name: 'spender'
+    },
+    {
+        type: 'uint256',
+        name: 'amount'
+    }
+    ]
+}, [erc20, amount]);
+// the actual end to comsos function call that will lock
+// the tokens for transfer
+let sendToCosmos = web3.eth.abi.encodeFunctionCall({
+    name: 'sendToCosmos',
+    type: 'function',
+    inputs: [
+    {
+        type: 'address',
+        name: '_tokenContract'
+    },
+    {
+        type: 'string',
+        name: '_destination'
+    },
+    {
+        type: 'uint256',
+        name: '_amount'
+    }
+    ]
+}, [erc20, destination, amount]);
+const approveTransactionParameters = {
+  to: erc20,
+  from: ethereum.selectedAddress,
+  value: '0x00',
+  data: approve,
+};
+const txHash = await ethereum.request({
+  method: 'eth_sendTransaction',
+  params: [approveTransactionParameters],
+});
+const sendTransactionParameters = {
+  to: gravityBridge,
+  from: ethereum.selectedAddress,
+  value: '0x00',
+  data: sendToCosmos,
+};
+const txHash = await ethereum.request({
+  method: 'eth_sendTransaction',
+  params: [sendTransactionParameters],
+});
+```
+
 ## Sending tokens from Gravity Bridge to Ethereum
 
 Sending tokens to Ethereum does not have a predictable timeline like sending tokens to Cosmos. In exchange for dramatically lower fees [relayers](relaying.md) will choose when to request a batch containing your users tx and many other people's transactions to relay.
@@ -122,6 +197,84 @@ Following the steps outlined in [Sending tokens from Ethereum to Gravity Bridge]
 This does require some setup though. Before you can use this feature you must make sure the address prefix you are interested in using has been mapped to an IBC channel using the command `gravity tx bech32ibc update-hrp-ibc-record` to create a governance proposal
 
 Once this proposal has passed simply call `Gravity.sol` `sendToCosmos` endpoint with a native address (for example one starting with `cosmos1`) and the transaction will be instantly forwarded.
+
+### Metamask Example Remote Send
+
+See the [Metamask docs](https://docs.metamask.io/guide/sending-transactions.html#example) and [Web3 docs](https://web3js.readthedocs.io/en/v1.2.11/getting-started.html) for more context. Note that you could easily use Web3.js to send the transaction if you don't need Metamask to access keys. This code will create your transaction and prompt the user to sign and send.
+
+Once this tx is broadcasted on Ethereum tokens will be delivered directly to the target chain as routed via the prefix.
+
+```javascript
+// Gravity Bridge contract address
+let gravityBridge = "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
+// USDC ERC20 contract address 
+let erc20 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+// destination using destination chain prefix. If the prefix has not been configured
+// for forwarding the address will be re-prefixed to gravity and funds will be left
+// there for the user to pick up
+let destination = "osmo18xvpj53vaupyfejpws5sktv5lnas5xj2kwracl"
+// amount of USDC to send
+let amount = 50000
+
+// approve must only be called once on the ERC20, in this example
+// we limit the amount sent to the exact user send. In practice you may
+// want to set a very large amount to save on gas re-sending a new approval
+// each time.
+let approve = web3.eth.abi.encodeFunctionCall({
+    name: 'approve',
+    type: 'function',
+    inputs: [
+    {
+        type: 'address',
+        name: 'spender'
+    },
+    {
+        type: 'uint256',
+        name: 'amount'
+    }
+    ]
+}, [erc20, amount]);
+// the actual end to comsos function call that will lock
+// the tokens for transfer
+let sendToCosmos = web3.eth.abi.encodeFunctionCall({
+    name: 'sendToCosmos',
+    type: 'function',
+    inputs: [
+    {
+        type: 'address',
+        name: '_tokenContract'
+    },
+    {
+        type: 'string',
+        name: '_destination'
+    },
+    {
+        type: 'uint256',
+        name: '_amount'
+    }
+    ]
+}, [erc20, destination, amount]);
+const approveTransactionParameters = {
+  to: erc20,
+  from: ethereum.selectedAddress,
+  value: '0x00',
+  data: approve,
+};
+const txHash = await ethereum.request({
+  method: 'eth_sendTransaction',
+  params: [approveTransactionParameters],
+});
+const sendTransactionParameters = {
+  to: gravityBridge,
+  from: ethereum.selectedAddress,
+  value: '0x00',
+  data: sendToCosmos,
+};
+const txHash = await ethereum.request({
+  method: 'eth_sendTransaction',
+  params: [sendTransactionParameters],
+});
+```
 
 ## Sending tokens from another chain through Gravity Bridge and to Ethereum
 
