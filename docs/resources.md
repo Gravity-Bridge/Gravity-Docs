@@ -38,6 +38,8 @@ https://gravitychain.io
 
 The Gravity Bridge testnet is simply a copy of the [local developer environment](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/docs/developer/environment-setup.md) exposed to the outside world.
 
+This environment is made up of two chains, one Gravity chain and another IBC test chain.
+
 Testnet RPC
 
 ```text
@@ -46,25 +48,37 @@ http://testnet.gravitychain.io:9090  # gRPC
 http://testnet.gravitychain.io:9091  # gRPC-web
 http://testnet.gravitychain.io:26657 # ABCI
 
+
+http://testnet.gravitychain.io:27657 # ABCI IBC network
+http://testnet.gravitychain.io:9190  # GRPC IBC network
+
 http://testnet.gravitychain.io:8545  # Ethereum
 ```
 
 Keys containing test tokens
 
-This is the private key for the validators on the testnet
+These is the private keys for the validators on the testnet
 
 ```text
+warm jelly wolf beach half column multiply image position river credit olympic glow stick consider present kind trip alien prepare regret desert midnight canoe
 
-approve skirt mask rate marine net guide fortune virtual detail aisle eager wheat marriage aerobic still nut hole whip corn evolve grant walnut shine
+relax permit fun ignore divide pony idle slice pride initial nuclear armor convince hand problem double kick trip nothing hospital thought history convince picture
 
+picture boy copper degree twin trade merge seed result elephant celery job vapor lizard define coil cinnamon stock absurd ginger party report scout live
 
-engine tennis talent demand picture erupt ask struggle carry raven tree wine pass door leaf fade thunder future electric female behind body have annual
+wire high cluster column east leader add time pact kite between arm achieve creek upper rival empower plug category found broom sample broken country
+```
 
+And the private keys for the validators on the second non-gravity IBC test network
 
-current unhappy exotic renew easy harbor diesel vibrant also recall leg hamster rally pulp spatial depth never match grab broom recycle unfair gallery story
+```text
+stuff wheel service brand sunny twist erode absent beyond long divert faint corn select voice tiny room boil faith evidence devote torch edge bridge
 
-hospital food genre honey energy lens south indicate great tiger program carbon link elite auto mask barrel field plug person sunset brother pond glad
+treat click nose robust skill penalty employ attitude receive knock easily slot now actress easily tenant depart twist more soft pony impulse valid rain
 
+sorry mass spend siege kick walnut during furnace oppose position evil assault discover situate helmet candy wedding update tree measure mixture kid liar clog
+
+luxury ship round accuse spike income weasel fly pioneer artefact rug guilt topple settle before replace equip riot club develop eternal crop word type
 
 ```
 
