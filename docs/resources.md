@@ -60,26 +60,25 @@ Keys containing test tokens
 These is the private keys for the validators on the testnet
 
 ```text
-warm jelly wolf beach half column multiply image position river credit olympic glow stick consider present kind trip alien prepare regret desert midnight canoe
+safe useless favorite lemon wool mandate ladder army tuna quit aware drift unfair chicken absorb evidence balcony strike wolf stay kid amused head august
 
-relax permit fun ignore divide pony idle slice pride initial nuclear armor convince hand problem double kick trip nothing hospital thought history convince picture
+garden trip dawn gas mosquito attack negative vote finger upon ice buffalo guitar layer canoe high bubble tank admit curve raw shiver cook antique
 
-picture boy copper degree twin trade merge seed result elephant celery job vapor lizard define coil cinnamon stock absurd ginger party report scout live
+pause eye idea blanket wage language believe distance party admit version twenty congress false machine express actress hen wing solar wrap scan hover beef
 
-wire high cluster column east leader add time pact kite between arm achieve creek upper rival empower plug category found broom sample broken country
+deputy tiny pupil live wash recycle erosion text physical hawk damp message curve blush theme eye warm message hurt yard embark evil tower stove
 ```
 
 And the private keys for the validators on the second non-gravity IBC test network
 
 ```text
-stuff wheel service brand sunny twist erode absent beyond long divert faint corn select voice tiny room boil faith evidence devote torch edge bridge
+guilt harsh risk code guard boat snake omit borrow legal delay view tonight shoot opinion remember slide trust beyond steak card atom again bamboo
 
-treat click nose robust skill penalty employ attitude receive knock easily slot now actress easily tenant depart twist more soft pony impulse valid rain
+section fatal position attack nurse clip above across suggest style benefit hawk surprise scan pulse shove blame cherry light sweet tumble select shop oppose
 
-sorry mass spend siege kick walnut during furnace oppose position evil assault discover situate helmet candy wedding update tree measure mixture kid liar clog
+off abuse alarm hint fat aerobic youth apple spring trap soccer sunset powder unable anger learn immune valve salmon disease festival sting symptom hawk
 
-luxury ship round accuse spike income weasel fly pioneer artefact rug guilt topple settle before replace equip riot club develop eternal crop word type
-
+artist moon mutual luxury truly portion follow maid enter umbrella upgrade circle hole concert blouse humble insect sketch dinner atom fatal genius conduct drink
 ```
 
 This is the private key for the Ethereum miner, it has access to ETH and several ERC20's pre-deployed
@@ -96,6 +95,7 @@ Gravity ERC721 0xD50c0953a99325d01cca655E57070F1be4983b6b
 ```
 
 ERC20 tokens to test with, the miner private key has access
+Also note that this testnet instance is using Hardhat, and thus has actual historical Ethereum state to interact with. It is possible to acquire some ETH from the Ethereum miner (see private key above) and swap for many ERC20s on Uniswap. 
 
 ```text
 0x0412C7c846bb6b7DC462CF6B453f76D8440b2609
