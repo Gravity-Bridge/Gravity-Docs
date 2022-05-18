@@ -47,7 +47,9 @@ We provide gRPCWeb support at `https://gravitychain.io:9091`, gRPC web [has a pr
 
 In our documentation we will provide some REST compatible ABCI calls to query basic information, but any more advanced querying of Gravity Bridge should take the time to setup gRPC web, it will pay off very quickly if you are trying to process and interpret many large and complex data structures at once.
 
-For [events](https://docs.cosmos.network/master/core/events.html) a websocket protocol endpoint is available at `wss://gravitychain.io:26657]`. Contrary to the events documentation typed events are deployed and in use on Gravity Bridge. When it comes to interpreting these events you will need to have the proto file definitions handy.
+For [events](https://docs.cosmos.network/master/core/events.html) a websocket protocol endpoint is available at `wss://gravitychain.io:26657`. Contrary to the events documentation typed events are deployed and in use on Gravity Bridge. When it comes to interpreting these events you will need to have the proto file definitions handy.
+
+The server at `gravitychain.io` also provides ABCI and Legacy Amino endpoints see the [resources](resources.md) doc for more details.
 
 ## Sending tokens from Ethereum to Gravity Bridge
 
@@ -57,7 +59,7 @@ The Gravity Bridge contract ABI is available as `Gravity.json` attached to every
 
 [0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906) is the Gravity Bridge contract address.
 
-The first transaction you will have to send is an ERC20 `approve()` tx. To do this you will need to load the ERC20 contract standard ABI, encode the approve, and send it on behalf of the user with the Gravity Bridge contract address as a parameter. If you do not do this the Gravity Bridge contract will not be able to lock up the users ERC20 tokens.
+The first transaction you will have to send is an ERC20 `approve()` tx. This will allow the Gravity Bridge contract to remove the ERC20 token from the users wallet and lock it in the bridge. To do this you will need to load the ERC20 contract standard ABI, encode the approve, and send it on behalf of the user with the Gravity Bridge contract address as a parameter. If you do not do this the Gravity Bridge contract will not be able to lock up the users ERC20 tokens.
 
 Once `approve()` has passed the next (and last step) is to call [SendToCosmos](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/solidity/contracts/Gravity.sol#L555) call takes
 
@@ -88,7 +90,8 @@ let gravityBridge = "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
 // USDC ERC20 contract address 
 let erc20 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 let destination = "gravity18xvpj53vaupyfejpws5sktv5lnas5xj2kwracl"
-// amount of USDC to send
+// amount of USDC to send, since USDC has 6 decimals divide any value here by 1*10^decimals for the
+// whole number of USDC. You should use the ERC20 decimals() call for this since tokens have different values
 let amount = 50000
 
 // approve must only be called once on the ERC20, in this example
@@ -109,7 +112,7 @@ let approve = web3.eth.abi.encodeFunctionCall({
     }
     ]
 }, [erc20, amount]);
-// the actual end to comsos function call that will lock
+// the actual send to cosmos function call that will lock
 // the tokens for transfer
 let sendToCosmos = web3.eth.abi.encodeFunctionCall({
     name: 'sendToCosmos',
@@ -191,7 +194,7 @@ Please see the sections, for more info.
 
 ## Sending tokens from Ethereum through Gravity Bridge to another chain
 
-This feature will become available after the Mercury upgrade and is extremely straightforward to use.
+This feature has been available since the Mercury upgrade and is extremely straightforward to use.
 Following the steps outlined in [Sending tokens from Ethereum to Gravity Bridge](#sending-tokens-from-ethereum-to-gravity-bridge) simply replace the `gravity1<hex>` bech32 encoded address with the chain prefix of your choice for example a deposit to `osmosis1` will go to Osmosis and `cosmos1` will go to the Cosmos Hub.
 
 This does require some setup though. Before you can use this feature you must make sure the address prefix you are interested in using has been mapped to an IBC channel using the command `gravity tx bech32ibc update-hrp-ibc-record` to create a governance proposal
@@ -213,7 +216,8 @@ let erc20 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 // for forwarding the address will be re-prefixed to gravity and funds will be left
 // there for the user to pick up
 let destination = "osmo18xvpj53vaupyfejpws5sktv5lnas5xj2kwracl"
-// amount of USDC to send
+// amount of USDC to send, since USDC has 6 decimals divide any value here by 1*10^decimals for the
+// whole number of USDC. You should use the ERC20 decimals() call for this since tokens have different values
 let amount = 50000
 
 // approve must only be called once on the ERC20, in this example
@@ -287,11 +291,13 @@ The lifecycle of a [MsgSendToEth](https://github.com/Gravity-Bridge/Gravity-Brid
 - User sends MsgSendToEth, removing the tokens from their balance
 - the transaction enters the SendToEth transaction pool for that token type
 - a relayer looks at the total fees for the transaction pool for that token type
-- a relayer requests a batch be created when the gas price is low enough or the fees become high enough
+- a relayer requests a batch be created
 - validators sign the batch
 - the batch can then be relayed, or will time out in about 8 hours, returning the MsgSendToEth to the first step
 
 Any time the MsgSendToEth transaction is in the transaction pool, and not in a signed batch, it is possible to [cancel the send](#canceling-a-send-from-gravity-bridge-to-ethereum) and have the user get an instant refund.
+
+Once a MsgSendToEth is in a batch it is possible that it has been submitted to Ethereum, to prevent double spending it is not possible to cancel the send until the batch has timed out. This timeout value is a number of blocks and is set in the Gravity params. Due to the complexity of knowing exactly what block it is on Ethereum at any given time the batch will not complete timing out until any Gravity Bridge event is processed by the oracle with a later block height. For example a deposit of an unrelated token will complete a batch timeout by proving to Gravity Bridge that the Ethereum block height has exceeded the batch timeout height.
 
 Query endpoints related to batches and essentially all internal functions of Gravity Bridge are currently GRPC only. We will be adding ABCI query endpoints for commonly used functionality but encourage use of gRPC-web where feasible.
 
