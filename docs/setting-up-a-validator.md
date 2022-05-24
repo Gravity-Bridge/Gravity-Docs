@@ -47,13 +47,21 @@ cd geth-linux-amd64-1.10.15-8be800ff
 mv geth /usr/sbin/
 ```
 
-## Download the genesis file
+## Generate priv_validator_key.json
 
-The genesis file represents the current state of the blockchain and allows your node to sync up
-with the rest.
+The output of this command will generate priv_validator_key.json, which generates a different output each time it is ran even if the same input is provided. If you lose this file you will not be able to regnerate it and you will have to start a new validator. The default save location for this file will be ~/.gravity/config/priv_validator_key.json
 
 ```bash
 gravity init mymoniker --chain-id gravity-bridge-3
+```
+
+## Download the genesis file
+
+The genesis file represents the current state of the blockchain and allows your node to sync up
+with the rest. 
+
+
+```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
 cp genesis.json $HOME/.gravity/config/genesis.json
 
