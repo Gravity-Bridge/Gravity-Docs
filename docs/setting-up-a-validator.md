@@ -58,8 +58,7 @@ gravity init mymoniker --chain-id gravity-bridge-3
 ## Download the genesis file
 
 The genesis file represents the current state of the blockchain and allows your node to sync up
-with the rest. 
-
+with the rest.
 
 ```bash
 wget https://raw.githubusercontent.com/Gravity-Bridge/gravity-docs/main/genesis.json
