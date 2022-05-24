@@ -58,14 +58,14 @@ In order to properly configure both your validator and sentry you will need to k
 
 #### Modify your SENTRY config.toml
 
-```
+```bash
 cd ~/.gravity/config
 nano config.toml
 ```
 
 Modify the following lines in your config.toml and save
 
-```
+```text
 - config.toml
     - [p2p] laddr = "tcp://<private_ip_address>:26656"
     - [p2p] external_address = "tcp://<public_ip_address>:26656"
@@ -80,7 +80,7 @@ Modify the following lines in your config.toml and save
 
 In this example we are using 3 seperate sentries but you may use any number that you prefer. Please modify the config.toml on your Validator using the example below.
 
-```
+```text
   - config.toml
     - persistent_peers = "sentry-node-1-node-id@private-IP:26656,sentry-node-2-node-id@private-IP:26656,sentry-node-3-node-id@private-IP:26656"
     - addr_book_strict = false

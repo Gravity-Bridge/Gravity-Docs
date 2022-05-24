@@ -19,12 +19,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -32,7 +32,7 @@ sudo mv * /usr/bin/
 
 At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.3.5`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.5.2`
 
 ## Download and install geth
 
@@ -43,7 +43,7 @@ wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.15-8be
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml -O /etc/geth-light-config.toml
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml -O /etc/geth-full-config.toml
 tar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
-cd geth-linux-amd64-1.10.15-8be800ff.tar.gz
+cd geth-linux-amd64-1.10.15-8be800ff
 mv geth /usr/sbin/
 ```
 
@@ -69,6 +69,31 @@ seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656,63e662f5e0
 
 ```
 
+### Configure your node for state sync OR Download a snapshot
+
+Note that the most secure way to sync the chain is to sync the data yourself instead of using a snapshot or statesync. But it takes a long time and several software version upgrades.
+
+If you are syncing from scratch you will need to start with Gravity Bridge version v1.0.0 and upgrade when prompted.
+
+Follow [this guide](https://ping.pub/gravity-bridge/statesync) to configure your node for state sync. Or follow the steps below to download a snapshot.
+
+```text
+https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
+```
+
+(This is from the project <https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge> ) </br>
+In the snapshot.json look at the line 'latest', it should look something like:
+
+```text
+"latest": "https://cosmos-snapshots.s3.filebase.com/gravitybridge/gravity-bridge-<date>-<time>.tar.gz"
+```
+
+Download and unzip that that file, use the contents to replace your gravity data folder which should be located at:
+
+```bash
+.gravity/data/
+```
+
 ### Add your validator key
 
 We need to import the validator key. This is the key containing Graviton tokens
@@ -88,13 +113,13 @@ gravity keys add <my validator key name> --ledger
 
 If you need to view the address of your validator operator key, you can do so with the following command: </br>
 
-```
+```bash
 gravity keys show <validator key name> --bech val
 ```
 
 You should see an output like so:
 
-```
+```text
 - name: <validator key name>
   ...
   address: gravityvaloper<keystring>
@@ -187,11 +212,11 @@ Once you have completed this setup your node will be started and waiting for the
 
 If your services are not starting, you may want to try disabling it to see if it resolves the issue </br>
 
-```
+```bash
 sed -i""  -e "s/SELINUX=enforcing/SELINUX=disabled/" /etc/selinux/config
 ```
 
-```
+```bash
 setenforce 0
 ```
 
@@ -215,7 +240,7 @@ You will need to wait for your Gravity Bridge node and Ethereum Node to fully sy
 
 You can view the status of your Ethereum node by issuing the following command: </br>
 
-```
+```bash
 curl -H "Content-Type:application/json" -X POST -d '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://127.0.0.1:8545
 ```
 
@@ -225,7 +250,7 @@ When result is 'false' that means it is now synced ('true' is not synced).
 
 You can issue the following command to check the sync status of the Gravity Node </br>
 
-```
+```bash
 gravity status 2>&1| jq .SyncInfo.catching_up
 ```
 
@@ -235,13 +260,13 @@ Value of 'false' means that it is now synced, 'true' means that sync is still in
 
 If you look at your journal logs for gravity-node like so:
 
-```
+```bash
 journalctl -u gravity-node.service -f --output cat
 ```
 
 You should see a message in the logs that looks like (search for 'fast'):
 
-```
+```text
 9:49PM INF committed state app_hash=76B7FFFA844FA8EABA6E2C400DBE53C22A6F94A36E41922F06C0D57417E118EB height=350595 module=state num_txs=1
 9:49PM INF Fast Sync Rate blocks/s=6.0707074013746825 height=350596 max_peer_height=422352 module=blockchain
 9:49PM INF indexed block height=350595 module=txindex
@@ -249,33 +274,9 @@ You should see a message in the logs that looks like (search for 'fast'):
 
 You can calculate remaining time in seconds with:
 
-```
+```text
 (max_peer_height - height) / Fast Sync Rate blocks/s
 ```
-
-## Download Blockchain Snapshot (Optional)
-
-If the previous step revealed a longer than desired wait time for sync, you can download the latest snapshot. </br>
-Note that the most secure way to sync the chain is to sync the data yourself instead of using a snapshot.
-
-```
-https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
-```
-
-(This is from the project <https://github.com/ovrclk/cosmos-omnibus/tree/master/gravitybridge> ) </br>
-In the snapshot.json look at the line 'latest', it should look something like:
-
-```
-"latest": "https://cosmos-snapshots.s3.filebase.com/gravitybridge/gravity-bridge-<date>-<time>.tar.gz"
-```
-
-Download and unzip that that file, use the contents to replace your gravity data folder which should be located at:
-
-```
-.gravity/data/
-```
-
-After you replace the gravity data folder, restart your gravity-node.
 
 ## Send your validator setup transaction
 

@@ -6,8 +6,6 @@ If you are looking for an easy to use GUI please see the [resources](resources.m
 
 ## Download and install CLI tools
 
-Because the release builder has not yet been updated to cross-compile to mac, `gbt` is currently Linux and Windows only.
-
 ### Linux
 
 ```bash
@@ -17,12 +15,32 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt
+chmod +x *
+sudo mv * /usr/bin/
+
+```
+
+### Mac
+
+```bash
+
+mkdir gravity-bin
+cd gravity-bin
+
+# the gravity chain binary itself
+
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-darwin-amd64
+mv gravity-linux-amd64 gravity
+
+# Tools for the gravity bridge from the gravity repo
+
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt-mac-amd64
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -30,7 +48,7 @@ sudo mv * /usr/bin/
 
 ### Windows
 
-Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt.exe)
+Download [gravity](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-windows-amd64.exe) and [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt.exe)
 
 You will need to open a terminal and, before running any commands, nagivate to the directory where these files were downloaded.
 
@@ -46,7 +64,7 @@ The easiest way to run the command is to paste the following in a text editor, m
 
 ```bash
 gbt client eth-to-cosmos --amount 10.5 \
---token-contact-address "0xERC20ADDRESS" \
+--token-contract-address "0xERC20ADDRESS" \
 --destination "gravity1EXAMPLEADDRESS" \
 --ethereum-key "0xETHPRIVATEKEY" \
 --gravity-contract-address "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906" \
@@ -76,7 +94,7 @@ Suggested fees:
 The easiest way to run this is to paste the following in a text editor, modify, then copy/paste into a terminal. The first value is the amount you are sending, the second is the bridge fee being paid. The `--fees` argument is the transaction fee on the Gravity Bridge chain and can be denominated in any token the validators will accept.
 
 ```bash
-gravity tx gravity send-to-eth 0xDESTINATIONONETH 1000000ugraviton 500ugraviton --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
+gravity tx gravity send-to-eth 0xDESTINATIONONETH <AMOUNTdenom to send e.g. 1000000ugraviton> 500ugraviton --node https://gravitychain.io:26657 --from gravityORIGIN_ADDRESS --fees 0ugraviton --chain-id gravity-bridge-3
 ```
 
 Once your tx is sent you can wait for a relayer to relay it. If you become impatient, it is possible to cancel the transaction and receive your funds back in your account on the Gravity Bridge chain side of the bridge.

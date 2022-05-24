@@ -9,6 +9,8 @@ A Linux server with any modern Linux distribution, 2gb of ram and at least 20gb 
 
 ### Download Gravity chain software
 
+Syncing starts with v1.4.0 and you should upgrade to v1.5.0 when prompted and v1.5.2 when prompted again
+
 ```bash
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
@@ -41,10 +43,12 @@ seeds = "2b089bfb4c7366efb402b48376a7209632380c9c@65.19.136.133:26656,63e662f5e0
 
 ```
 
+### Configure your node for state sync
+
+Follow [this guide](https://ping.pub/gravity-bridge/statesync) to configure your node for state sync if you do not skip this step you will have to start with Gravity v1.0 and upgrade when prompted. This will take a very long time.
+
 ### Start your full node and wait for it to sync
 
 ```bash
-gravity start --x-crisis-skip-assert-invariants
+gravity start
 ```
-
-Skipping invariants is required to allow chain start with the validators currently affected by the staking bug still in the state. We will resolve this issue during the next update.

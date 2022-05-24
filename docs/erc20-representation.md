@@ -82,7 +82,7 @@ Note a few key elements here. The base denom and the `ibc_denom` field must line
 Once you have formed your `proposal.json` simply submit it
 
 ```bash
-gravity tx gravity gov-ibc-metadata proposal.json 10000000ugraviton
+gravity tx gravity gov-ibc-metadata proposal.json 10000000ugraviton --from <key_name> --chain-id gravity-bridge-3
 ```
 
 Once the proposal has passed confirm your metadata has been set
@@ -99,9 +99,9 @@ You will need to provide an Ethereum key with enough Ethereum to cover the 700k 
 
 ```bash
 gbt client deploy-erc20-representation \
---cosmos-denom "denom of the token goes here, use the ibc/hash or just graviton"
+--cosmos-denom "denom of the token goes here, use the ibc/hash or just graviton" \
 --ethereum-key "0xETHPRIVATEKEY" \
---ethereum-rpc https://eth.althea.net
+--ethereum-rpc https://eth.althea.net \
 --cosmos-grpc https://gravitychain.io:9090
 ```
 
@@ -114,5 +114,5 @@ Now that the ERC20 representation is deployed it's time to actually use the newl
 The following command will put some tokens into the batch pool. It will take some time for a relayer to relay them, once the token is listed in Uniswap relayers will automatically relay profitable batches right away.
 
 ```bash
-gravity tx gravity send-to-eth 0xDESTINATIONONETH 1000000ibc/hash 500ibc/hash --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
+gravity tx gravity send-to-eth gravityORIGIN_ADDRESS 0xDESTINATIONONETH 1000000ibc/hash 500ibc/hash --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
 ```

@@ -9,24 +9,32 @@ To understand more see the [relaying rewards](https://github.com/Gravity-Bridge/
 
 ## Download and install the relayer
 
-Currently `gbt` is Linux and Windows only, not for any specific reason but because the release builder has not yet been updated to cross-compile
-to Mac
-
 ### Linux
 
 ```bash
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
 ```
 
+### Mac
+
+```bash
+
+mkdir gravity-bin
+cd gravity-bin
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt-mac-amd64
+chmod +x *
+
+```
+
 ### Windows
 
-Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gbt.exe)
+Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt.exe)
 
 You will need to open a terminal and nagivate to the directory where these files where downloaded before running any commands.
 
@@ -85,7 +93,7 @@ gbt relayer \
 Please see the [reference config](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/orchestrator/gbt/src/default-config.toml).
 
 By placing the following config block into `~/.gbt/config` you can configure your relayer to relay all profitable batches at the provided profit margin. With profitable being defined
-as the price in Uniswap vs ETH spent to relay the batch. You can also add specific whitelisted tokens where you will relay any batch with a reward above the given value.
+as the price in Uniswap vs ETH spent to relay the batch. You can also add specific whitelisted tokens where you bypass the oracle and set a price (in USDC per whole token) manually. 
 
 For both these parameters it is possible to set low values. For example an `amount` of zero in the whitelist will relay any batch of that token type without regard for reward. Likewise a `margin` value less than `1.0` will relay batches that only partially cover the cost of relaying.
 
@@ -99,5 +107,6 @@ mode = "ProfitableWithWhitelist"
 margin = 1.5
 [[relayer.batch_relaying_mode.whitelist]]
 token = "0x6Bd41fCdF129297c3524395d669c0865b3CA85B2"
-amount = "50000"
+price = "10"
+decimals = 18
 ```
