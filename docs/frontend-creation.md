@@ -87,7 +87,7 @@ Once this tx is broadcasted on Ethereum tokens will be delivered directly to the
 ```javascript
 // Gravity Bridge contract address
 let gravityBridge = "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
-// USDC ERC20 contract address 
+// USDC ERC20 contract address
 let erc20 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 let destination = "gravity18xvpj53vaupyfejpws5sktv5lnas5xj2kwracl"
 // amount of USDC to send, since USDC has 6 decimals divide any value here by 1*10^decimals for the
@@ -210,7 +210,7 @@ Once this tx is broadcasted on Ethereum tokens will be delivered directly to the
 ```javascript
 // Gravity Bridge contract address
 let gravityBridge = "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
-// USDC ERC20 contract address 
+// USDC ERC20 contract address
 let erc20 = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 // destination using destination chain prefix. If the prefix has not been configured
 // for forwarding the address will be re-prefixed to gravity and funds will be left
