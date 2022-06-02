@@ -157,12 +157,18 @@ gravity eth_keys add
 gravity keys add <Your Gravity Orchestrator Cosmos Key Name>
 ```
 
-Once we have registered our keys we will also set them in our Orchestrator right away, this reduces the risk of confusion as the chain starts and you need these keys to submit Gravity bridge signatures via your orchestrator.
+Once we have generated our keys we will also set them in our Orchestrator right away, this reduces the risk of confusion as your validator starts and you need these keys to submit Gravity bridge signatures via your orchestrator.
 
 ```bash
 gbt init
 gbt keys set-ethereum-key --key Gravity Orchestrator Ethereum Key
 gbt keys set-orchestrator-key --phrase "Gravity Orchestrator Cosmos Key"
+```
+
+Finally we have now generated the keys, stored them in a safe place, set those keys in the gbt process. We can now use gbt to register these keys to the validator key. This process is not reversable, if you lose the keys you generated in the last steps you will have to create a new validator.
+
+```bash
+gbt keys register-orchestrator-address --validator-phrase "your validator key phrase"
 ```
 
 ## Setup Gravity Bridge and Orchestrator services
