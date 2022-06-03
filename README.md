@@ -13,6 +13,7 @@
 1. [Validator maintenance](/docs/validator-maintenance.md)
 1. [Relaying for Gravity Bridge](/docs/relaying.md)
 1. [Governance proposal creation guide](/docs/custom-gov.md)
+1. [Security and Crisis management](/docs/security.md)
 
 ## Status
 
