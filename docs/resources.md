@@ -95,7 +95,7 @@ Gravity ERC721 0xD50c0953a99325d01cca655E57070F1be4983b6b
 ```
 
 ERC20 tokens to test with, the miner private key has access
-Also note that this testnet instance is using Hardhat, and thus has actual historical Ethereum state to interact with. It is possible to acquire some ETH from the Ethereum miner (see private key above) and swap for many ERC20s on Uniswap. 
+Also note that this testnet instance is using Hardhat, and thus has actual historical Ethereum state to interact with. It is possible to acquire some ETH from the Ethereum miner (see private key above) and swap for many ERC20s on Uniswap.
 
 ```text
 0x0412C7c846bb6b7DC462CF6B453f76D8440b2609
