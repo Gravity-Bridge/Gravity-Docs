@@ -36,7 +36,7 @@ Creating an IBC channel is extensively documented outside of Gravity Bridge, no 
 
 For more information on setting up an IBC channel between your chain and Gravity Bridge, see: [https://hermes.informal.systems/](https://hermes.informal.systems/)
 
-Once you have created the channel bridge any amount of the token you want to create a representation for, in order to see it's `ibc/hash` token name. You will need this value for the governance proposal next.
+Once you have created the channel, send any amount of the token over IBC that you want to create a representation for. This will allow you to see it's `ibc/hash` token name. You will need this value for the governance proposal next.
 
 ## Submit an IBCMetadata governance proposal
 
