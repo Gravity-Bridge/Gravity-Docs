@@ -29,6 +29,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | Crescent | crescent-1 | CRE/ bCRE | channel-62 | channel-2 |
 | Evmos | evmos_9001-2 | EVMOS | channel-65 | channel-8 |
 | TERRA | phoenix-1 | LUNA | Channel-77 | Channel-4 |
+| SECRET | secret-4 | SCRT | Channel-79 | Channel-17 |
 
 | Chain Name | Chain ID | volunteers (discord ID)  |
 | ---------- | -------- | ---------- |
@@ -59,3 +60,4 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | Konstellation | darchub | SW33\|pro-nodes#0534, goooodnes#8929, mzonder#5844, Voynitskiy \| AlxVoy#7896, Mikhail#5221 |
 | Crescent | crescent-1 | SW33\|pro-nodes#0534 |
 | TERRA | phoenix-1 | SW33\|pro-nodes#0534 |
+| SECRET | secret-4 | Zdeadex#3976, schultzie \| Lavender.Five Nodes#3231 |
