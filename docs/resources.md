@@ -60,13 +60,15 @@ Keys containing test tokens
 These is the private keys for the validators on the testnet
 
 ```text
-safe useless favorite lemon wool mandate ladder army tuna quit aware drift unfair chicken absorb evidence balcony strike wolf stay kid amused head august
 
-garden trip dawn gas mosquito attack negative vote finger upon ice buffalo guitar layer canoe high bubble tank admit curve raw shiver cook antique
+various skin dwarf aware grow book potato frog scrap sausage arrow wire crane crawl decrease caution mouse husband brass high sudden crane enjoy fiscal
 
-pause eye idea blanket wage language believe distance party admit version twenty congress false machine express actress hen wing solar wrap scan hover beef
+mean unaware until space actor network genre curtain field recipe scout degree bless poem repair major alley north pet analyst problem metal pistol actual
 
-deputy tiny pupil live wash recycle erosion text physical hawk damp message curve blush theme eye warm message hurt yard embark evil tower stove
+chest worth series puppy illness rich cloth salute better weasel fatal avocado print gauge tip belt donkey crunch thunder stick cloth runway jazz invite
+
+setup spawn orbit load pluck salute endorse universe protect garbage mystery record hill ghost fine erase people census burst carbon topple salon initial brave
+
 ```
 
 And the private keys for the validators on the second non-gravity IBC test network
