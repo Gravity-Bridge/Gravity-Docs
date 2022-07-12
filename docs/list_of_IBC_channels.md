@@ -30,8 +30,8 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | Evmos | evmos_9001-2 | EVMOS | channel-65 | channel-8 |
 | TERRA | phoenix-1 | LUNA | Channel-77 | Channel-4 |
 | SECRET | secret-4 | SCRT | Channel-79 | Channel-17 |
-| NYX | nyx | NYX | Сhannel-18 | Сhannel-0 | 
-| Assetmantle | mantle-1 | MNTL | Сhannel-82 | Сhannel-8 | 
+| NYX | nyx | NYX | Сhannel-18 | Сhannel-0 |
+| Assetmantle | mantle-1 | MNTL | Сhannel-82 | Сhannel-8 |
 
 | Chain Name | Chain ID | volunteers (discord ID)  |
 | ---------- | -------- | ---------- |
