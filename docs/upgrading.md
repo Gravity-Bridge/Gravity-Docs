@@ -1,12 +1,18 @@
-# Gravity bridge Mercury Upgrade Part 2
+# Gravity bridge Polaris
 
-As outlined in this [governance proposal](https://www.mintscan.io/gravity-bridge/proposals/40)
+As outlined in this [governance proposal](https://www.mintscan.io/gravity-bridge/proposals/58)
 
-Gravity Bridge will be upgrading to Mercury part 2
+Gravity Bridge will be upgrading Polaris
 
-* Fixes for the Ethereum -> Destination IBC forwarder + Extensive hand and automated testing
 
-This upgrade *will not* change the chain-id and will occur at block height `1888600`
+* Ethereum key support - Sign all your Gravity Bridge Chain transactions using your Ethereum key
+
+* Cosmos SDK upgrade to v0.45.6
+
+* IBC upgrade to v3.1.0 (Interchain Accounts to come in a later upgrade)
+
+
+This upgrade *will not* change the chain-id and will occur at block height `2860730`
 
 ## Preparing for the upgrade
 
@@ -22,16 +28,16 @@ You may wish to research BTRFS and ZFS for your validator. As they will allow in
 
 ## Backup your node
 
-If your node has not yet halted at block `1888600` you are too early! Please wait.
+If your node has not yet halted at block `2860730` you are too early! Please wait.
 
-Once the chain has reached block height `1888600` run `service gravity-bridge-stop`
+Once the chain has reached block height `2860730` run `service gravity-bridge-stop`
 
 **Once your node has halted it is recommended you backup your chain state**.
 
 Make a complete copy of your `$HOME/.gravity` folder.
 
 ```bash
-cp -r --reflink=auto ~/.gravity gravity-bridge-mercury-2-backup/
+cp -r --reflink=auto ~/.gravity gravity-bridge-polaris-backup/
 ```
 
 This will take a long time to run, if you are not using BTRFS or ZFS, you will need a lot of free disk space. If you do not have sufficient disk space to backup your entire gravity folder backup your `priv_validator_state.json`
@@ -50,21 +56,30 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.6.5/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.5.2/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.6.5/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
 
+### If you are validating on Mac, Windows, or Linux ARM
+
+If you are validating on any of these platforms you will need to build your own binary.
+
+```
+git clone https://github.com/Gravity-Bridge/Gravity-Bridge
+cd Gravity-Bridge/module
+make install
+cp $GOPATH/bin/gravity /usr/bin/gravity
+```
+
 ## **WARNING**
 
-If you are using https for your orchestrator grpc endpoint you will need to modify your `/etc/systemd/system/orchestrator.service` file to use http instead. A tonic upgrade has broken http2/https support. Since most validators are using a their local validator node for GRPC this should not affect the vast majority of validators.
-
-Run `service orchestrator status` after the upgrade, if you are experiencing this issue the big red error messages will be obvious.
+Run `service orchestrator status` after the upgrade, if you are experiencing this issue the big red error messages will be obvious. If your orchestrator is not running correclty you may be slashed in about 10,000 blocks. So be sure to check
 
 ## Restart the chain
 
