@@ -32,13 +32,31 @@ Once the chain has reached block height `2860730` run `service gravity-bridge-st
 
 **Once your node has halted it is recommended you backup your chain state**.
 
-Make a complete copy of your `$HOME/.gravity` folder.
+Make a complete copy of your `$HOME/.gravity` folder. Exactly how you make this copy is up to you and depending on your system setup some methods may be dramatically faster than others.
+
+If you are using a copy-on-write filesystem like BTRFS or ZFS a simple copy will be the fastest possible backup method.
 
 ```bash
-cp -r --reflink=auto ~/.gravity gravity-bridge-polaris-backup/
+cp -r --reflink=always ~/.gravity gravity-bridge-polaris-backup/
 ```
 
-If you are not using BTRFS or ZFS this will take a long time to run, you will need a lot of free disk space. If you do not have sufficient disk space to backup your entire gravity folder then backup your `priv_validator_state.json`
+If you have `pigz` available for parallel gzip compression you can use
+
+```bash
+tar --use-compress-program=pigz -cvf gravity-bridge-polaris-backup.tar.gz ~/.gravity
+```
+
+If you have LVM snapshots available you may use them as well.
+
+Finally if none of these quick backup options are available to you you should follow [these instructions](https://ping.pub/gravity-bridge/statesync) to statesync your node, dramatically reducing the size of the Gravity folder in exchange for not having historical block data.
+
+Once you have state synced you can quickly and easily backup with just the cp command.
+
+```bash
+cp -r ~/.gravity gravity-bridge-polaris-backup/
+```
+
+If you do not have sufficient disk space to backup your entire gravity folder then backup your `priv_validator_state.json`
 
 ```bash
 cp ~/.gravity/data/priv_validator_state.json validator-state-backup.json
