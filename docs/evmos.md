@@ -13,7 +13,7 @@ Click select token and select which token you would like to bridge and the amoun
 
 Once ready click the 'begin transfer' button and sign with Metamask. About 10 minutes later your tokens will appear in "IBC Balance" column on [Evmos](https://app.evmos.org/assets)
 
-From there you can follow [the EVMOS assets guide](https://medium.com/evmos/assets-page-quick-reference-guide-f1cd09e7cb85) to convert your Gravity IBC tokens to ERC20 represetnations for use on EVMOS!
+From there you can follow [the EVMOS assets guide](https://medium.com/evmos/assets-page-quick-reference-guide-f1cd09e7cb85) to convert your Gravity IBC tokens to ERC20 representations for use on EVMOS!
 
 # Moving assets back to Ethereum
 
