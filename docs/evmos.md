@@ -21,7 +21,7 @@ Following the [the EVMOS assets guide](https://medium.com/evmos/assets-page-quic
 
 Once unwrapped you can use [bridge.blockscape.network](https://bridge.blockscape.network) to bring your unwrapped tokens back to Gravity Bridge via IBC.
 
-Select Evmos as your source chain and Gravity Bridge as the destination, connect Keplr, select the tokena mount, and sign the transfer.
+Select Evmos as your source chain and Gravity Bridge as the destination, connect Keplr, select the token amount, and sign the transfer.
 
 ![image](https://user-images.githubusercontent.com/19688153/182439921-2bff196f-23ce-4bbf-8477-c2058e501326.png)
 
