@@ -1,6 +1,7 @@
 # Bridging Assets to EVMOS
 
-Gravity Bridge supports moving assets between Ethereum and EVMOS. This guide will demonstrate how to do so. 
+Gravity Bridge supports moving assets between Ethereum and EVMOS. This guide will demonstrate how to do
+so.
 
 First visit [bridge.blockscape.network](https://bridge.blockscape.network) and select Evmos from the destination list.
 ![image](https://user-images.githubusercontent.com/19688153/182438709-e9954667-82bf-4b3c-8175-ad9b015675eb.png)
@@ -15,7 +16,7 @@ Once ready click the 'begin transfer' button and sign with Metamask. About 10 mi
 
 From there you can follow [the EVMOS assets guide](https://medium.com/evmos/assets-page-quick-reference-guide-f1cd09e7cb85) to convert your Gravity IBC tokens to ERC20 representations for use on EVMOS!
 
-# Moving assets back to Ethereum
+## Moving assets back to Ethereum
 
 Following the [the EVMOS assets guide](https://medium.com/evmos/assets-page-quick-reference-guide-f1cd09e7cb85) on [Evmos](https://app.evmos.org/assets) you must first use the convert button to unwrap your tokens.
 
