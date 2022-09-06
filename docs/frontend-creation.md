@@ -166,8 +166,8 @@ Suggested fees:
 
 - Someday: Zero fee
 - Within a day: 50k Ethereum gas worth
-- Within an hour: 200k Ethereum gas worth
-- Instantly: 500k Ethereum gas worth
+- Within an hour: 300k Ethereum gas worth
+- Instantly: 1M Ethereum gas worth
 
 In order to convert these values to ETH you should query the `eth_gasPrice` endpoint, and multiply the resulting value by the suggested values above.
 
