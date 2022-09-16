@@ -70,12 +70,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
@@ -87,7 +87,7 @@ If you are validating on any of these platforms you will need to build your own 
 ```
 git clone https://github.com/Gravity-Bridge/Gravity-Bridge
 cd Gravity-Bridge/module
-git checkout v1.7.0
+git checkout v1.7.1
 make install
 cp $GOPATH/bin/gravity /usr/bin/gravity
 ```
