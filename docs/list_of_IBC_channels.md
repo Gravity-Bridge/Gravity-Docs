@@ -33,6 +33,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | NYX | nyx | NYX | Сhannel-18 | Сhannel-0 |
 | Assetmantle | mantle-1 | MNTL | Сhannel-82 | Сhannel-8 |
 | Canto       | canto_7744-1 | CANTO | Channel-85 | Channel-1 |
+| Agoric | agoric-3 | BLD | Channel-91 | Channel-4 |
 
 | Chain Name | Chain ID | volunteers (discord ID)  |
 | ---------- | -------- | ---------- |
@@ -66,4 +67,5 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | SECRET | secret-4 | Zdeadex#3976, schultzie \| Lavender.Five Nodes#3231 |
 | Assetmantle | mantle-1 | Zdeadex#3976, feida \| Blockscope.net#8484 |
 | NYX | nyx |  |
-| Canto | canto_7744-1 | jkilpatr (althea)#5838 |
+| Canto | canto_7744-1 | jkilpatr (althea)#5838, mzonder#5844 |
+| Agoric | agoric-3 | alkadeta#2699, polkachu \| polkachu.com#1249, kjnodes#8455, GOLDel \| KalpaTech#0098 |
