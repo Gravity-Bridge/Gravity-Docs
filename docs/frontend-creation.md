@@ -169,6 +169,8 @@ Suggested fees:
 - Within four hours: 400k Ethereum gas worth
 - Instantly: 750k Ethereum gas worth
 
+Note that the time-delay amounts depend on gas prices not being at their absolute floor when the tx is sent. Ideally estimates for daily or 4 hour transfers should have a minimum gas price of around 10-15gwei. If the gas price is miraculously 1gwei for a single block and the user locks up a 4 hour tx at that price it will not go through in 4 hours.
+
 In order to convert these values to ETH you should query the `eth_gasPrice` endpoint, and multiply the resulting value by the suggested values above.
 
 ```math
