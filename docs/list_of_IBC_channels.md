@@ -7,7 +7,7 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | BITCANNA | bitcanna-1 | BCNA | Channel-0 | Channel-8 |
 | JUNO | juno-1 | JUNO | Channel-8 | Channel-31 |
 | OSMOSIS | osmosis-1 | OSMO | Channel-10  | Channel-144  |
-| CERTIK | shentu-2.2 | CTK | Channel-12 | Channel-6 |
+| CERTIK | shentu-2.2 | CTK | Channel-12 (frozen) | Channel-6 (frozen) |
 | COSMOS | cosmoshub-4 | ATOM | Channel-17 | Channel-281 |
 | PERSISTENCE | core-1 | XPRT | Channel-24 | Channel-38 |
 | BOSTROM | bostrom-? | BOOT | Channel-33 | Channel-6 |
@@ -15,15 +15,15 @@ IBC channels are added based on community consensus. Visit the [Gravity Bridge D
 | OMNIFLIX | omniflixhub-1 | FLIX | Channel-51 | Channel-14 |
 | KI CHAIN | kichain-2 | XKI | Channel-37 | Channel-11 |
 | CHEQD | cheqd-mainnet-1 | CHEQ | Channel-43 | Channel-2 |
-| TERRA Classic | columbus-5 | LUNC, USTC | Channel-48 | Channel-38 |
+| TERRA Classic | columbus-5 | LUNC, USTC | Channel-48 (frozen)| Channel-38 (frozen)|
 | UMEE | umee-1 | UMEE | Channel-28 | Channel-9 |
-| IXO | impacthub-3 | IXO | Channel-26 | Channel-16 |
+| IXO | impacthub-3 | IXO | Channel-26 (frozen) | Channel-16 (frozen) |
 | COMDEX | comdex-1 | CMDX | channel-21 ?| channel-23 ?|
 | STARGAZE | stargaze-1 | STARS | channel-7 | channel-6 |
-| FETCH.AI | fetchhub-3 | FET | channel-30 | channel-7 |
+| FETCH.AI | fetchhub-3 | FET | channel-30 (frozen)| channel-7 (frozen)|
 | IRIS | irishub-1 | IRIS | channel-47 | channel-29 |
 | RIZON | titan-1 | ATOLO | channel-53 | channel-4 |
-| LUM | lum-network-1 | LUM | channel-55 | channel-6 |
+| LUM | lum-network-1 | LUM | channel-55 (frozen)| channel-6 (frozen)|
 | SIFCHAIN |  sifchain-1 | ROWAN | channel-66 | channel-60 |
 | Konstellation |  darchub | DARC | channel-57 | channel-2 |
 | Crescent | crescent-1 | CRE/ bCRE | channel-62 | channel-2 |
