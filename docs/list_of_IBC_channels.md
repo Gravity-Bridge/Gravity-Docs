@@ -2,6 +2,8 @@
 
 IBC channels are added based on community consensus. Visit the [Gravity Bridge Discord Server](https://discord.gg/d3DshmHpXA) and the [Gravity Commonwealth forum](https://commonwealth.im/gravity-bridge) to participate.
 
+If channel marked as `frozen`, please, visit [Gravity Bridge Discord Server](https://discord.gg/d3DshmHpXA), and ask about further interactions with it in #general or #ibc-relayers channels.
+
 | Chain Name | Chain ID | Token | Gravity Bridge  | Foreign |
 | ---------- | -------- | ----- | --------------- | ------- |
 | BITCANNA | bitcanna-1 | BCNA | Channel-0 | Channel-8 |
