@@ -6,6 +6,8 @@ There are two major supported usecases, a 'local' frontend will communicate dire
 
 A 'remote' frontend only interacts with a destination blockchain, this chain will have an IBC channel to Gravity Bridge and you as an application developer will be able to send tokens to and from Ethereum without having to interact with Gravity Bridge RPC.
 
+Please also see the [Gravity Info API](https://github.com/Gravity-Bridge/gravity-info-api) which provides a API for getting Gravity Bridge status information.
+
 ## Index
 
 [Getting started](#getting-started-with-cosmossdk-development)
@@ -295,13 +297,13 @@ The lifecycle of a [MsgSendToEth](https://github.com/Gravity-Bridge/Gravity-Brid
 - a relayer looks at the total fees for the transaction pool for that token type
 - a relayer requests a batch be created
 - validators sign the batch
-- the batch can then be relayed, or will time out in about 8 hours, returning the MsgSendToEth to the first step
+- the batch can then be relayed, or will time out in about 2 hours, returning the MsgSendToEth to the first step
 
 Any time the MsgSendToEth transaction is in the transaction pool, and not in a signed batch, it is possible to [cancel the send](#canceling-a-send-from-gravity-bridge-to-ethereum) and have the user get an instant refund.
 
 Once a MsgSendToEth is in a batch it is possible that it has been submitted to Ethereum, to prevent double spending it is not possible to cancel the send until the batch has timed out. This timeout value is a number of blocks and is set in the Gravity params. Due to the complexity of knowing exactly what block it is on Ethereum at any given time the batch will not complete timing out until any Gravity Bridge event is processed by the oracle with a later block height. For example a deposit of an unrelated token will complete a batch timeout by proving to Gravity Bridge that the Ethereum block height has exceeded the batch timeout height.
 
-Query endpoints related to batches and essentially all internal functions of Gravity Bridge are currently GRPC only. We will be adding ABCI query endpoints for commonly used functionality but encourage use of gRPC-web where feasible.
+You can use the [Gravity Info API](https://github.com/Gravity-Bridge/gravity-info-api) to easily grab batch and event info.
 
 In order to determine the status of a user transaction you should check.
 
@@ -314,15 +316,9 @@ This will let you display if the user can cancel their transaction, and predict 
 
 [QueryBatchFeeRequest](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L139) will return a list of fee totals for all token types currently being bridged.
 
-Translating QueryBatchFeeRequest into usable data takes a little work. First you must locate the token that is being bridged in the response. Then take a look at the total fees for that batch, convert these total fees to equal value in WETH and finally estimate what the cost of executing the batch would be.
+The Info API returns the data from both of these interal queries at the endpoint `https://info.gravitychain.io:9000/gravity_bridge_info` and you can use `https://info.gravitychain.io:9000/erc20_metadata` to get up to date exchange rates for any bridged token.
 
-It's infeasible to create a perfect fee estimation, so go with this heuristic. A batch starts at 400,000 Ethereum gas, and goes up in cost by 16,000 Ethereum gas per transaction included.
-
-So a batch with 50 transactions would estimate at 1,200,000 Ethereum gas.
-
-This gas estimate can be multiplied by the current gas price and then compared to the total fee value in WETH to determine if a batch will be relayed soon.
-
-The effectiveness of any time estimations will be greatly improved by a [historical gas price oracle](https://etherscan.io/gastracker#historicaldata) which will allow you to easily figure out when fee value and gas prices intersect.
+Batches cost about 600k GAS to execute. When you see a pending batch or a batch with that gas value in fees relaying is immenent.
 
 Finally we have to detect when a batch is actually relayed.
 
@@ -331,7 +327,9 @@ Depending on which is easier for you there are two methods to do this.
 - Monitor `Gravity.sol` for a [TransactionBatchExecutedEvent](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/solidity/contracts/Gravity.sol#L91)
 - Use [QueryAttestationsRequest](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L217) to monitor for a `BatchSendToEthClaim`
 
-Either will allow you to monitor batch execution and confirm to the user that their funds are available on Ethereum.
+Or `https://info.gravitychain.io:9000/gravity_bridge_info` and `https://info.gravitychain.io:9000/eth_bridge_info` respectively. 
+
+Either will allow you to monitor batch execution and confirm to the user that their funds are available on Ethereum, either by finding the batch in the recently executed events list on the ETH side or seeing it go away from the Gravity Bridge side.
 
 ## Monitoring a send from Ethereum to Gravity Bridge
 
@@ -340,17 +338,17 @@ Once a `MsgSendToCosmos` transaction has been included in an Ethereum block the 
 In order to display progress to the user you should.
 
 - Query the txid and show the user that the transaction is waiting on Ethereum
-- Once the transaction is included in a block display a 50 block countdown until funds are available on Gravity Bridge
+- Once the transaction is included in a block display a 96 block countdown until funds are available on Gravity Bridge
 
-If you want to have even more insight into the process on Gravity Bridge you can use [QueryAttestationsRequest](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L217) to observe the inner workings fo the validators confirming the deposit. This will not start until after 50 blocks have elapsed and should take only 10-20 seconds start to finish.
-
-Observing the attestation process is probably not worth it from a UI perspective, but you can if you like. The attestation query endpoint may be more useful to observe when a batch has been relayed.
+The `https://info.gravitychain.io:9000/eth_bridge_info` endpoint displays seconds until confirmation for deposit events, you can simply query this info.
 
 ## Canceling a send from Gravity Bridge To Ethereum
 
 In order to cancel a MsgSendToEth you must first check if the transaction is in a batch using.
 
 [QueryPendingSendToEth](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L260).
+
+Or `https://info.gravitychain.io:9000/gravity_bridge_info` which will display what batches are avaialble, their transactions and the id's of those transactions
 
 If the MsgSendToEth is in a batch, you must wait for that batch to time out before canceling is possible. The batch may also be executed, at which point the tokens are on Ethereum and canceling the operation is not possible.
 
