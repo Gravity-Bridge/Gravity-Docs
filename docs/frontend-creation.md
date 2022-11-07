@@ -74,7 +74,7 @@ Once `approve()` has passed the next (and last step) is to call [SendToCosmos](h
 
 This will lock up `amount` of hte users ERC20 tokens as identified by `tokenContract` value. The `destination` is a bech32 encoded Gravity address in the form of `gravity1<HASH>`.
 
-Once the transaction has been submitted and succeeded the tokens should be available on Gravity Bridge within `50` Ethereum blocks. This is about 10 minutes. This delay is for finality and will be removed once Ethereum moves to proof of stake.
+Once the transaction has been submitted and succeeded the tokens should be available on Gravity Bridge within `96` Ethereum blocks. This is about 20 minutes. This delay is for finality and will be removed once Ethereum moves to proof of stake.
 
 In the Gravity Bridge events section we discuss some events that provide more insight into how this deposit is being processed, the only event fired by a deposit on the Ethereum side is the [SendToCosmosEvent](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/solidity/contracts/Gravity.sol#L96) which tells you that your Ethereum transaction succeeded and starts the fifty block delay period.
 
