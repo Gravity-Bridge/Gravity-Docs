@@ -15,12 +15,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.0/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.3/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.3/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -36,7 +36,7 @@ cd gravity-bin
 # the gravity chain binary itself
 
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.0/gravity-darwin-amd64
-mv gravity-linux-amd64 gravity
+mv gravity-darwin-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
