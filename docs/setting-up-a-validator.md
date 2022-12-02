@@ -39,7 +39,7 @@ to check what version of the tools you have run `gbt --version` the current late
 You only need to do this if you are running Geth locally
 
 ```bash
-wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.15-8be800ff.tar.gz
+wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.26-e5eb32ac.tar.gz
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml -O /etc/geth-light-config.toml
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml -O /etc/geth-full-config.toml
 tar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
