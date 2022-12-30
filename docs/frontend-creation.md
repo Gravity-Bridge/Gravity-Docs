@@ -160,11 +160,15 @@ const txHash = await ethereum.request({
 
 Sending tokens to Ethereum does not have a predictable timeline like sending tokens to Cosmos. In exchange for dramatically lower fees [relayers](relaying.md) will choose when to request a batch containing your users tx and many other people's transactions to relay.
 
-You can imagine Gravity Bridge batch fees as a metaphorical bus stop. Various people wishing to travel walk to the bus stop and put money into a jar. When enough money to pay for the bus driver (relayer) has been collected, the travelers board the bus and it departs for Ethereum. You can supply any fee you like, all the way down to zero, in which case the users tx will be picked up for free when other profitable transactions fill the metaphorical jar and make it worth the relayers time.
+MsgSendToEth transactions have two fee fields, one is paid to the to the validators this is the CHAIN_FEE, the other is paid to the relayers on Ethereum, the BRIDGE_FEE. 
 
-The bridge fee must be in the same token you are sending across the bridge.
+You can imagine the bridge fees as a metaphorical bus stop. Various people wishing to travel walk to the bus stop and put money into a jar. When enough money to pay for the bus driver (relayer) has been collected, the travelers board the bus and it departs for Ethereum. You can supply any fee you like, all the way down to zero, in which case the users tx will be picked up for free when other profitable transactions fill the metaphorical jar and make it worth the relayers time.
 
-Suggested fees:
+The CHAIN_FEE fee must be greater than or equal to the value of the AMOUNT field times the [MinChainFeeBasisPoints](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/x/gravity/types/genesis.go#L88) parameter. If a MsgSendToEth fails this check it will be rejected and user funds will not be withdrawn. The BRIDGE_FEE value can be any amount of the token being sent, including zero. A zero BRIDGE_FEE is not recomended as the transaction may wait indefinatley to be realyed to Ethereum.
+
+The bridge fee and chain fee must be in the same token you are sending across the bridge.
+
+Suggested bridge fees:
 
 - Someday: Zero fee
 - Within a day: 50k Ethereum gas worth
@@ -186,7 +190,8 @@ Once the user has selected their fee amount you can actually form and submit the
 Keep in mind
 
 - `bridge_fee` must be the same token as `amount`
-- This transaction still has a 'fee' field for Gravity Bridge fees, this can be set to zero for now
+- The 'fee' field on the transaction is merely for anti-spam fees and can be set to zero
+- If the 'chain_fee' is less than the required percentage of the amount the tx will be rejected
 - `eth_dest` should be a correctly capitalized eip-55 address
 
 Once the user has sent this message the tokens will be removed from their account, but they will not appear on Ethereum until the transaction batch is relayed.
@@ -293,6 +298,9 @@ This feature will require interchain accounts to be integrated into Gravity Brid
 The lifecycle of a [MsgSendToEth](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/msgs.proto#L101) transaction is as follows.
 
 - User sends MsgSendToEth, removing the tokens from their balance
+- The message hander checks if the user has submitted a valid value for the CHAIN_FEE field. The fee must be
+  greater than or equal to the value of the AMOUNT field times the [MinChainFeeBasisPoints](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/x/gravity/types/genesis.go#L88) parameter. If a MsgSendToEth fails this check it will be rejected and user funds will not be withdrawn. The BRIDGE_FEE value can be any
+  amount of the token being sent, including zero.
 - the transaction enters the SendToEth transaction pool for that token type
 - a relayer looks at the total fees for the transaction pool for that token type
 - a relayer requests a batch be created
