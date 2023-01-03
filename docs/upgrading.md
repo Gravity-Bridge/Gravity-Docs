@@ -112,21 +112,35 @@ Your node will be slow to start as it performs the migrations, after that we wil
 Shortly after upgrading you should see some log output like the following when the pleiades upgrade runs. There will be many batch move messages:
 
 ```text
-4:22PM INF Successfully moved a batch to a new key! eth-block-height=15476491 event-nonce=13113 new-claim-hash=19a30c4fab45aa7bf6eb86ce5d06c6b469ff75e68bc3180cfcdb43e5191beac0 new-key=0bfa165ff4ef558b3d0b62ea4d4a46c5000000000000333919a30c4fab45aa7bf6eb86ce5d06c6b469ff75e68bc3180cfcdb43e5191beac0 old-claim-hash=d3078163b6a4522933ac64b194cc4335b0bcb952bc12c260ed8e9661bfb1cf5b old-key=0bfa165ff4ef558b3d0b62ea4d4a46c50000000000003339d3078163b6a4522933ac64b194cc4335b0bcb952bc12c260ed8e9661bfb1cf5b type=CLAIM_TYPE_BATCH_SEND_TO_ETH
-4:22PM INF Successfully moved a batch to a new key! eth-block-height=15476511 event-nonce=13114 new-claim-hash=84bdc1802fdb30633fab7d181a7c88c8ad6294bfe58390fab3cd93586c186e8b new-key=0bfa165ff4ef558b3d0b62ea4d4a46c5000000000000333a84bdc1802fdb30633fab7d181a7c88c8ad6294bfe58390fab3cd93586c186e8b old-claim-hash=c0e70d66a58e184dfbac08739da2e356aca30dec3876bd19884e70dadada118f old-key=0bfa165ff4ef558b3d0b62ea4d4a46c5000000000000333ac0e70d66a58e184dfbac08739da2e356aca30dec3876bd19884e70dadada118f type=CLAIM_TYPE_BATCH_SEND_TO_ETH
-4:22PM INF Successfully moved a batch to a new key! eth-block-height=15476703 event-nonce=13121 new-claim-hash=91e8b743a0f1dc3f270cacb0cdba118cec6b3f4ea1d5d05fc30144a38a38a29e new-key=0bfa165ff4ef558b3d0b62ea4d4a46c5000000000000334191e8b743a0f1dc3f270cacb0cdba118cec6b3f4ea1d5d05fc30144a38a38a29e old-claim-hash=7dde730ae5d8dada5961887594f91197e9644479d36ef2161b90c202e678aad2 old-key=0bfa165ff4ef558b3d0b62ea4d4a46c500000000000033417dde730ae5d8dada5961887594f91197e9644479d36ef2161b90c202e678aad2 type=CLAIM_TYPE_BATCH_SEND_TO_ETH
-4:24PM INF asserting crisis invariants inv=2/12 module=x/crisis name=bank/total-supply
-4:24PM INF asserting crisis invariants inv=3/12 module=x/crisis name=gov/module-account
-4:24PM INF asserting crisis invariants inv=4/12 module=x/crisis name=distribution/nonnegative-outstanding
-4:24PM INF asserting crisis invariants inv=5/12 module=x/crisis name=distribution/can-withdraw
-4:26PM INF asserting crisis invariants inv=6/12 module=x/crisis name=distribution/reference-count
-4:26PM INF asserting crisis invariants inv=7/12 module=x/crisis name=distribution/module-account
-4:26PM INF asserting crisis invariants inv=8/12 module=x/crisis name=staking/module-accounts
-4:26PM INF asserting crisis invariants inv=9/12 module=x/crisis name=staking/nonnegative-power
-4:26PM INF asserting crisis invariants inv=10/12 module=x/crisis name=staking/positive-delegation
-4:26PM INF asserting crisis invariants inv=11/12 module=x/crisis name=staking/delegator-shares
-4:26PM INF asserting crisis invariants inv=12/12 module=x/crisis name=gravity/module-balance
-4:26PM INF asserted all invariants duration=218591.271816 height=3595782 module=x/crisis
+4:58PM INF Pleiades Upgrade part 2: Enter handler
+4:58PM INF Pleiades Upgrade part 2: Running any configured module migrations
+4:58PM INF migrating module gravity from version 3 to version 4
+4:58PM INF Pleiades Upgrade part 2: Enter Migrate3to4()
+4:58PM INF Pleiades Upgrade part 2: Beginning the migrations for the gravity module
+4:58PM INF Pleiades Upgrade part 2: Finished the migrations for the gravity module successfully!
+4:58PM INF Pleiades Upgrade part 2: Gravity module migration is complete!
+4:58PM INF migrating module transfer from version 1 to version 2
+4:58PM INF Pleiades Upgrade part 2: Enforcing validator minimum comission
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): Enter function
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): Getting all the validators
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): minCommissionRate=0.100000000000000000
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): Iterating validators
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): checking validator Commission.MaxRate=0.200000000000000000 Commission.Rate=0.100000000000000000 validator="🔥STAVR🔥"
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): checking validator Commission.MaxRate=0.200000000000000000 Commission.Rate=0.060000000000000000 validator=Terminet
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): validator is out of compilance! Modifying their commission rate(s) validator =Terminet
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): Updating validator Commission.Rate
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): also UpdateTime  new="2023-01-03 00:49:57.857858311 +0000 UTC" old="2022-10-25 07:17:14.728392008 +0000 UTC"
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): calling the hook
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): setting the validator
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): validator's set rate Commission="commissionrates:\n  rate: \"0.100000000000000000\"\n  max_rate: \"0.200000000000000000\"\n  max_change_rate: \"0.010000000000000000\"\nupdate_time: 2023-01-03T00:49:57.857858311Z\n" validator=Terminet
+4:58PM INF Pleiades Upgrade part 2: bumpMinValidatorCommissions(): checking validator Commission.MaxRate=0.200000000000000000 Commission.Rate=0.100000000000000000 validator=emir
+.... Many more lines of this ....
+5:03PM INF asserting crisis invariants inv=9/13 module=x/crisis name=gov/module-account
+5:03PM INF asserting crisis invariants inv=10/13 module=x/crisis name=staking/module-accounts
+5:03PM INF asserting crisis invariants inv=11/13 module=x/crisis name=staking/nonnegative-power
+5:03PM INF asserting crisis invariants inv=12/13 module=x/crisis name=staking/positive-delegation
+5:03PM INF asserting crisis invariants inv=13/13 module=x/crisis name=staking/delegator-shares
+5:03PM INF asserted all invariants duration=295849.235283 height=5241190 module=x/crisis
 
 ```
 
