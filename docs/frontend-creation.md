@@ -160,7 +160,7 @@ const txHash = await ethereum.request({
 
 Sending tokens to Ethereum does not have a predictable timeline like sending tokens to Cosmos. In exchange for dramatically lower fees [relayers](relaying.md) will choose when to request a batch containing your users tx and many other people's transactions to relay.
 
-MsgSendToEth transactions have two fee fields, one is paid to the to the validators this is the CHAIN_FEE, the other is paid to the relayers on Ethereum, the BRIDGE_FEE. 
+MsgSendToEth transactions have two fee fields, one is paid to the to the validators this is the CHAIN_FEE, the other is paid to the relayers on Ethereum, the BRIDGE_FEE.
 
 You can imagine the bridge fees as a metaphorical bus stop. Various people wishing to travel walk to the bus stop and put money into a jar. When enough money to pay for the bus driver (relayer) has been collected, the travelers board the bus and it departs for Ethereum. You can supply any fee you like, all the way down to zero, in which case the users tx will be picked up for free when other profitable transactions fill the metaphorical jar and make it worth the relayers time.
 
@@ -335,7 +335,7 @@ Depending on which is easier for you there are two methods to do this.
 - Monitor `Gravity.sol` for a [TransactionBatchExecutedEvent](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/solidity/contracts/Gravity.sol#L91)
 - Use [QueryAttestationsRequest](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L217) to monitor for a `BatchSendToEthClaim`
 
-Or `https://info.gravitychain.io:9000/gravity_bridge_info` and `https://info.gravitychain.io:9000/eth_bridge_info` respectively. 
+Or `https://info.gravitychain.io:9000/gravity_bridge_info` and `https://info.gravitychain.io:9000/eth_bridge_info` respectively.
 
 Either will allow you to monitor batch execution and confirm to the user that their funds are available on Ethereum, either by finding the batch in the recently executed events list on the ETH side or seeing it go away from the Gravity Bridge side.
 
