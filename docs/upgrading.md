@@ -1,16 +1,18 @@
-# Gravity bridge Pleiades Upgrade - Phase I
+# Gravity bridge Pleiades Upgrade - Phase II
 
-As outlined in this [governance proposal](https://www.mintscan.io/gravity-bridge/proposals/74)
+As outlined in this [governance proposal](https://www.mintscan.io/gravity-bridge/proposals/105)
 
-Gravity Bridge will be upgrading to Pleiades Phase I with the following features
+Gravity Bridge will be upgrading to Pleiades Phase II with the following features
 
-* Updates to prepare for the Ethereum Merge, specifcially to protect Gravity Bridge from any forks or other merge problems. Please read the [ETH merge FAQ](/docs/eth-merge-faq.md)
+* Automated invariants, by default validators will run chain invariants every 17 to 199 blocks
 
-* Improved integrity checks around batch timeouts, allowing for more aggressive timeout periods to be set by future governnace votes
+* Full store check invariant has been added. This cross references all Gravity store data and will halt the chain if anything becomes inconsistent, preventing attacks around store corruption.
 
-* Corrected index hashing for BatchSendToEthClaim objects, the index now includes the Ethereum block height, completing the upgrade process for the vulnerability hot-patched in `v1.6.7`
+* Improved Finality efficiency, deposits to GB will re recognized ~7 minutes faster thanks to improved ETH2 finality detection
 
-This upgrade *will not* change the chain-id and will occur at block height `3608063`
+* Fees, this update will implement Gravity Bridge fees as outlined in [proposal-86](https://www.mintscan.io/gravity-bridge/proposals/86), with a parameter controlling minimum feed editable by governance
+
+This upgrade *will not* change the chain-id and will occur at block height `5264000`
 
 ## Preparing for the upgrade
 
@@ -24,9 +26,9 @@ You may wish to research BTRFS and ZFS for your validator, as they will allow in
 
 ## Backup your node
 
-If your node has not yet halted at block `3608063` you are too early! Please wait and use one of these upgrade time estimation links [Mintscan](https://www.mintscan.io/gravity-bridge/blocks/3608063)
+If your node has not yet halted at block `5264000` you are too early! Please wait and use one of these upgrade time estimation links [Mintscan](https://www.mintscan.io/gravity-bridge/blocks/5264000)
 
-Once the chain has reached block height `3608063` run `service gravity-bridge-stop`
+Once the chain has reached block height `5264000` run `service gravity-bridge-stop`
 
 **Once your node has halted it is recommended you backup your chain state**.
 
@@ -70,12 +72,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.1/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gbt
 chmod +x *
 sudo mv * /usr/bin/
 ```
@@ -87,7 +89,7 @@ If you are validating on any of these platforms you will need to build your own 
 ```
 git clone https://github.com/Gravity-Bridge/Gravity-Bridge
 cd Gravity-Bridge/module
-git checkout v1.7.1
+git checkout v1.8.0
 make install
 cp $GOPATH/bin/gravity /usr/bin/gravity
 ```
