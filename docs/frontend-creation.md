@@ -57,7 +57,7 @@ The server at `gravitychain.io` also provides ABCI and Legacy Amino endpoints se
 
 In order to interact with the Gravity Bridge Ethereum contract you will need to initialize the users [Ethereum wallet](https://docs.metamask.io/guide/ethereum-provider.html#table-of-contents) then using the information provided by the user [encode the contract call](https://docs.metamask.io/guide/initializing-dapps.html#the-contract-network) before finally [sending a transaction](https://docs.metamask.io/guide/sending-transactions.html#example) with the encoded contract call set as the transaction bytes.
 
-The Gravity Bridge contract ABI is available as `Gravity.json` attached to every [release](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/Gravity.json)
+The Gravity Bridge contract ABI is available as `Gravity.json` attached to every [release](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/Gravity.json)
 
 [0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906) is the Gravity Bridge contract address.
 

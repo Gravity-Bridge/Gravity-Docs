@@ -15,7 +15,7 @@ To understand more see the [relaying rewards](https://github.com/Gravity-Bridge/
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.0/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
