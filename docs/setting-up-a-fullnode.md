@@ -9,7 +9,7 @@ A Linux server with any modern Linux distribution, 2gb of ram and at least 20gb 
 
 ### Download Gravity chain software
 
-Syncing starts with v1.4.0 and you should upgrade to v1.5.0,v1.5.2,v1.6.4, and v1.7.3 when prompted again
+Syncing starts with v1.4.0 and you should upgrade to v1.5.0,v1.5.2,v1.6.4, and v1.8.1 when prompted again
 
 ```bash
 wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.4.0/gravity-linux-amd64
@@ -43,6 +43,7 @@ seeds = "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@seeds.polkachu.com:14256,86bd5
 ```
 
 Change the `persistent_peers` field in ~/.gravity/config/config.toml to contain the following:
+
 ```text
 
 persistent_peers = "73e27e9b376d2f58d80e29e8175542cb01c3024d@135.181.73.170:26856, ef9748625b4739c5411e276cf2cb0d2742a037f9@54.36.63.85:26656, 39490daffac0c7847b0d2617e412b2942055a82b@95.214.53.46:26656, 906114620df87a270b89404fdc7f15b3760fa34e@95.214.53.27:42656"
@@ -52,6 +53,7 @@ persistent_peers = "73e27e9b376d2f58d80e29e8175542cb01c3024d@135.181.73.170:2685
 ## Download address book
 
 Besides adding seeds and peers you could download latest address book:
+
 ```bash
 wget -O "$HOME/addrbook.json" https://snapshots1.polkachu.com/addrbook/gravity/addrbook.json
 mv "$HOME/addrbook.json" ~/.gravity/config

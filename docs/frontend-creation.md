@@ -57,7 +57,7 @@ The server at `gravitychain.io` also provides ABCI and Legacy Amino endpoints se
 
 In order to interact with the Gravity Bridge Ethereum contract you will need to initialize the users [Ethereum wallet](https://docs.metamask.io/guide/ethereum-provider.html#table-of-contents) then using the information provided by the user [encode the contract call](https://docs.metamask.io/guide/initializing-dapps.html#the-contract-network) before finally [sending a transaction](https://docs.metamask.io/guide/sending-transactions.html#example) with the encoded contract call set as the transaction bytes.
 
-The Gravity Bridge contract ABI is available as `Gravity.json` attached to every [release](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.3/Gravity.json)
+The Gravity Bridge contract ABI is available as `Gravity.json` attached to every [release](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/Gravity.json)
 
 [0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906) is the Gravity Bridge contract address.
 
@@ -160,11 +160,15 @@ const txHash = await ethereum.request({
 
 Sending tokens to Ethereum does not have a predictable timeline like sending tokens to Cosmos. In exchange for dramatically lower fees [relayers](relaying.md) will choose when to request a batch containing your users tx and many other people's transactions to relay.
 
-You can imagine Gravity Bridge batch fees as a metaphorical bus stop. Various people wishing to travel walk to the bus stop and put money into a jar. When enough money to pay for the bus driver (relayer) has been collected, the travelers board the bus and it departs for Ethereum. You can supply any fee you like, all the way down to zero, in which case the users tx will be picked up for free when other profitable transactions fill the metaphorical jar and make it worth the relayers time.
+MsgSendToEth transactions have two fee fields, one is paid to the to the validators this is the CHAIN_FEE, the other is paid to the relayers on Ethereum, the BRIDGE_FEE.
 
-The bridge fee must be in the same token you are sending across the bridge.
+You can imagine the bridge fees as a metaphorical bus stop. Various people wishing to travel walk to the bus stop and put money into a jar. When enough money to pay for the bus driver (relayer) has been collected, the travelers board the bus and it departs for Ethereum. You can supply any fee you like, all the way down to zero, in which case the users tx will be picked up for free when other profitable transactions fill the metaphorical jar and make it worth the relayers time.
 
-Suggested fees:
+The CHAIN_FEE fee must be greater than or equal to the value of the AMOUNT field times the [MinChainFeeBasisPoints](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/x/gravity/types/genesis.go#L88) parameter. If a MsgSendToEth fails this check it will be rejected and user funds will not be withdrawn. The BRIDGE_FEE value can be any amount of the token being sent, including zero. A zero BRIDGE_FEE is not recomended as the transaction may wait indefinatley to be realyed to Ethereum.
+
+The bridge fee and chain fee must be in the same token you are sending across the bridge.
+
+Suggested bridge fees:
 
 - Someday: Zero fee
 - Within a day: 50k Ethereum gas worth
@@ -186,7 +190,8 @@ Once the user has selected their fee amount you can actually form and submit the
 Keep in mind
 
 - `bridge_fee` must be the same token as `amount`
-- This transaction still has a 'fee' field for Gravity Bridge fees, this can be set to zero for now
+- The 'fee' field on the transaction is merely for anti-spam fees and can be set to zero
+- If the 'chain_fee' is less than the required percentage of the amount the tx will be rejected
 - `eth_dest` should be a correctly capitalized eip-55 address
 
 Once the user has sent this message the tokens will be removed from their account, but they will not appear on Ethereum until the transaction batch is relayed.
@@ -293,6 +298,9 @@ This feature will require interchain accounts to be integrated into Gravity Brid
 The lifecycle of a [MsgSendToEth](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/msgs.proto#L101) transaction is as follows.
 
 - User sends MsgSendToEth, removing the tokens from their balance
+- The message hander checks if the user has submitted a valid value for the CHAIN_FEE field. The fee must be
+  greater than or equal to the value of the AMOUNT field times the [MinChainFeeBasisPoints](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/x/gravity/types/genesis.go#L88) parameter. If a MsgSendToEth fails this check it will be rejected and user funds will not be withdrawn. The BRIDGE_FEE value can be any
+  amount of the token being sent, including zero.
 - the transaction enters the SendToEth transaction pool for that token type
 - a relayer looks at the total fees for the transaction pool for that token type
 - a relayer requests a batch be created
@@ -327,7 +335,7 @@ Depending on which is easier for you there are two methods to do this.
 - Monitor `Gravity.sol` for a [TransactionBatchExecutedEvent](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/solidity/contracts/Gravity.sol#L91)
 - Use [QueryAttestationsRequest](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L217) to monitor for a `BatchSendToEthClaim`
 
-Or `https://info.gravitychain.io:9000/gravity_bridge_info` and `https://info.gravitychain.io:9000/eth_bridge_info` respectively. 
+Or `https://info.gravitychain.io:9000/gravity_bridge_info` and `https://info.gravitychain.io:9000/eth_bridge_info` respectively.
 
 Either will allow you to monitor batch execution and confirm to the user that their funds are available on Ethereum, either by finding the batch in the recently executed events list on the ETH side or seeing it go away from the Gravity Bridge side.
 

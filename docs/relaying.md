@@ -15,7 +15,7 @@ To understand more see the [relaying rewards](https://github.com/Gravity-Bridge/
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -79,13 +79,13 @@ In order to relay you must provide an Ethereum address containing some funds.
 
 Your relayer can optionally automatically request batches (requires sending a tx on the Gravity Bridge chain) all you need is the private key phrase containing `1ugraviton` to initialize the account since there is no min fee. Add the options `--cosmos-phrase "your private key phrase containing graviton here"` and `--fees 0ugraviton` if you would like to do this.
 
-```bash
+```shell
 gbt init
 gbt relayer \
---ethereum-key 0xYOURKEYHERE
---cosmos-grpc https://gravitychain.io:9090
---ethereum-rpc https://eth.althea.net
---gravity-contract-address "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906" \
+--ethereum-key 0xYOURKEYHERE \
+--cosmos-grpc https://gravitychain.io:9090 \
+--ethereum-rpc https://eth.althea.net \
+--gravity-contract-address "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
 ```
 
 ## Relaying a specific token

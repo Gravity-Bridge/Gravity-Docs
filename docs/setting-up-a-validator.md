@@ -19,12 +19,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.3/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.3/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -32,18 +32,18 @@ sudo mv * /usr/bin/
 
 At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.7.3`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.8.1`
 
 ## Download and install geth
 
 You only need to do this if you are running Geth locally
 
 ```bash
-wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.15-8be800ff.tar.gz
+wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.23-d901d853.tar.gz
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-light-config.toml -O /etc/geth-light-config.toml
 wget https://raw.githubusercontent.com/Gravity-Bridge/Gravity-Docs/main/configs/geth-full-config.toml -O /etc/geth-full-config.toml
-tar -xvf geth-linux-amd64-1.10.15-8be800ff.tar.gz
-cd geth-linux-amd64-1.10.15-8be800ff
+tar -xvf geth-linux-amd64-1.10.23-d901d853.tar.gz
+cd geth-linux-amd64-1.10.23-d901d853.tar.gz
 mv geth /usr/sbin/
 ```
 
@@ -75,7 +75,9 @@ Change the `seeds` field in ~/.gravity/config/config.toml to contain the followi
 seeds = "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@seeds.polkachu.com:14256,86bd5cb6e762f673f1706e5889e039d5406b4b90@gravity.seed.node75.org:10556"
 
 ```
+
 Change the `persistent_peers` field in ~/.gravity/config/config.toml to contain the following:
+
 ```text
 
 persistent_peers = "73e27e9b376d2f58d80e29e8175542cb01c3024d@135.181.73.170:26856, ef9748625b4739c5411e276cf2cb0d2742a037f9@54.36.63.85:26656, 39490daffac0c7847b0d2617e412b2942055a82b@95.214.53.46:26656, 906114620df87a270b89404fdc7f15b3760fa34e@95.214.53.27:42656"
@@ -85,6 +87,7 @@ persistent_peers = "73e27e9b376d2f58d80e29e8175542cb01c3024d@135.181.73.170:2685
 ## Download address book
 
 Besides adding seeds and peers you could download latest address book:
+
 ```bash
 wget -O "$HOME/addrbook.json" https://snapshots1.polkachu.com/addrbook/gravity/addrbook.json
 mv "$HOME/addrbook.json" ~/.gravity/config
