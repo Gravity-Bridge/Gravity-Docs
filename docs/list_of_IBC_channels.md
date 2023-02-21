@@ -12,21 +12,21 @@ If channel marked as `frozen`, please, visit [Gravity Bridge Discord Server](htt
 | CERTIK | shentu-2.2 | CTK | Channel-12 (frozen) | Channel-6 (frozen) |
 | COSMOS | cosmoshub-4 | ATOM | Channel-17 | Channel-281 |
 | PERSISTENCE | core-1 | XPRT | Channel-24 | Channel-38 |
-| BOSTROM | bostrom-? | BOOT | Channel-33 | Channel-6 |
+| BOSTROM | bostrom | BOOT | channel-103 | channel-12 |
 | CHIHUAHUA | chihuahua-1 | HUAHUA | Channel-34 | Channel-15 |
 | OMNIFLIX | omniflixhub-1 | FLIX | Channel-51 | Channel-14 |
 | KI CHAIN | kichain-2 | XKI | Channel-37 | Channel-11 |
 | CHEQD | cheqd-mainnet-1 | CHEQ | Channel-43 | Channel-2 |
 | TERRA Classic | columbus-5 | LUNC, USTC | Channel-101 | Channel-64 |
 | UMEE | umee-1 | UMEE | Channel-28 | Channel-9 |
-| IXO | impacthub-3 | IXO | Channel-26 (frozen) | Channel-16 (frozen) |
-| COMDEX | comdex-1 | CMDX | channel-21 ?| channel-23 ?|
+| IXO | ixo-4 | IXO | channel-111 | Channel-22 |
+| COMDEX | comdex-1 | CMDX | channel-21 | channel-23 |
 | STARGAZE | stargaze-1 | STARS | channel-7 | channel-6 |
-| FETCH.AI | fetchhub-3 | FET | channel-30 (frozen)| channel-7 (frozen)|
+| FETCH.AI | fetchhub-4 | FET | channel-61 | channel-13 |
 | IRIS | irishub-1 | IRIS | channel-47 | channel-29 |
 | RIZON | titan-1 | ATOLO | channel-53 | channel-4 |
 | LUM | lum-network-1 | LUM | channel-55 (frozen)| channel-6 (frozen)|
-| SIFCHAIN |  sifchain-1 | ROWAN | channel-66 | channel-60 |
+| SIFCHAIN |  sifchain-1 | ROWAN | channel-66 (frozen) | channel-60 |
 | Konstellation |  darchub | DARC | channel-57 | channel-2 |
 | Crescent | crescent-1 | CRE/ bCRE | channel-62 | channel-2 |
 | Evmos | evmos_9001-2 | EVMOS | channel-65 | channel-8 |
@@ -36,6 +36,11 @@ If channel marked as `frozen`, please, visit [Gravity Bridge Discord Server](htt
 | Assetmantle | mantle-1 | MNTL | Сhannel-82 | Сhannel-8 |
 | Canto       | canto_7700-1 | CANTO | Channel-88 | Channel-0 |
 | Agoric | agoric-3 | BLD | Channel-91 | Channel-4 |
+| Regen | regen-1 | REGEN | channel-89 | channel-45 |
+| Injective | injective-1 | INJ | channel-113 | channel-100 |
+| KUJIRA | kaiyo-1 | KUJI, USK | channel-107 | channel-50 |	
+| Planq | planq_7070-2 | PLQ | channel-102 | channel-0 |
+| FUND | FUND-MainNet-2 | FUND | channel-98 | channel-2 |
 
 | Chain Name | Chain ID | volunteers (discord ID)  |
 | ---------- | -------- | ---------- |
