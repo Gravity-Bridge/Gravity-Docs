@@ -15,7 +15,7 @@ To understand more see the [relaying rewards](https://github.com/Gravity-Bridge/
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.2/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -27,14 +27,14 @@ sudo mv * /usr/bin/
 
 mkdir gravity-bin
 cd gravity-bin
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.0/gbt-mac-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.2/gbt-mac-amd64
 chmod +x *
 
 ```
 
 ### Windows
 
-Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.7.0/gbt.exe)
+Download [gbt](https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.2/gbt.exe)
 
 You will need to open a terminal and nagivate to the directory where these files where downloaded before running any commands.
 
