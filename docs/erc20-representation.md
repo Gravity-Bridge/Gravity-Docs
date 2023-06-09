@@ -102,7 +102,7 @@ gbt client deploy-erc20-representation \
 --cosmos-denom "denom of the token goes here, use the ibc/hash or just graviton" \
 --ethereum-key "0xETHPRIVATEKEY" \
 --ethereum-rpc https://eth.althea.net \
---cosmos-grpc https://gravitychain.io:9090
+--cosmos-grpc http://gravitychain.io:9090
 ```
 
 Once your contract is deployed `gbt` will monitor the adoption process and let you know if the validators accept it. If they do the ERC20 address will be printed.
