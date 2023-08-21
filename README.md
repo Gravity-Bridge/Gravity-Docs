@@ -31,3 +31,5 @@ The Gravity Bridge Blockchain is online! See the Resources page for frontends an
 [Ethereum Contract](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906)
 
 [gravitybridge.net](https://www.gravitybridge.net/)
+
+[gravitypulse](https://gravitypulse.app/)
