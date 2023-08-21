@@ -24,12 +24,10 @@ The Gravity Bridge Blockchain is online! See the Resources page for frontends an
 
 [Blockscape Frontend](https://bridge.blockscape.network/#/)
 
-[Spacestation Frontend](https://spacestation.zone/)
+[gravitypulse](https://gravitypulse.app/)
 
 [Mintscan Explorer](https://www.mintscan.io/gravity-bridge)
 
 [Ethereum Contract](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906)
 
 [gravitybridge.net](https://www.gravitybridge.net/)
-
-[gravitypulse](https://gravitypulse.app/)
