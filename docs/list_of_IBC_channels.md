@@ -38,7 +38,7 @@ If channel marked as `frozen`, please, visit [Gravity Bridge Discord Server](htt
 | Agoric | agoric-3 | BLD | Channel-91 | Channel-4 |
 | Regen | regen-1 | REGEN | channel-89 | channel-45 |
 | Injective | injective-1 | INJ | channel-113 | channel-100 |
-| KUJIRA | kaiyo-1 | KUJI, USK | channel-107 | channel-50 |	
+| KUJIRA | kaiyo-1 | KUJI, USK | channel-107 | channel-50 |
 | Planq | planq_7070-2 | PLQ | channel-102 | channel-0 |
 | FUND | FUND-MainNet-2 | FUND | channel-98 | channel-2 |
 

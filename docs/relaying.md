@@ -52,7 +52,7 @@ There are two major modes of relaying, continuous and spot. Continuous relayers 
 
 Relaying for Gravity Bridge is not risk free. Only put as much ETH into your relayer as you are willing to lose.
 
-Spot relaying is the less risky of the two options, because there's no chance of repeated failures draining your wallet. You should use an information site like [info.gravitychain.io](https://info.gravitychain.io/) to find specific batches you think are profitable and then relay them following the spot relaying instuctions below. Spot relayers will not get a chance to relay very common token types like USDC and USDT as continuous relayers will pounce on this immeidately. Spot relaying is reserved for tokens originating on Cosmos that don't have a well defined value or path to sale on Ethereum. 
+Spot relaying is the less risky of the two options, because there's no chance of repeated failures draining your wallet. You should use an information site like [info.gravitychain.io](https://info.gravitychain.io/) to find specific batches you think are profitable and then relay them following the spot relaying instuctions below. Spot relayers will not get a chance to relay very common token types like USDC and USDT as continuous relayers will pounce on this immeidately. Spot relaying is reserved for tokens originating on Cosmos that don't have a well defined value or path to sale on Ethereum.
 
 The fundamental challenge of continous relaying is that all relayers are competing to submit the same transactions to get the reward. Because it's impossible to know in advance with transactions an Ethereum miner will decide to include in a block there is no way to avoid the risk of your TX failing because someone else claimed the relaying reward first. Unfortunately due to the design of Ethereum relayers must pay for their failed transactions and since the batch arguments are quite large the failed tx will have a gas cost on the order of 100k gas.
 
@@ -90,7 +90,6 @@ gbt client spot-relay \
 --ethereum-key 0xYOURKEYHERE \
 --token nym
 ```
-
 
 ## Running a relayer
 
