@@ -15,6 +15,7 @@
 1. [Governance proposal creation guide](/docs/custom-gov.md)
 1. [Security and Crisis management](/docs/security.md)
 1. [Recovering funds "bounced back" from Canto](/docs/canto-recovery.md)
+1. [Chain Fees and the Auction Module](/docs/fees-auction.md)
 
 ## Status
 
