@@ -1,5 +1,5 @@
 name: Markdown lint
-on: [push, pull_request]
+on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -9,7 +9,7 @@ jobs:
         with:
           ruby-version: 2.6
           bundler-cache: true
-      - run: gem install mdl
+      - run: gem install mdl -v 0.11.0
       # lint ignoring the line length lint
       - run: mdl -r ~MD013 README.md
       - run: mdl -r ~MD013 docs/*
