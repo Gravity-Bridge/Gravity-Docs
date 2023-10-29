@@ -19,12 +19,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.10.1/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.8.1/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.10.1/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -32,7 +32,7 @@ sudo mv * /usr/bin/
 
 At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.8.1`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.10.1`
 
 ## Download and install geth
 
@@ -89,7 +89,7 @@ persistent_peers = "73e27e9b376d2f58d80e29e8175542cb01c3024d@135.181.73.170:2685
 Besides adding seeds and peers you could download latest address book:
 
 ```bash
-wget -O "$HOME/addrbook.json" https://snapshots1.polkachu.com/addrbook/gravity/addrbook.json
+wget -O "$HOME/addrbook.json" https://snapshots.polkachu.com/addrbook/gravity/addrbook.json --inet4-only
 mv "$HOME/addrbook.json" ~/.gravity/config
 ```
 
@@ -99,7 +99,7 @@ Note that the most secure way to sync the chain is to sync the data yourself ins
 
 If you are syncing from scratch you will need to start with Gravity Bridge version v1.0.0 and upgrade when prompted.
 
-Follow [this guide](https://ping.pub/gravity-bridge/statesync) to configure your node for state sync. Or follow the steps below to download a snapshot.
+Follow [this guide](https://polkachu.com/state_sync/gravity) to configure your node for state sync. Or follow the steps below to download a snapshot.
 
 ```text
 https://cosmos-snapshots.s3.filebase.com/gravitybridge/snapshot.json
@@ -178,8 +178,8 @@ Once we have generated our keys we will also set them in our Orchestrator right 
 
 ```bash
 gbt init
-gbt keys set-ethereum-key --key Gravity Orchestrator Ethereum Key
-gbt keys set-orchestrator-key --phrase "Gravity Orchestrator Cosmos Key"
+gbt keys set-ethereum-key --key Gravity Orchestrator Ethereum Private Key
+gbt keys set-orchestrator-key --phrase "Gravity Orchestrator Cosmos Key (Phrase)"
 ```
 
 Finally we have now generated the keys, stored them in a safe place, set those keys in the gbt process. We can now use gbt to register these keys to the validator key. This process is not reversable, if you lose the keys you generated in the last steps you will have to create a new validator.
