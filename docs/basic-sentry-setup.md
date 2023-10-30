@@ -78,7 +78,7 @@ Modify the following lines in your config.toml and save
 
 #### Modify your VALIDATOR config.toml
 
-In this example we are using 3 seperate sentries but you may use any number that you prefer. Please modify the config.toml on your Validator using the example below.
+In this example we are using 3 separate sentries but you may use any number that you prefer. Please modify the config.toml on your Validator using the example below.
 
 ```text
   - config.toml
