@@ -2,7 +2,7 @@
 
 One of the main features of Gravity Bridge is to provide an ERC20 representation of a given CosmosSDK token on Ethereum. Once bridged to Ethereum you can use the Cosmos token however you would use any other ERC20.
 
-This opens up exiting use cases like listing Cosmos originated tokens in Uniswap or using them with other DeFi applications.
+This opens up exciting use cases like listing Cosmos originated tokens in Uniswap or using them with other DeFi applications.
 
 ## Requirements
 
@@ -36,7 +36,7 @@ Creating an IBC channel is extensively documented outside of Gravity Bridge, no 
 
 For more information on setting up an IBC channel between your chain and Gravity Bridge, see: [https://hermes.informal.systems/](https://hermes.informal.systems/)
 
-Once you have created the channel, send any amount of the token over IBC that you want to create a representation for. This will allow you to see it's `ibc/hash` token name. You will need this value for the governance proposal next.
+Once you have created the channel, send any amount of the token over IBC that you want to create a representation for. This will allow you to see its `ibc/hash` token name. You will need this value for the governance proposal next.
 
 ## Submit an IBCMetadata governance proposal
 

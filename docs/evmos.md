@@ -6,7 +6,7 @@ so.
 First visit [bridge.blockscape.network](https://bridge.blockscape.network) and select Evmos from the destination list.
 ![image](https://user-images.githubusercontent.com/19688153/182438709-e9954667-82bf-4b3c-8175-ad9b015675eb.png)
 
-Connect your MetaMask wallet and your Keplr wallet. Alternately you can skip keplr and click the lock button next to transfer address and paste your evmos1 address there.
+Connect your MetaMask wallet and your Keplr wallet. Alternatively you can skip keplr and click the lock button next to transfer address and paste your evmos1 address there.
 
 Click select token and select which token you would like to bridge and the amount.
 

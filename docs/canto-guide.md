@@ -11,7 +11,7 @@ Be sure your metamask is set to Ethereum network if you wish to bridge from ethe
 ![screenshot of canto bridge interface](/images/canto-image5.png)
 ![screenshot of canto bridge interface](/images/canto-image3.png)
 
-Click “Select Tokens” and choose the tokens you wish to send to Canto. Type the amount to the right of thetoken selection. The maximum amount available will be displayed. Confirm your ethereum and Canto addresses to be sent to and click on “send token”.
+Click “Select Tokens” and choose the tokens you wish to send to Canto. Type the amount to the right of the token selection. The maximum amount available will be displayed. Confirm your ethereum and Canto addresses to be sent to and click on “send token”.
 Confirm the transaction in your metamask wallet. The gas prices displayed are eth fees for sending.
 
 ![screenshot of canto bridge interface](/images/canto-image1.png)
