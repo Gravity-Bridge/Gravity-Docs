@@ -25,7 +25,7 @@ Once all three of these conditions are met, they are permanent, and the token ca
 ## Basic prep
 
 1. Download [the latest release](https://github.com/Gravity-Bridge/Gravity-Bridge/releases) of Gravity and gbt (gravity bridge tools)
-1. Have the minimum required GRAV to create a [governance proposal](https://www.mintscan.io/gravity-bridge/proposals) (10 at the time of writing)
+1. Have the minimum required GRAV to create a [governance proposal](https://www.mintscan.io/gravity-bridge/proposals) (100k at the time of writing)
 1. Have enough Ethereum to cover 700k in gas costs (somewhere between $50 and $400 depending on time of day at the time of writing)
 
 You will not need your own full node for either Gravity Bridge or Ethereum. Working endpoints are provided in this document. Infura or any other endpoint service will also work.
