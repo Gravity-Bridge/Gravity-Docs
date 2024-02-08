@@ -60,26 +60,26 @@ Keys containing test tokens
 These is the private keys for the validators on the testnet
 
 ```text
-cute steel mass hockey fatigue lottery few wood inch potato puppy brand donor person fortune warm century crane toward report embody hire wine senior
+solution capital echo near absent night fashion program expand kiss eager skirt right three victory urge trim patch aunt arm identify insane bottom auto
 
-spring again lunar miss execute catalog moral loyal bargain proof shiver distance lady tiny kidney voice shock month purchase casual you service effort wolf
+estate true cannon like screen joy hint slam vapor inner electric neither recycle hawk topple pond grow glad abandon confirm cupboard water chronic lounge
 
-emerge exact mandate town frog surge shine bounce word give turkey illness advance shift entry cushion damp canoe tumble salt floor fever swing switch
+vital oppose scene vicious coach glue picnic absent tent rose ill source feel certain vicious patch jacket crew torch siege opinion artist ethics advice
 
-deer lunch cereal easy match orient anger public learn rival pull admit live minimum diagram siege north lottery noble fame ripple riot armed indicate
+kitchen security skin river olympic fee pluck amateur limb lava cover obtain isolate cabbage slim year ball night buyer replace push invite ozone initial
 
 ```
 
 And the private keys for the validators on the second non-gravity IBC test network
 
 ```text
-fluid scrub lion alien afraid surface turtle caught dignity cheese refuse mind sword tide notable beyond weapon collect general wine horror off left trouble
+income suffer cruel soda capital whip urban remove margin possible eager grant detail almost result poet plug icon uniform brisk transfer dirt harvest tongue
 
-fix various crop drill equal exchange know bunker pelican local surround food fog one base rescue great decorate require reopen patient stamp hawk timber
+clerk govern smart scene flavor tumble assist network acid tornado whip face remain transfer bridge disagree social spoon parade elite moment glimpse flee key
 
-divide alter miss knee bundle oven vast second hybrid curious acoustic mother fault agent decrease photo oppose involve toast differ argue report degree educate
+pet sea artefact portion state business marble project wing hurdle key sure notable payment similar famous finish tired main law inherit twenty deposit carbon
 
-name narrow bleak paper only typical mind magnet liquid pioneer swallow nerve fuel velvet mind barrel race open unveil wagon gap fiction caution audit
+drink bleak town tunnel adjust orbit much lens clump decide differ clock review kiss outside police story minor soft proof orbit spoil ankle eye
 
 ```
 
