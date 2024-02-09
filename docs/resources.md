@@ -60,26 +60,26 @@ Keys containing test tokens
 These is the private keys for the validators on the testnet
 
 ```text
-solution capital echo near absent night fashion program expand kiss eager skirt right three victory urge trim patch aunt arm identify insane bottom auto
+hill romance aware road unveil egg vehicle loud barrel baby cotton glimpse will marriage manage basket concert dizzy giant egg prosper car other absurd
 
-estate true cannon like screen joy hint slam vapor inner electric neither recycle hawk topple pond grow glad abandon confirm cupboard water chronic lounge
+piece try open forward course together faith someone cool dutch caught praise link milk much plunge huge immense monkey useless insect misery winter pupil
 
-vital oppose scene vicious coach glue picnic absent tent rose ill source feel certain vicious patch jacket crew torch siege opinion artist ethics advice
+noble execute sword volcano swim brisk digital goose exit door cart tray exercise alcohol same behave diamond possible cactus label sphere mushroom alley slender
 
-kitchen security skin river olympic fee pluck amateur limb lava cover obtain isolate cabbage slim year ball night buyer replace push invite ozone initial
+list salmon dumb web whale garlic model fox federal panic travel nerve abandon veteran post audit verb old salon link stove twenty essence fiction
 
 ```
 
 And the private keys for the validators on the second non-gravity IBC test network
 
 ```text
-income suffer cruel soda capital whip urban remove margin possible eager grant detail almost result poet plug icon uniform brisk transfer dirt harvest tongue
+call time high ostrich tornado vintage surround about just indicate permit stadium coyote under crew mention raven circle around title must boss suggest suggest
 
-clerk govern smart scene flavor tumble assist network acid tornado whip face remain transfer bridge disagree social spoon parade elite moment glimpse flee key
+tide truth limit whisper trial purity decorate click tent play satisfy heavy bus crystal wedding train pepper good drop swim country response acoustic slow
 
-pet sea artefact portion state business marble project wing hurdle key sure notable payment similar famous finish tired main law inherit twenty deposit carbon
+actual upgrade accident pride lion wait tone antenna achieve social foster pave gaze dial toast list mimic weird picnic faith grocery license cannon mammal
 
-drink bleak town tunnel adjust orbit much lens clump decide differ clock review kiss outside police story minor soft proof orbit spoil ankle eye
+school caught survey arrive jump clean decline draw habit soap word park veteran cherry lend abandon adapt pole output wool waste engage person tape
 
 ```
 
