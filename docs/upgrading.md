@@ -89,7 +89,7 @@ If you are validating on any of these platforms you will need to build your own 
 ```
 git clone https://github.com/Gravity-Bridge/Gravity-Bridge
 cd Gravity-Bridge/module
-git checkout v1.8.1
+git checkout v1.11.1
 make install
 cp $GOPATH/bin/gravity /usr/bin/gravity
 ```
