@@ -116,3 +116,4 @@ The following command will put some tokens into the batch pool. It will take som
 ```bash
 gravity tx gravity send-to-eth gravityORIGIN_ADDRESS 0xDESTINATIONONETH 1000000ibc/hash 500ibc/hash 500ibc/hash --node https://gravitychain.io:26657 --fees 0ugraviton --chain-id gravity-bridge-3
 ```
+If you want to relay the tx on your own you should see [this guide](https://github.com/Gravity-Bridge/Gravity-Docs/blob/main/docs/relaying.md#spot-relaying)
