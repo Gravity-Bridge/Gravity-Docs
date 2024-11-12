@@ -158,43 +158,111 @@ const txHash = await ethereum.request({
 
 ## Sending tokens from Gravity Bridge to Ethereum
 
-Sending tokens to Ethereum does not have a predictable timeline like sending tokens to Cosmos. In exchange for dramatically lower fees [relayers](relaying.md) will choose when to request a batch containing your users tx and many other people's transactions to relay.
+Gravity Bridge works on a batching model for transactions to Ethereum. 
 
-MsgSendToEth transactions have two fee fields, one is paid to the to the validators this is the CHAIN_FEE, the other is paid to the relayers on Ethereum, the BRIDGE_FEE.
-
-You can imagine the bridge fees as a metaphorical bus stop. Various people wishing to travel walk to the bus stop and put money into a jar. When enough money to pay for the bus driver (relayer) has been collected, the travelers board the bus and it departs for Ethereum. You can supply any fee you like, all the way down to zero, in which case the users tx will be picked up for free when other profitable transactions fill the metaphorical jar and make it worth the relayers time.
-
-The CHAIN_FEE fee must be greater than or equal to the value of the AMOUNT field times the [MinChainFeeBasisPoints](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/x/gravity/types/genesis.go#L88) parameter. If a MsgSendToEth fails this check it will be rejected and user funds will not be withdrawn. The BRIDGE_FEE value can be any amount of the token being sent, including zero. A zero BRIDGE_FEE is not recomended as the transaction may wait indefinatley to be realyed to Ethereum.
-
-The bridge fee and chain fee must be in the same token you are sending across the bridge.
-
-Suggested bridge fees:
-
-- Someday: Zero fee
-- Within a day: 50k Ethereum gas worth
-- Within four hours: 300k Ethereum gas worth
-- Instantly: 500k Ethereum gas worth
-
-Note that the time-delay amounts depend on gas prices not being at their absolute floor when the tx is sent. Ideally estimates for daily or 4 hour transfers should have a minimum gas price of around 10-15gwei. If the gas price is miraculously 1gwei for a single block and the user locks up a 4 hour tx at that price it will not go through in 4 hours.
-
-In order to convert these values to ETH you should query the `eth_gasPrice` endpoint, and multiply the resulting value by the suggested values above.
-
-```math
-fee_cost_in_wei = eth_gasPrice * gasAmount
+```
+User calls sendToEth() for token X on Gravity
+User calls requestBatch() on Gravity, all waiting transactions for token X are placed in a single batch
+User calls submitBatch() on Gravity.sol on Ethereum, unlocking all the tokens at once and paying the sum of fees to msg.sender
 ```
 
-This will give you a gas cost in wei, convert this value to the equivalent cost in the bridged token using a price oracle.
+This model provides the possibility of dramatically lower fees. The base cost of verifying the validator signatures is about 400,000 Ethereum gas. Each additional transfer adds only about 10,000 gas. Exact totals depend on the ERC20 contract in question. But the advantage is clear, even if only two transactions share a batch the effective gas cost paid by both is halved.
 
-Once the user has selected their fee amount you can actually form and submit the [MsgSendToEth](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/msgs.proto#L101) transaction.
+Obviously the problem with sharing a batch is the time the user has to wait for someone else to show up to share the batch with. This unpredictable delay between calling sendToEth() on Gravity and the tokens becoming avaialble on Ethereum can be extremely frustrating to users if not communicated carefully.
 
-Keep in mind
+### Basic Gravity Bridge to Ethereum flow
 
-- `bridge_fee` must be the same token as `amount`
-- The 'fee' field on the transaction is merely for anti-spam fees and can be set to zero
-- If the 'chain_fee' is less than the required percentage of the amount the tx will be rejected
-- `eth_dest` should be a correctly capitalized eip-55 address
+If you only have time to build the simpliest possible interface, we recomend hiding batching from users entierly. Prompt the user 3 times, twice with a Cosmos wallet (Keplr or Leap) to sign sendToEth() and requestBatch(), then once with Metamask. The user will need both whatever token they wish to bridge out on Gravity as well as ETH to pay the fees on Ethereum. All fees on Gravity are paid in the token the user is bridging out.
 
-Once the user has sent this message the tokens will be removed from their account, but they will not appear on Ethereum until the transaction batch is relayed.
+[MsgSendToEth](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/msgs.proto#L120) 
+
+```
+message MsgSendToEth {
+  string                   sender   // The gravity1 encoded address of the sending account
+  string                   eth_dest // The 0x encoded Ethereum address of the destination account (EIP-55 capitalization required)
+  cosmos.base.v1beta1.Coin amount   // The amount and token type being sent
+  cosmos.base.v1beta1.Coin bridge_fee // This amount is locked up to pay whomever submits the submitBatch() call on Ethereum
+  cosmos.base.v1beta1.Coin chain_fee // This amount is distributed to Gravity Bridge stakers and the auction module
+}
+```
+
+The amount, bridge_fee and chain_fee must all be of the same token type. 
+The chain_fee must be greater than or equal to the value of the AMOUNT field times the [MinChainFeeBasisPoints](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/x/gravity/types/genesis.go#L88) parameter (convert to a decimal by dividing by 10,000 first).
+The bridge_fee value can be any amount of the token being sent, including zero.
+
+Note that the above two fees are inside the transaction itself. The MsgSendToEth transaction itself has the usual fee field like any other Gravity Bridge transaction. This fee field can be any token accepted by the validator. You can use 0 of the token you are sending for this fee field since Gravity Bridge valdiators currently do have a mininum fee for transactions.
+
+In order to create the MsgSendToEth you should query the [MinChainFeeBasisPoints](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/x/gravity/types/genesis.go#L88) parameter. DO NOT HARDCODE THIS VALUE, GOVERNANCE MAY CHANGE THE MIN FEE REGULARLY. At which point users of your frontend will either overpay if the min fee was lowered or be unable to bridge out if it was increased.
+
+chain_fee = amount * MinChainFeeBasisPoints / 10000
+total_token_cost = amount + chain_fee + bridge_fee + gravity transaction fee
+
+For the sake of providing the simplest possible functional example you only need to provide the chain_fee. Set the other fees to zero.
+
+Once you have called sendToEth() the users transaction will be visable via [this api call](https://github.com/Gravity-Bridge/gravity-info-api?tab=readme-ov-file#gravity_bridge_info) or [this query](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L302)
+
+Next you must call requestBatch()
+
+[MsgRequestBatch](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/msgs.proto#L136)
+
+```
+message MsgRequestBatch {
+  string sender // The gravity1 encoded address of the sending account
+  string denom  // the denom of the token being bridged either gravity0xER20ADDRESS or ibc/IBCHASH
+}
+```
+
+This request will bundle all transactions for the requested token type, including the users transaction that was just sent with sendToEth().
+
+It is possible for MsgRequestBatch to fail, this is an anti-spam measure that only occurs when there is a higher fee batch waiting, but not yet relayed. There are three ways to handle this edgecase. 
+
+1. By [querying pending batches](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L163) before having the user call sendToEth you can check if a batch of the same token type exists, and if it does simply specify a slightly higher fee for the bridge_fee field.
+2. Also query pending batches, but look at the eth timeout block for the batch that is blocking the users request and inform the user to wait for that Ethereum block. Obviously this is less ideal than (1).
+
+Finally now that the users transaction can be relayed to Ethereum.
+
+This ETH transaction will call submitBatch() on [Gravity.sol](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906#code#F1#L344). [This api call](https://github.com/Gravity-Bridge/gravity-info-api?tab=readme-ov-file#batch_txbatch_nonce) will build the data field of the Ethereum transaction. 
+
+```javascript
+// Gravity Bridge contract address
+let gravityBridge = "0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906"
+let apiCallBytes = ...
+
+// sign and send the transaction
+const receipt = await web3.eth.sendTransaction({
+  from: userAddress,
+  to: gravityBridge,
+  data: apiCallBytes
+  value: 0,
+});
+```
+
+If you wish to build the data field yourself, you will need to search the event history on Gravity.sol for the most recent [ValsetUpdatedEvent](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906#code#F1#L112). Then query on the Gravity Bridge side for the [batch confirmation signatures](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L180). Then encode both sets of data into the [submitBatch()](https://etherscan.io/address/0xa4108aA1Ec4967F8b52220a4f7e94A8201F2D906#code#F1#L344) call.
+
+Once the user signs this ETH transaction and pays the required Ethereum gas their tokens will be immediately avaialble on ETH. Note that it is possible that the user will actually recieve more tokens than they sent, if the batch contains other transactions with non-zero fees. If this is the case you should recomend the user use an MEV protected rpc endpoint to relay the transaction. Otherwise the batch profits will be sniped by an MEV bot. Being MEV sniped will not interfere with the users sendToEth() transaction, just with recieving the bridge_fee from other users. So it's safe to ignore this. 
+
+### Expanded Gravity to Ethereum flow
+
+In order to fully take advantage of Gravity Bridge's batching infrastructure you can present the user the option to pay a much smaller bridge_fee than they would pay in Ethereum gas for their transaction to execute 'eventually'. Users may frequently decide they are willing to wait, and only a few minutes later decide they are not so willing to wait. In order to respond to this we suggest the following flow.
+
+When the user goes to bridge out present a 'wait and save' option as well as an 'instant' option. If the user selects instant run through the flow described in the previous section. If the user selects 'wait and save' create a `MsgSendToEth` transaction and set the bridge_fee to the value of 50K Ethereum gas but in the token the user is bridging.
+
+This step above requires a price lookup for the bridged token and an Ethereum gas lookup. If you can not lookup a price for the token being bridged, fall back to the instant flow or allow the user to specify the bridge_fee tokens directly. It's important to handle this failure condition well as price lookups can be especially failure prone.
+
+Once the user has submitted their sendToEth() transaction the tokens will no longer be visible in their account. At that point you *MUST* display the users pending tokens by querying [this api call](https://github.com/Gravity-Bridge/gravity-info-api?tab=readme-ov-file#gravity_bridge_info). If you do not display the users tokens waiting to be bridged they will become confused and concerned.
+
+Next to the display for the users pending tokens you can provide an instant relay button. This button should skip to the requestBatch() part of the previous flow. Allowing the user to transition from waiting for their batched transaction to be relayed, to performing the instant relay flow. 
+
+Optionally you can also allow the user to send a [MsgCancelSendToEth](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/msgs.proto#L279)
+
+```
+message MsgCancelSendToEth {
+  uint64 transaction_id // the internal transaction id for the sendToEth() transaction, this value is provided by the pendingSendtoEth query https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L302
+  string sender // the gravity1 address of the sender
+}
+```
+
+This will refund the user their tokens instantly, if and only if their transaction has not yet been batched. Once the transaction has been batched it may or may not be relayed to Ethereum and to avoid double spends the user will have to wait until that batch times out and that timeout has been confirmed to cancel it.
 
 Please see the sections, for more info.
 
