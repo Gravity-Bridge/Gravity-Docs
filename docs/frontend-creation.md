@@ -214,7 +214,7 @@ message MsgRequestBatch {
 
 This request will bundle all transactions for the requested token type, including the users transaction that was just sent with sendToEth().
 
-It is possible for MsgRequestBatch to fail, this is an anti-spam measure that only occurs when there is a higher fee batch waiting, but not yet relayed. There are three ways to handle this edgecase. 
+It is possible for MsgRequestBatch to fail, this is an anti-spam measure that only occurs when there is a higher fee batch waiting, but not yet relayed. There are two ways to handle this edgecase:
 
 1. By [querying pending batches](https://github.com/Gravity-Bridge/Gravity-Bridge/blob/main/module/proto/gravity/v1/query.proto#L163) before having the user call sendToEth you can check if a batch of the same token type exists, and if it does simply specify a slightly higher fee for the bridge_fee field.
 2. Also query pending batches, but look at the eth timeout block for the batch that is blocking the users request and inform the user to wait for that Ethereum block. Obviously this is less ideal than (1).
