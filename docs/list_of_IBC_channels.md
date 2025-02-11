@@ -19,7 +19,7 @@ If channel marked as `frozen`, please, visit [Gravity Bridge Discord Server](htt
 | CHEQD | cheqd-mainnet-1 | CHEQ | Channel-43 | Channel-2 |
 | TERRA Classic | columbus-5 | LUNC, USTC | Channel-101 | Channel-64 |
 | UMEE | umee-1 | UMEE | Channel-28 | Channel-9 |
-| IXO | ixo-4 | IXO | channel-111 | Channel-22 |
+| IXO | ixo-5 | IXO | channel-172 | Channel-28 |
 | COMDEX | comdex-1 | CMDX | channel-21 | channel-23 |
 | STARGAZE | stargaze-1 | STARS | channel-7 | channel-6 |
 | FETCH.AI | fetchhub-4 | FET | channel-61 | channel-13 |
