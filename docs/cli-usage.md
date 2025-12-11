@@ -130,3 +130,23 @@ You can also use this [Keplr based guide](https://catdotfish.medium.com/getting-
 ```bash
 gravity tx ibc-transfer transfer transfer channel-10 osmosis1ADDRESS 1000000ugraviton --from yourkeyname --chain-id gravity-bridge-3
 ```
+
+## Manually batching
+
+If there is a bridge TX that you would like to manually batch a transaction(s) that is not yet profitable, and thus has not yet been batched, first check your address with this command, which will also provide the token contract address.
+
+```bash
+gravity q gravity pending-send-to-eth gravityxxxxxxxxxxaddress
+```
+
+To batch the transaction:
+
+```bash
+gravity tx gravity request-batch <TOKEN CONTRACT ADDRESS> --from YOUR_KEY_NAME --chain-id gravity-bridge-3 --gas 350000 --node <RPC_ADDRESS>
+```
+
+The ``--node flag`` is not necessary if you are running your own node. You can use ``--node https://gravitychain.io:26657`` for example, or any other working Gravity RPC.
+
+
+
+
