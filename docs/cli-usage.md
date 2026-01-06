@@ -15,12 +15,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.2/gravity-linux-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.13.3/gravity-linux-amd64
 mv gravity-linux-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.2/gbt
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.13.3/gbt
 chmod +x *
 sudo mv * /usr/bin/
 
@@ -35,12 +35,12 @@ cd gravity-bin
 
 # the gravity chain binary itself
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.2/gravity-darwin-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.13.3/gravity-darwin-amd64
 mv gravity-darwin-amd64 gravity
 
 # Tools for the gravity bridge from the gravity repo
 
-wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.9.2/gbt-mac-amd64
+wget https://github.com/Gravity-Bridge/Gravity-Bridge/releases/download/v1.13.3/gbt-mac-amd64
 chmod +x *
 sudo mv * /usr/bin/
 
