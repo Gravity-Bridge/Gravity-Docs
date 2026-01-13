@@ -32,7 +32,7 @@ sudo mv * /usr/bin/
 
 At specific points you may be told to 'update your orchestrator' or 'update your gravity binary'. In order to do that you can simply repeat the above instructions and then restart the affected software.
 
-to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.12.0`
+to check what version of the tools you have run `gbt --version` the current latest version is `gbt 1.13.3`
 
 ## Download and install geth
 
