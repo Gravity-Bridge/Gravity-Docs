@@ -47,6 +47,8 @@ cd geth-linux-amd64-1.10.23-d901d853.tar.gz
 mv geth /usr/sbin/
 ```
 
+NOTE: Since these instructions were created, various changes and updates have come and gone. Visit [geth.ethereum.org](https://geth.ethereum.org/) for the latest binary and instructions.
+
 ## Generate priv_validator_key.json
 
 The output of this command will generate priv_validator_key.json, which generates a different output each time it is ran even if the same input is provided. If you lose this file you will not be able to regenerate it and you will have to start a new validator. The default save location for this file will be ~/.gravity/config/priv_validator_key.json
