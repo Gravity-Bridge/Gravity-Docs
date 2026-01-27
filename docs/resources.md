@@ -57,26 +57,29 @@ Keys containing test tokens
 These is the private keys for the validators on the testnet
 
 ```text
-hill romance aware road unveil egg vehicle loud barrel baby cotton glimpse will marriage manage basket concert dizzy giant egg prosper car other absurd
 
-piece try open forward course together faith someone cool dutch caught praise link milk much plunge huge immense monkey useless insect misery winter pupil
+dumb dizzy alert client ceiling morning power soda odor outside horn space nurse give melody valid west ugly upper elder resist tumble install web
 
-noble execute sword volcano swim brisk digital goose exit door cart tray exercise alcohol same behave diamond possible cactus label sphere mushroom alley slender
+diamond echo film salt tonight quick candy lake rate ramp rather excite obtain goddess hurt garden often tent squirrel friend sugar bulb make exact
 
-list salmon dumb web whale garlic model fox federal panic travel nerve abandon veteran post audit verb old salon link stove twenty essence fiction
+today room coconut cruise denial engine shrug icon dash mad field shoulder video cycle surround chunk various snake visit cancel later solid tool only
+
+inmate solar purpose welcome vivid gentle stumble poet eternal party hat twenty script struggle brick leaf gadget beyond february choice rescue arctic gold olympic
 
 ```
 
 And the private keys for the validators on the second non-gravity IBC test network
 
 ```text
-call time high ostrich tornado vintage surround about just indicate permit stadium coyote under crew mention raven circle around title must boss suggest suggest
 
-tide truth limit whisper trial purity decorate click tent play satisfy heavy bus crystal wedding train pepper good drop swim country response acoustic slow
+kiss behave crash mutual camp auto wrist mistake river nasty inner virtual caught decide carpet song view ecology alien leopard drop twist canal alter
 
-actual upgrade accident pride lion wait tone antenna achieve social foster pave gaze dial toast list mimic weird picnic faith grocery license cannon mammal
+discover into ceiling sail rifle endorse treat action mutual receive stumble hand kit hover scrap punch arctic quiz title rose patrol gasp easily stock
 
-school caught survey arrive jump clean decline draw habit soap word park veteran cherry lend abandon adapt pole output wool waste engage person tape
+hamster gravity plunge inform alert casino marine rally when chef fat glow witness ice then fiscal regret evoke whale usual elevator company embark divide
+
+allow flash sell girl labor convince fault barrel save program online thank stereo tackle average outside loop flush crime friend assault script mystery session
+
 
 ```
 
@@ -89,8 +92,8 @@ This is the private key for the Ethereum miner, it has access to ETH and several
 Test Gravity Bridge Address DO NOT SEND REAL FUNDS HERE, THIS IS A TESTNET ADDRESS
 
 ```text
-Main Gravity 0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
-Gravity ERC721 0xD50c0953a99325d01cca655E57070F1be4983b6b
+Main Gravity 0xD7600ae27C99988A6CD360234062b540F88ECA43
+Gravity ERC721 0x7580bFE88Dd3d07947908FAE12d95872a260F2D8
 ```
 
 ERC20 tokens to test with, the miner private key has access
@@ -100,12 +103,6 @@ Also note that this testnet instance is using Hardhat, and thus has actual histo
 0x0412C7c846bb6b7DC462CF6B453f76D8440b2609
 0x30dA8589BFa1E509A319489E014d384b87815D89
 0x9676519d99E390A180Ab1445d5d857E3f6869065
-```
-
-ERC721 NFTs to test with, the miner private key has access
-
-```text
-0xD7600ae27C99988A6CD360234062b540F88ECA43
 ```
 
 ## Chain history snapshots
