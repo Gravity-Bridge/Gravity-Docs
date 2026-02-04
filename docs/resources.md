@@ -58,28 +58,30 @@ These is the private keys for the validators on the testnet
 
 ```text
 
-dumb dizzy alert client ceiling morning power soda odor outside horn space nurse give melody valid west ugly upper elder resist tumble install web
+pact push soap else club unlock device girl task clinic nuclear supreme sponsor reform video potato soft drama jelly leader cruel exchange cancel slice
 
-diamond echo film salt tonight quick candy lake rate ramp rather excite obtain goddess hurt garden often tent squirrel friend sugar bulb make exact
 
-today room coconut cruise denial engine shrug icon dash mad field shoulder video cycle surround chunk various snake visit cancel later solid tool only
+two inspire stereo taste twice idle person diesel relax venue milk lunch dentist toss lawn process whisper later develop gasp harvest erupt cricket enlist
 
-inmate solar purpose welcome vivid gentle stumble poet eternal party hat twenty script struggle brick leaf gadget beyond february choice rescue arctic gold olympic
+
+height truth scrap drink supply range broccoli deputy romance organ blanket sing mouse injury donor shiver move idle chest notable limb heavy donate drop
+
+
+later loud nature rifle scan lens tray lift help glass charge item much slow warm between space employ trophy until deal tennis render stove
 
 ```
 
 And the private keys for the validators on the second non-gravity IBC test network
 
 ```text
+machine kitten fun spot vicious census mountain arm acquire finish light liquid trim cancel digital blossom airport hour auction alter jelly normal motion unhappy
 
-kiss behave crash mutual camp auto wrist mistake river nasty inner virtual caught decide carpet song view ecology alien leopard drop twist canal alter
+series spoon fluid supply scan suit champion raven young lumber maze blade heart trip survey ask guitar drink include purpose nature wrong leave comfort
 
-discover into ceiling sail rifle endorse treat action mutual receive stumble hand kit hover scrap punch arctic quiz title rose patrol gasp easily stock
 
-hamster gravity plunge inform alert casino marine rally when chef fat glow witness ice then fiscal regret evoke whale usual elevator company embark divide
+lawn hawk gentle dream festival blue solve category atom punch leopard black member mimic put neck cushion flash phone ladder industry decorate betray sweet
 
-allow flash sell girl labor convince fault barrel save program online thank stereo tackle average outside loop flush crime friend assault script mystery session
-
+health phrase bacon bring smart slight wonder action double erupt green quarter antenna gossip chaos decide plunge cherry swap chaos hungry service fiction air
 
 ```
 
